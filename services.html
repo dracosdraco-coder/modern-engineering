@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services | Modern Engineering & Construction</title>
+<link rel="stylesheet" href="public/shared.css">
+<style>
+.svc-full-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);margin-top:64px}
+.svc-card{background:var(--bg2);padding:52px 44px;border-left:3px solid transparent;transition:background .3s,border-color .3s}
+.svc-card:hover{background:var(--card);border-left-color:var(--green)}
+.svc-num{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.22em;color:var(--green);opacity:.6;margin-bottom:20px}
+.svc-title{font-family:'Archivo Black',sans-serif;font-size:26px;color:var(--white);line-height:1.05;margin-bottom:14px;letter-spacing:.01em}
+.svc-desc{font-size:14px;font-weight:300;color:var(--muted);line-height:1.8}
+.svc-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:22px;padding-top:20px;border-top:1px solid var(--border)}
+.tag{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);border:1px solid rgba(92,184,92,.2);padding:4px 10px}
+@media(max-width:1100px){.svc-full-grid{grid-template-columns:1fr}}
+@media(max-width:768px){.svc-card{padding:36px 24px}}
+</style>
+</head>
+<body>
+<!-- MOBILE MENU -->
+<div class="mmenu" id="mm">
+  <a href="index.html">Home</a>
+  <a href="services.html" class="active">Services</a>
+  <a href="projects.html">Projects</a>
+  <a href="partners.html">Partners</a>
+  <a href="estimator.html">Estimate</a>
+  <a href="contact.html" class="mcta">Get a Quote &rarr;</a>
+</div>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-name">Modern Engineering</div>
+    <div class="nav-logo-sub">&amp; Construction &middot; Florida</div>
+  </a>
+  <ul class="nav-ul">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="partners.html">Partners</a></li>
+    <li><a href="estimator.html">Estimate</a></li>
+    <li><a href="contact.html" class="ncta">Get a Quote</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">&#9788; Light</button>
+    <button class="hbtn" id="hb" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="page-hero rv">
+  <p class="mono" style="margin-bottom:14px">What We Do</p>
+  <h1 class="head head-lg">Consulting, Bidding<br>&amp; Labor Supply</h1>
+  <p class="body-t" style="margin-top:20px;max-width:600px">Modern Engineering &amp; Construction LLC is not a licensed contractor. We are a construction consulting and labor supply firm &mdash; we build bid packages, supply insured W-2 workers, and manage projects on your behalf.</p>
+</div>
+<div class="sec-full">
+  <div class="inner">
+    <div class="svc-full-grid">
+
+      <div class="svc-card rv">
+        <div class="svc-num">01</div>
+        <h2 class="svc-title">Bid Packaging &mdash; Roofing</h2>
+        <p class="svc-desc">For residential and commercial roofing needs, we develop a complete bid package &mdash; scope of work, material specifications, and 2&ndash;3 competitive proposals from vetted, licensed roofing contractors. You review the options and hire the contractor directly. We never hold or work under a roofing license.</p>
+        <div class="svc-tags"><span class="tag">Residential Roofing</span><span class="tag">Commercial Roofing</span><span class="tag">2&ndash;3 Bids</span><span class="tag">Licensed Contractors</span><span class="tag">Scope Writing</span></div>
+      </div>
+
+      <div class="svc-card rv">
+        <div class="svc-num">02</div>
+        <h2 class="svc-title">Bid Packaging &mdash; All Trades</h2>
+        <p class="svc-desc">We build bid packages for any licensed trade &mdash; electrical, plumbing, HVAC, structural, waterproofing, stucco, and more. Property owners and developers get competitive, documented options without having to source, vet, or negotiate with contractors themselves.</p>
+        <div class="svc-tags"><span class="tag">Electrical</span><span class="tag">Plumbing</span><span class="tag">HVAC</span><span class="tag">Waterproofing</span><span class="tag">Stucco</span><span class="tag">Structural</span></div>
+      </div>
+
+      <div class="svc-card rv">
+        <div class="svc-num">03</div>
+        <h2 class="svc-title">W-2 Labor Supply</h2>
+        <p class="svc-desc">We employ field laborers as W-2 workers under our own General Liability and Workers&rsquo; Compensation insurance and make them available to licensed contractors, construction firms, and property owners. Our workers are our employees &mdash; your liability exposure is eliminated.</p>
+        <div class="svc-tags"><span class="tag">W-2 Employees</span><span class="tag">GL Insured</span><span class="tag">Workers&rsquo; Comp</span><span class="tag">Crew Augmentation</span><span class="tag">Repairs</span></div>
+      </div>
+
+      <div class="svc-card rv">
+        <div class="svc-num">04</div>
+        <h2 class="svc-title">GC &amp; Contractor Consulting</h2>
+        <p class="svc-desc">We provide independent 1099 consulting services to licensed general contractors and specialty contractors &mdash; estimating, project coordination, scope writing, budget tracking, and schedule management. We bring the expertise without being on your license.</p>
+        <div class="svc-tags"><span class="tag">Estimating</span><span class="tag">Scope Writing</span><span class="tag">Coordination</span><span class="tag">1099 Consulting</span><span class="tag">Budget Tracking</span></div>
+      </div>
+
+      <div class="svc-card rv">
+        <div class="svc-num">05</div>
+        <h2 class="svc-title">Project Management</h2>
+        <p class="svc-desc">We manage construction projects on behalf of property owners &mdash; coordinating licensed trade contractors, tracking schedules, attending inspections, and delivering closeout documentation. We do not hold a contractor&rsquo;s license and do not perform licensed work.</p>
+        <div class="svc-tags"><span class="tag">Owner&rsquo;s Rep</span><span class="tag">Schedule Management</span><span class="tag">Inspection Coordination</span><span class="tag">Projex Tracking</span></div>
+      </div>
+
+      <div class="svc-card rv">
+        <div class="svc-num">06</div>
+        <h2 class="svc-title">Contractor Vetting &amp; Qualification</h2>
+        <p class="svc-desc">Every contractor in a bid package is verified for active license status, current insurance certificates, BBB standing, and references. We eliminate unqualified bids before they reach you &mdash; you only see contractors who are legally able to perform the work.</p>
+        <div class="svc-tags"><span class="tag">License Verification</span><span class="tag">Insurance Check</span><span class="tag">Reference Review</span><span class="tag">BBB Standing</span></div>
+      </div>
+
+      <div class="svc-card rv">
+        <div class="svc-num">07</div>
+        <h2 class="svc-title">Site Assessments &amp; Reporting</h2>
+        <p class="svc-desc">Pre-bid site assessments, condition reports, and drone documentation to define scope before contractors are engaged. We provide the documentation licensed contractors need to bid accurately &mdash; reducing change orders and scope disputes.</p>
+        <div class="svc-tags"><span class="tag">Drone Survey</span><span class="tag">Condition Reports</span><span class="tag">Pre-Bid Scope</span><span class="tag">Photo Documentation</span></div>
+      </div>
+
+      <div class="svc-card rv">
+        <div class="svc-num">08</div>
+        <h2 class="svc-title">Insurance Claim Coordination</h2>
+        <p class="svc-desc">We work with property owners and adjusters to define scope, organize licensed contractor bids, and coordinate the insurance claim process. We serve as the owner&rsquo;s representative &mdash; not as a contractor &mdash; throughout the claim and repair process.</p>
+        <div class="svc-tags"><span class="tag">Adjuster Coordination</span><span class="tag">Scope Documentation</span><span class="tag">Bid Organization</span><span class="tag">Owner&rsquo;s Rep</span></div>
+      </div>
+
+    </div>
+    <div style="text-align:center;padding:56px 0 0" class="rv">
+      <a href="estimator.html" class="btn btn-green">Get a Project Estimate</a>
+      &nbsp;&nbsp;
+      <a href="contact.html" class="btn btn-outline">Request a Quote</a>
+    </div>
+  </div>
+</div>
+<div style="background:var(--bg2);border-top:1px solid rgba(92,184,92,.15);padding:16px 48px;">
+  <p style="max-width:1440px;margin:0 auto;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.1em;color:var(--muted);line-height:1.8">
+    <strong style="color:var(--text)">Legal Disclosure:</strong> Modern Engineering &amp; Construction LLC is a construction consulting and labor supply firm. We are not a licensed contractor and do not perform licensed trade work. Bid packages connect clients with independent licensed contractors who are selected and contracted directly by the client. Labor supply services are provided under our General Liability and Workers&rsquo; Compensation insurance. All licensed construction work is performed by independently licensed contractors.
+  </p>
+</div>
+<footer>
+  <div class="fg">
+    <div>
+      <div class="fb-n">Modern Engineering</div>
+      <div class="fb-s">&amp; Construction &middot; Florida</div>
+      <p class="fb-d">Commercial roofing, residential exteriors, interior work, carpentry, and full-service labor solutions built for Florida&apos;s most demanding projects.</p>
+      <a href="https://projex.live" target="_blank" rel="noopener" class="fpx">Managed via Projex.live &rarr;</a>
+    </div>
+    <div class="fc"><h4>Services</h4><ul>
+      <li><a href="services.html">Commercial Roofing</a></li>
+      <li><a href="services.html">Residential Roofing</a></li>
+      <li><a href="services.html">Exterior Work</a></li>
+      <li><a href="services.html">Interior Work</a></li>
+      <li><a href="services.html">Carpentry</a></li>
+      <li><a href="services.html">Labor / Sub-Contract</a></li>
+      <li><a href="services.html">Permitting &amp; PM</a></li>
+    </ul></div>
+    <div class="fc"><h4>Company</h4><ul>
+      <li><a href="index.html#about">About Us</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="partners.html">GC Partners</a></li>
+      <li><a href="estimator.html">Get an Estimate</a></li>
+      <li><a href="https://projex.live" target="_blank">Projex Platform</a></li>
+    </ul></div>
+    <div class="fc"><h4>Contact</h4><ul>
+      <li><a href="contact.html">Request a Quote</a></li>
+      <li><a href="mailto:ethan@projex.live">Email Us</a></li>
+      <li><a href="tel:+13056140219">Call Us</a></li>
+      <li><a href="contact.html">Miami-Dade</a></li>
+      <li><a href="contact.html">Broward</a></li>
+      <li><a href="contact.html">Palm Beach</a></li>
+    </ul></div>
+  </div>
+  <div class="fbot">
+    <p>&copy; 2025 Modern Engineering &amp; Construction LLC &middot; Florida &middot; Licensed &amp; Insured</p>
+    <p>HVHZ Compliant &middot; Miami-Dade &middot; Broward &middot; Palm Beach</p>
+  </div>
+</footer>
+<script>
+// NAV SCROLL
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('sc',scrollY>50),{passive:true});
+
+// HAMBURGER
+const hb=document.getElementById('hb'),mm=document.getElementById('mm');
+let mo=false;
+function tm(s){mo=s;hb.classList.toggle('o',mo);if(mo){mm.style.display='flex';document.body.style.overflow='hidden';requestAnimationFrame(()=>mm.classList.add('o'));}else{mm.classList.remove('o');document.body.style.overflow='';setTimeout(()=>{if(!mo)mm.style.display='none'},400);}}
+hb.addEventListener('click',()=>tm(!mo));
+mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>tm(false)));
+
+// THEME TOGGLE
+const tb=document.getElementById('themeBtn');
+function setTheme(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem('theme',t);tb.textContent=t==='light'?'&#9790; Dark':'&#9788; Light';tb.innerHTML=t==='light'?'&#9790; Dark':'&#9788; Light';}
+const saved=localStorage.getItem('theme')||'dark';
+setTheme(saved);
+tb.addEventListener('click',()=>setTheme(document.documentElement.getAttribute('data-theme')==='light'?'dark':'light'));
+
+// REVEAL
+const ro=new IntersectionObserver(e=>{e.forEach((x,i)=>{if(x.isIntersecting){setTimeout(()=>x.target.classList.add('on'),i*60);ro.unobserve(x.target);}});},{threshold:.07});
+document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+
+// SMOOTH SCROLL
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',function(e){const t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});
+});
+</script>
+</body>
+</html>

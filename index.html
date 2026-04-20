@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Engineering & Construction | Florida's Premier Contractor</title>
+<meta name="description" content="Modern Engineering & Construction — Florida commercial and residential contractor. Commercial roofing, exterior work, interior construction, carpentry, labor supply, permitting. Miami-Dade, Broward, Palm Beach.">
+<link rel="canonical" href="https://modernengineering.build">
+<link rel="stylesheet" href="public/shared.css">
+<style>
+/* INDEX SPECIFIC */
+#hero{position:relative;height:100vh;min-height:700px;display:flex;align-items:center;overflow:hidden}
+.hv{position:absolute;inset:0}
+.hv video{width:100%;height:100%;object-fit:cover;filter:brightness(.25) saturate(.6)}
+.ho{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.82) 0%,rgba(0,0,0,.3) 60%,transparent 100%),linear-gradient(to top,rgba(0,0,0,.95) 0%,transparent 48%)}
+[data-theme="light"] .ho{background:linear-gradient(to right,rgba(248,250,248,.88) 0%,rgba(248,250,248,.4) 60%,transparent 100%),linear-gradient(to top,rgba(248,250,248,.98) 0%,transparent 48%)}
+[data-theme="light"] .hh1{color:#0e150e}
+[data-theme="light"] .hh1 em{color:var(--green)}
+[data-theme="light"] .hsub{color:#3a4e3a}
+[data-theme="light"] .htag .mono{color:var(--green)}
+[data-theme="light"] .htag-line{background:var(--green)}
+.hb{position:relative;z-index:2;padding:200px 48px 80px;max-width:960px}
+.hb .mono{margin-bottom:28px;opacity:0;animation:up .8s .2s forwards}
+.hh1{opacity:0;animation:up 1s .35s forwards}
+.hh1 em{font-style:normal;color:var(--green);display:block}
+.hsub{margin-top:24px;max-width:500px;opacity:0;animation:up .9s .55s forwards}
+.hact{display:flex;gap:12px;margin-top:40px;flex-wrap:wrap;opacity:0;animation:up .9s .72s forwards}
+.hscr{position:absolute;right:48px;bottom:56px;z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px;opacity:0;animation:fi .8s 1.2s forwards}
+.hscr span{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);writing-mode:vertical-rl}
+.hscr-ln{width:1px;height:48px;background:linear-gradient(to bottom,var(--green),transparent);animation:pls 2.5s ease-in-out infinite}
+
+/* ABOUT */
+#about{display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:1440px;margin:0 auto;padding:clamp(80px,10vw,140px) 48px}
+.av{position:relative;height:540px;padding-right:48px}
+.av-img{width:100%;height:100%;object-fit:cover;filter:brightness(.85)}
+.av-badge{position:absolute;top:28px;right:16px;background:var(--green);color:#060d06;padding:9px 16px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;font-weight:500}
+.av2{position:absolute;bottom:-20px;left:0;width:50%;height:170px;overflow:hidden;border:3px solid var(--bg)}
+.av2 img{width:100%;height:100%;object-fit:cover;filter:brightness(.7)}
+.av2-l{position:absolute;bottom:10px;left:10px;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);background:rgba(0,0,0,.65);padding:4px 10px}
+.ac{padding-left:24px;display:flex;flex-direction:column;justify-content:center}
+.ac .mono{margin-bottom:16px}
+.ac .body-t{margin-top:18px;max-width:440px}
+.fc2{display:flex;gap:12px;margin-top:36px;flex-wrap:wrap}
+.fch{border:1px solid var(--border);padding:16px 18px;flex:1;min-width:155px;background:var(--card)}
+.fch-n{font-family:'Archivo Black',sans-serif;font-size:15px;color:var(--white);letter-spacing:.01em}
+.fch-r{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.18em;color:var(--green);text-transform:uppercase;margin-top:4px}
+
+/* SERVICES PREVIEW */
+#svc-prev{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:clamp(80px,10vw,140px) 0}
+.sp-head{max-width:1440px;margin:0 auto;padding:0 48px 56px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px}
+.sp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);max-width:1440px;margin:0 auto}
+.spc{background:var(--bg2);padding:36px 28px;border-top:2px solid transparent;transition:background .3s,border-color .3s}
+.spc:hover{background:var(--card);border-top-color:var(--green)}
+.spc-n{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;color:var(--green);opacity:.6;margin-bottom:18px}
+.spc-t{font-family:'Archivo Black',sans-serif;font-size:17px;color:var(--white);line-height:1.1;margin-bottom:10px;letter-spacing:.01em}
+.spc-d{font-size:13px;font-weight:300;color:var(--muted);line-height:1.7}
+.sp-cta{max-width:1440px;margin:0 auto;padding:40px 48px 0;text-align:center}
+
+/* BEFORE/AFTER */
+#ba{max-width:1440px;margin:0 auto;padding:clamp(80px,10vw,140px) 48px}
+.ba-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;flex-wrap:wrap;gap:20px}
+.ba-img-wrap{position:relative;overflow:hidden;border:1px solid var(--border)}
+.ba-img{width:100%;height:auto;display:block;filter:brightness(.9)}
+.ba-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6) 0%,transparent 40%);pointer-events:none}
+.ba-labels{position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:space-around;padding:20px 32px}
+.ba-label{text-align:center}
+.ba-label-tag{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px}
+.ba-label-tag.after{color:var(--green)}
+.ba-label-val{font-family:'Archivo Black',sans-serif;font-size:18px;color:var(--white);letter-spacing:.01em}
+.ba-divider{width:1px;background:rgba(255,255,255,.15);margin:0 20px}
+
+/* KEYFRAMES */
+@keyframes up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes fi{from{opacity:0}to{opacity:1}}
+@keyframes pls{0%,100%{opacity:.35}50%{opacity:1}}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+  #about{grid-template-columns:1fr;gap:48px}
+  .av{padding-right:0;height:380px}
+  .av2{display:none}
+  .ac{padding-left:0}
+  .sp-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  #about{padding:64px 20px}
+  .av{height:300px}
+  .fc2{flex-direction:column}
+  .sp-grid{grid-template-columns:1fr 1fr}
+  .sp-head{padding:0 20px 40px;flex-direction:column;gap:16px}
+  .sp-cta{padding:32px 20px 0}
+  .hb{padding:140px 20px 56px}
+  .hscr{display:none}
+  .hact{flex-direction:column}
+  .btn{width:100%;text-align:center;padding:14px 20px}
+  #ba{padding:64px 20px}
+  .ba-head{flex-direction:column;gap:16px}
+  .ba-labels{padding:16px 20px}
+  .ba-label-val{font-size:14px}
+}
+@media(max-width:480px){
+  .sp-grid{grid-template-columns:1fr}
+  .sbar{flex-wrap:wrap;justify-content:center}
+  .st{min-width:40%}
+}
+</style>
+</head>
+<body>
+<!-- MOBILE MENU -->
+<div class="mmenu" id="mm">
+  <a href="index.html" class="active">Home</a>
+  <a href="services.html">Services</a>
+  <a href="projects.html">Projects</a>
+  <a href="partners.html">Partners</a>
+  <a href="estimator.html">Estimate</a>
+  <a href="contact.html" class="mcta">Get a Quote &rarr;</a>
+</div>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-name">Modern Engineering</div>
+    <div class="nav-logo-sub">&amp; Construction &middot; Florida</div>
+  </a>
+  <ul class="nav-ul">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="partners.html">Partners</a></li>
+    <li><a href="estimator.html">Estimate</a></li>
+    <li><a href="contact.html" class="ncta">Get a Quote</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">&#9788; Light</button>
+    <button class="hbtn" id="hb" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="hv">
+    <video autoplay muted loop playsinline preload="auto" poster="public/images/proj5.jpg">
+      <source src="public/videos/main.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="ho"></div>
+  <div class="hb">
+    <p class="mono">Florida&apos;s Construction Partner &middot; Est. 2025</p>
+    <h1 class="head head-xl hh1">Do It Once.<br><em>Do It Right.</em></h1>
+    <p class="body-t hsub" style="font-size:14px;max-width:440px;margin-top:16px">Construction consulting, bid packaging, and insured labor supply &mdash; protecting your investment from start to finish.</p>
+    <div class="hact">
+      <a href="contact.html" class="btn btn-green">Request a Quote</a>
+      <a href="services.html" class="btn btn-outline">Our Services</a>
+    </div>
+  </div>
+  <div class="hscr" aria-hidden="true"><span>Scroll</span><div class="hscr-ln"></div></div>
+</section>
+
+<div class="sbar">
+  <div class="st"><div class="stn">15+</div><div class="stl">Years Combined Experience</div></div>
+  <div class="st"><div class="stn">GL+WC</div><div class="stl">Fully Insured &amp; Bonded</div></div>
+  <div class="st"><div class="stn">W-2</div><div class="stl">Employed Field Laborers</div></div>
+  <div class="st"><div class="stn">3</div><div class="stl">Bid Options Per Package</div></div>
+  <div class="st"><div class="stn">24H</div><div class="stl">Inquiry Response</div></div>
+</div>
+
+<section id="about">
+  <div class="av rv">
+    <img class="av-img" src="public/images/proj4.jpg" alt="Modern Engineering crew on commercial roofing project">
+    <div class="av-badge">Est. 2025</div>
+    <div class="av2"><img src="public/images/proj8.jpg" alt="Condo complex South Florida"><div class="av2-l">Statewide &middot; FL</div></div>
+  </div>
+  <div class="ac rv">
+    <p class="mono">Who We Are</p>
+    <h2 class="head head-lg" style="margin-top:14px">Built by<br>Industry<br>Veterans</h2>
+    <p class="body-t">Modern Engineering &amp; Construction LLC is a construction consulting and labor supply firm &mdash; not a licensed contractor. We were founded in 2025 by industry veterans who understand what property owners and contractors actually need: unbiased guidance, competitive bids, and reliable people on the ground.</p>
+    <p class="body-t" style="margin-top:12px">We build competitive bid packages for licensed trades, supply W-2 insured laborers to contractors and property owners, and provide independent consulting to GCs across Florida. Every project tracked through Projex.</p>
+    <div class="fc2">
+      <div class="fch"><div class="fch-n">Co-Founder</div><div class="fch-r">Operations &amp; Field</div></div>
+      <div class="fch"><div class="fch-n">Co-Founder</div><div class="fch-r">Estimating &amp; Business Dev</div></div>
+    </div>
+  </div>
+</section>
+
+<div id="svc-prev">
+  <div class="sp-head rv">
+    <div><p class="mono" style="margin-bottom:12px">What We Do</p><h2 class="head head-lg">Complete<br>Construction<br>Services</h2></div>
+    <p class="body-t" style="max-width:320px;text-align:right">From full commercial re-roofing to interior finishes and labor sub-contracting &mdash; every trade, one company.</p>
+  </div>
+  <div class="sp-grid">
+    <div class="spc rv"><div class="spc-n">01</div><h3 class="spc-t">Bid Packaging</h3><p class="spc-d">We scope your project and deliver 2&ndash;3 competitive bids from vetted licensed contractors. You choose who you hire.</p></div>
+    <div class="spc rv"><div class="spc-n">02</div><h3 class="spc-t">Labor Supply</h3><p class="spc-d">W-2 employed field workers provided under our GL &amp; Workers&rsquo; Comp insurance. Available to contractors and property owners.</p></div>
+    <div class="spc rv"><div class="spc-n">03</div><h3 class="spc-t">GC Consulting</h3><p class="spc-d">Independent 1099 consulting for licensed GCs &mdash; estimating, coordination, permitting support, and scope management.</p></div>
+    <div class="spc rv"><div class="spc-n">04</div><h3 class="spc-t">Project Management</h3><p class="spc-d">We manage licensed contractors, schedules, inspections, and deliverables on your behalf. Full Projex visibility.</p></div>
+    <div class="spc rv"><div class="spc-n">05</div><h3 class="spc-t">Roofing Bids</h3><p class="spc-d">We create roofing bid packages &mdash; residential and commercial &mdash; and source licensed roofing contractors competing for your job.</p></div>
+    <div class="spc rv"><div class="spc-n">06</div><h3 class="spc-t">Contractor Vetting</h3><p class="spc-d">We verify licenses, insurance, and references for every contractor in a bid package. No unqualified bids.</p></div>
+    <div class="spc rv"><div class="spc-n">07</div><h3 class="spc-t">Site Assessments</h3><p class="spc-d">Condition reports, drone surveys, and pre-bid documentation to define the scope before contractors are engaged.</p></div>
+    <div class="spc rv"><div class="spc-n">08</div><h3 class="spc-t">Insurance Coordination</h3><p class="spc-d">We work alongside adjusters and property owners to define scope, organize bids, and coordinate licensed contractor selections.</p></div>
+  </div>
+  <div class="sp-cta rv"><a href="services.html" class="btn btn-green">View All Services</a></div>
+</div>
+
+<section id="ba">
+  <div class="ba-head rv">
+    <div><p class="mono" style="margin-bottom:12px">Transformation</p><h2 class="head head-lg">Before &amp; After</h2></div>
+    <p class="body-t" style="max-width:300px;text-align:right">Complete commercial re-roofing. Degraded membrane removed, new TPO installed &mdash; clean, reflective, and code compliant.</p>
+  </div>
+  <div class="ba-img-wrap rv">
+    <img class="ba-img" src="public/images/before-after.jpg" alt="Commercial roofing before and after — degraded membrane to new TPO">
+    <div class="ba-overlay"></div>
+    <div class="ba-labels">
+      <div class="ba-label"><div class="ba-label-tag">Before</div><div class="ba-label-val">Degraded Membrane</div></div>
+      <div class="ba-divider"></div>
+      <div class="ba-label"><div class="ba-label-tag after">After</div><div class="ba-label-val">New TPO System</div></div>
+    </div>
+  </div>
+</section>
+
+<div style="background:#0a0f0a;border-top:1px solid rgba(92,184,92,.15);padding:16px 48px;">
+  <p style="max-width:1440px;margin:0 auto;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.1em;color:#3a4e3a;line-height:1.8">
+    <strong style="color:#4a5e4a">Legal Disclosure:</strong> Modern Engineering &amp; Construction LLC is a construction consulting and labor supply firm. We are not a licensed contractor and do not perform licensed trade work. Bid packages connect clients with independent licensed contractors selected and hired directly by the client. Labor supply services are rendered under our General Liability and Workers&rsquo; Compensation insurance policies. All licensed construction work is performed by independently licensed contractors. &copy; 2025 Modern Engineering &amp; Construction LLC.
+  </p>
+</div>
+<footer>
+  <div class="fg">
+    <div>
+      <div class="fb-n">Modern Engineering</div>
+      <div class="fb-s">&amp; Construction &middot; Florida</div>
+      <p class="fb-d">Commercial roofing, residential exteriors, interior work, carpentry, and full-service labor solutions built for Florida&apos;s most demanding projects.</p>
+      <a href="https://projex.live" target="_blank" rel="noopener" class="fpx">Managed via Projex.live &rarr;</a>
+    </div>
+    <div class="fc"><h4>Services</h4><ul>
+      <li><a href="services.html">Commercial Roofing</a></li>
+      <li><a href="services.html">Residential Roofing</a></li>
+      <li><a href="services.html">Exterior Work</a></li>
+      <li><a href="services.html">Interior Work</a></li>
+      <li><a href="services.html">Carpentry</a></li>
+      <li><a href="services.html">Labor / Sub-Contract</a></li>
+      <li><a href="services.html">Permitting &amp; PM</a></li>
+    </ul></div>
+    <div class="fc"><h4>Company</h4><ul>
+      <li><a href="index.html#about">About Us</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="partners.html">GC Partners</a></li>
+      <li><a href="estimator.html">Get an Estimate</a></li>
+      <li><a href="https://projex.live" target="_blank">Projex Platform</a></li>
+    </ul></div>
+    <div class="fc"><h4>Contact</h4><ul>
+      <li><a href="contact.html">Request a Quote</a></li>
+      <li><a href="mailto:ethan@projex.live">Email Us</a></li>
+      <li><a href="tel:+13056140219">Call Us</a></li>
+      <li><a href="contact.html">Miami-Dade</a></li>
+      <li><a href="contact.html">Broward</a></li>
+      <li><a href="contact.html">Palm Beach</a></li>
+    </ul></div>
+  </div>
+  <div class="fbot">
+    <p>&copy; 2025 Modern Engineering &amp; Construction LLC &middot; Florida &middot; Licensed &amp; Insured</p>
+    <p>HVHZ Compliant &middot; Miami-Dade &middot; Broward &middot; Palm Beach</p>
+  </div>
+</footer>
+<script>
+// NAV SCROLL
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('sc',scrollY>50),{passive:true});
+
+// HAMBURGER
+const hb=document.getElementById('hb'),mm=document.getElementById('mm');
+let mo=false;
+function tm(s){mo=s;hb.classList.toggle('o',mo);if(mo){mm.style.display='flex';document.body.style.overflow='hidden';requestAnimationFrame(()=>mm.classList.add('o'));}else{mm.classList.remove('o');document.body.style.overflow='';setTimeout(()=>{if(!mo)mm.style.display='none'},400);}}
+hb.addEventListener('click',()=>tm(!mo));
+mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>tm(false)));
+
+// THEME TOGGLE
+const tb=document.getElementById('themeBtn');
+function setTheme(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem('theme',t);tb.textContent=t==='light'?'&#9790; Dark':'&#9788; Light';tb.innerHTML=t==='light'?'&#9790; Dark':'&#9788; Light';}
+const saved=localStorage.getItem('theme')||'dark';
+setTheme(saved);
+tb.addEventListener('click',()=>setTheme(document.documentElement.getAttribute('data-theme')==='light'?'dark':'light'));
+
+// REVEAL
+const ro=new IntersectionObserver(e=>{e.forEach((x,i)=>{if(x.isIntersecting){setTimeout(()=>x.target.classList.add('on'),i*60);ro.unobserve(x.target);}});},{threshold:.07});
+document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+
+// FORCE VIDEO AUTOPLAY
+document.querySelectorAll('video').forEach(v=>{
+  v.muted=true;
+  const p=v.play();
+  if(p!==undefined){p.catch(()=>{
+    document.addEventListener('click',()=>v.play(),{once:true});
+  });}
+});
+
+// SMOOTH SCROLL
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',function(e){const t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});
+});
+</script>
+</body>
+</html>
