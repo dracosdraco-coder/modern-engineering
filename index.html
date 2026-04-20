@@ -9,13 +9,13 @@
 <link rel="stylesheet" href="shared.css">
 <style>
 /* ── HERO ── */
-#hero{position:relative;height:100vh;min-height:720px;display:flex;align-items:center;overflow:hidden}
+#hero{position:relative;height:100vh;min-height:640px;display:flex;align-items:flex-start;overflow:hidden;padding-bottom:110px}
 .hv{position:absolute;inset:0;background:linear-gradient(145deg,#071a0f 0%,#0d2e18 25%,#14532d 55%,#166534 78%,#1a7a40 100%)}
 .hv::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:60px 60px}
 .hv::after{content:'';position:absolute;top:-20%;right:-5%;width:65%;height:125%;background:radial-gradient(ellipse at 60% 40%,rgba(22,163,74,.22) 0%,rgba(22,163,74,.08) 40%,transparent 70%)}
 .hv-accent{position:absolute;bottom:-10%;left:30%;width:50%;height:80%;background:radial-gradient(ellipse,rgba(21,128,61,.15) 0%,transparent 60%);pointer-events:none}
 .ho{position:absolute;inset:0;background:linear-gradient(to right,rgba(7,26,15,.9) 0%,rgba(7,26,15,.65) 50%,transparent 100%),linear-gradient(to top,rgba(7,26,15,.8) 0%,transparent 45%)}
-.hb{position:relative;z-index:2;padding:200px 48px 80px;max-width:760px}
+.hb{position:relative;z-index:2;padding:clamp(100px,16vh,180px) 48px 0;max-width:760px}
 .hb .mono{margin-bottom:28px;opacity:0;animation:up .8s .15s forwards}
 .hh1{opacity:0;animation:up 1s .3s forwards;color:#fff}
 .hh1 em{font-style:normal;color:#4ade80;display:block}
@@ -116,7 +116,7 @@
   .sp-grid{grid-template-columns:1fr 1fr}
   .sp-head{padding:0 20px 40px;flex-direction:column;gap:16px}
   .sp-cta{padding:32px 20px 0}
-  .hb{padding:140px 20px 56px}
+  .hb{padding:clamp(90px,14vh,140px) 20px 0}
   .hscr{display:none}
   .hpills{display:none}
   .hact{flex-direction:column}

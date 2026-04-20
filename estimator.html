@@ -3,89 +3,175 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Project Estimator | Modern Engineering & Construction</title>
+<title>Project Configurator | Modern Engineering & Construction</title>
 <link rel="stylesheet" href="shared.css">
 <style>
-/* TABS */
-.est-tabs{display:flex;gap:2px;background:var(--border);margin-top:48px;width:fit-content}
-.tab-btn{padding:14px 36px;font-family:'Archivo Black',sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--bg2);border:none;cursor:pointer;transition:all .2s}
-.tab-btn.active{background:var(--green);color:#fff}
-.tab-panel{display:none;margin-top:48px}
-.tab-panel.active{display:block}
+/* ── TRADE BAR ── */
+.cfg-trade-bar{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 48px;display:flex;gap:0;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.cfg-trade-bar::-webkit-scrollbar{display:none}
+.cfg-trade-btn{padding:18px 28px;font-family:'Archivo Black',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:transparent;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:color .2s,border-color .2s;white-space:nowrap;flex-shrink:0}
+.cfg-trade-btn:hover{color:var(--white)}
+.cfg-trade-btn.active{color:var(--white);border-bottom-color:var(--green)}
 
-/* SHARED FORM STYLES */
-.est-layout{display:grid;grid-template-columns:1fr 1fr;gap:4px;background:var(--border)}
-.est-form{background:var(--card);padding:48px 40px}
-.est-result{background:var(--bg2);padding:48px 40px;display:flex;flex-direction:column;justify-content:space-between}
-.eg{margin-bottom:20px}
-.el{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--green);display:block;margin-bottom:8px}
-.ei,.esel{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--white);padding:12px 16px;font-family:'Archivo',sans-serif;font-size:14px;font-weight:300;outline:none;appearance:none;transition:border-color .2s}
-.ei:focus,.esel:focus{border-color:var(--green)}
-.esel option{background:var(--card)}
-.e2c{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+/* ── CONFIGURATOR GRID ── */
+.config-wrap{max-width:1440px;margin:0 auto;padding:0 48px 80px;display:grid;grid-template-columns:1fr 400px;gap:64px;align-items:start;padding-top:48px}
+.config-form{min-width:0}
 
-/* CARD SELECTORS */
-.card-sel{display:grid;gap:8px;margin-top:0}
+/* ── STEPS / PROGRESS ── */
+.cfg-progress{display:flex;gap:0;margin-bottom:48px;border-bottom:1px solid var(--border)}
+.cfg-progress-step{flex:1;padding:0 0 14px;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid transparent;transition:color .2s,border-color .2s;cursor:default;position:relative;text-align:center}
+.cfg-progress-step.done{color:var(--green);border-bottom-color:var(--green)}
+.cfg-progress-step.active{color:var(--white);border-bottom-color:var(--white)}
+
+/* ── CONFIG SECTION ── */
+.cfg-section{margin-bottom:48px;padding-bottom:48px;border-bottom:1px solid var(--border)}
+.cfg-section:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.cfg-section-head{display:flex;align-items:center;gap:16px;margin-bottom:24px}
+.cfg-step-num{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;color:var(--green);opacity:.5;flex-shrink:0;min-width:24px}
+.cfg-section-title{font-family:'Archivo Black',sans-serif;font-size:18px;color:var(--white);letter-spacing:.01em}
+.cfg-section-sub{font-size:12px;font-weight:300;color:var(--muted);margin-top:2px}
+
+/* ── CARD SELECTORS — no icons ── */
+.card-sel{display:grid;gap:6px}
 .card-sel.cols-2{grid-template-columns:1fr 1fr}
 .card-sel.cols-3{grid-template-columns:repeat(3,1fr)}
 .card-sel.cols-4{grid-template-columns:repeat(4,1fr)}
-.csel{border:1px solid var(--border);padding:14px 12px;background:var(--bg3);cursor:pointer;text-align:center;transition:all .2s;user-select:none}
+.csel{border:1px solid var(--border);padding:18px 16px;background:var(--bg);cursor:pointer;text-align:left;transition:border-color .2s,background .2s;user-select:none;position:relative;overflow:hidden}
+.csel::after{content:'';position:absolute;top:10px;right:10px;width:18px;height:18px;border-radius:50%;background:var(--green);opacity:0;transition:opacity .2s;transform:scale(.6);transition:opacity .2s,transform .2s}
+.csel::before{content:'';position:absolute;top:15px;right:14px;width:5px;height:9px;border-right:1.5px solid #fff;border-bottom:1.5px solid #fff;transform:rotate(45deg) scale(.6);opacity:0;z-index:1;transition:opacity .2s,transform .2s}
 .csel:hover{border-color:var(--green);background:var(--card)}
-.csel.selected{border-color:var(--green);background:rgba(92,184,92,.1);color:var(--white)}
-.csel-icon{font-size:22px;margin-bottom:6px}
-.csel-label{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-.csel.selected .csel-label{color:var(--green)}
+.csel.selected{border-color:var(--green);background:var(--green-dim)}
+.csel.selected::after{opacity:1;transform:scale(1)}
+.csel.selected::before{opacity:1;transform:rotate(45deg) scale(1)}
+.csel-lbl{font-family:'Archivo Black',sans-serif;font-size:13px;color:var(--white);letter-spacing:.01em;line-height:1.1;padding-right:22px}
+.csel-sub{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:6px;line-height:1.5}
+.csel.selected .csel-sub{color:var(--green)}
 
-/* RESULT */
-.er-lbl{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
-.er-rng{font-family:'Archivo Black',sans-serif;font-size:clamp(44px,6vw,80px);color:var(--green);line-height:1;letter-spacing:-.02em}
-.er-note{font-size:12px;color:var(--muted);margin-top:10px;line-height:1.7}
-.er-rows{margin-top:24px;border-top:1px solid var(--border);padding-top:16px}
-.er-row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--border);font-size:12px}
-.er-row:last-child{border-bottom:none}
-.er-row span:first-child{color:var(--muted)}
-.er-row span:last-child{color:var(--white);font-weight:500}
-.ecta{display:block;margin-top:24px;background:var(--green);color:#fff;text-align:center;padding:15px;font-family:'Archivo Black',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;transition:background .2s,transform .2s}
-.ecta:hover{background:var(--green-dk);transform:translateY(-1px)}
-.edis{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.1em;color:var(--muted);margin-top:12px;line-height:1.7}
+/* ── FORM INPUTS ── */
+.eg{margin-bottom:16px}
+.el{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--green);display:block;margin-bottom:7px}
+.ei,.esel{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--white);padding:13px 16px;font-family:'Archivo',sans-serif;font-size:14px;font-weight:300;outline:none;appearance:none;transition:border-color .2s;border-radius:0}
+.ei:focus,.esel:focus{border-color:var(--green)}
+.esel option{background:var(--bg)}
+.e2c{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.helper-note{font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.6;font-weight:300}
 
-/* SECTION HEADERS INSIDE FORM */
-.form-section-head{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--green);border-bottom:1px solid var(--border);padding-bottom:12px;margin-bottom:20px;margin-top:32px}
+/* ── ADVANCED TOGGLE ── */
+.adv-toggle-btn{width:100%;background:transparent;border:1px solid var(--border);color:var(--muted);padding:14px 20px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:border-color .2s,color .2s;margin-bottom:0}
+.adv-toggle-btn:hover{border-color:var(--green);color:var(--green)}
+.adv-toggle-icon{font-size:16px;line-height:1;transition:transform .3s}
+.adv-toggle-icon.open{transform:rotate(45deg)}
+.adv-specs-panel{display:none;padding-top:20px}
+.adv-specs-panel.open{display:block}
+
+/* ── TRADE FIELDS ── */
+.trade-fields{display:none}
+.trade-fields.active{display:block}
+
+/* ── FORM SECTION HEAD (inside trade fields) ── */
+.form-section-head{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--green);border-bottom:1px solid var(--border);padding-bottom:11px;margin-bottom:18px;margin-top:28px}
 .form-section-head:first-child{margin-top:0}
 
-/* FILE UPLOAD */
-.file-drop{border:1px dashed var(--border);padding:28px;text-align:center;cursor:pointer;transition:border-color .2s;background:var(--bg3)}
+/* file upload */
+.file-drop{border:1px dashed var(--border);padding:24px;text-align:center;cursor:pointer;transition:border-color .2s;background:var(--bg3)}
 .file-drop:hover{border-color:var(--green)}
 .file-drop input{display:none}
 .file-drop-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .file-drop-label span{color:var(--green)}
-.file-list{margin-top:12px;display:flex;flex-direction:column;gap:6px}
-.file-item{background:var(--card);padding:8px 12px;font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
-.file-remove{color:var(--muted);cursor:pointer;font-size:14px;transition:color .2s}
-.file-remove:hover{color:#ff6b6b}
+.file-list{margin-top:10px;display:flex;flex-direction:column;gap:5px}
+.file-item{background:var(--card);padding:7px 12px;font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+.file-remove{color:var(--muted);cursor:pointer;transition:color .2s}
+.file-remove:hover{color:#e55}
 
-/* TRADE SWITCHER */
-.trade-switch{display:flex;gap:2px;background:var(--border);margin-bottom:32px;flex-wrap:wrap}
-.trade-btn{padding:10px 20px;font-family:'Archivo Black',sans-serif;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--bg2);border:none;cursor:pointer;transition:all .2s}
-.trade-btn.active{background:var(--card);color:var(--white);border-bottom:2px solid var(--green)}
-.trade-fields{display:none}
-.trade-fields.active{display:block}
+/* ── SIDEBAR / ESTIMATE PANEL ── */
+.config-sidebar{position:sticky;top:80px;align-self:start}
+.est-panel{background:var(--bg2);border:1px solid var(--border)}
+.est-panel-header{padding:24px 28px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.est-panel-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--green)}
+.est-trade-badge{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);padding:4px 10px}
+.est-panel-main{padding:28px 28px 0}
+.est-range-lbl{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.est-range-val{font-family:'Archivo Black',sans-serif;font-size:clamp(36px,4vw,52px);color:var(--green);line-height:1;letter-spacing:-.02em}
+.est-note{font-size:12px;font-weight:300;color:var(--muted);margin-top:10px;line-height:1.7}
+.est-breakdown{margin-top:20px;padding-top:16px;border-top:1px solid var(--border)}
+.est-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:12px}
+.est-row:last-child{border-bottom:none;padding-top:12px}
+.est-row span:first-child{color:var(--muted)}
+.est-row span:last-child{color:var(--white);font-weight:500}
+.est-row.total span{color:var(--green);font-weight:700;font-size:13px}
 
-/* NOTE */
-.helper-note{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.6;font-style:italic}
+/* ── PANEL ACTIONS ── */
+.est-panel-actions{padding:20px 28px;border-top:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.est-action-btn{padding:12px 8px;font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;background:transparent;border:1px solid var(--border);color:var(--muted);cursor:pointer;transition:all .2s;text-align:center}
+.est-action-btn:hover{border-color:var(--green);color:var(--green)}
+.est-action-send{grid-column:span 2;background:var(--green);color:#fff;border-color:var(--green);font-family:'Archivo Black',sans-serif;font-size:11px;letter-spacing:.06em;padding:14px}
+.est-action-send:hover{background:var(--green-dk);border-color:var(--green-dk);color:#fff}
+.est-action-send.sent{background:var(--green-dk);cursor:default}
 
-@media(max-width:1100px){.est-layout{grid-template-columns:1fr}}
-@media(max-width:768px){
-  .est-form,.est-result{padding:28px 20px}
+/* ── IN-PANEL SEND FORM ── */
+.est-send-form{padding:20px 28px;border-top:1px solid var(--border);display:none}
+.est-send-form.open{display:block}
+.est-send-title{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--green);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+.sf-input{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--white);padding:11px 14px;font-family:'Archivo',sans-serif;font-size:13px;font-weight:300;outline:none;appearance:none;transition:border-color .2s;margin-bottom:8px;border-radius:0}
+.sf-input:focus{border-color:var(--green)}
+.sf-input::placeholder{color:var(--muted)}
+.sf-submit{width:100%;background:var(--green-dk);color:#fff;border:none;padding:13px;font-family:'Archivo Black',sans-serif;font-size:11px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;margin-top:6px;transition:background .2s}
+.sf-submit:hover{background:var(--green)}
+.sf-success{display:none;border:1px solid rgba(22,163,74,.3);background:var(--green-dim);padding:16px;text-align:center;margin-top:8px}
+.sf-success p{font-family:'Archivo Black',sans-serif;font-size:14px;color:var(--green)}
+.sf-success small{display:block;margin-top:6px;font-size:11px;color:var(--muted)}
+
+/* ── DISCLAIMER ── */
+.est-panel-disc{padding:16px 28px;border-top:1px solid var(--border)}
+.est-panel-disc p{font-family:'DM Mono',monospace;font-size:7.5px;letter-spacing:.08em;color:var(--muted);line-height:1.8}
+
+/* ── PRINT STYLES ── */
+@media print{
+  nav,footer,.cfg-trade-bar,.config-sidebar .est-panel-actions,.est-send-form,.mmenu,
+  .adv-toggle-btn,.cfg-progress{display:none!important}
+  body{background:#fff!important;color:#000!important}
+  .config-wrap{display:block!important;padding:24px!important}
+  .config-sidebar{position:static!important;margin-top:32px}
+  .est-panel{border:1px solid #ccc!important}
+  .est-range-val{color:#166534!important;font-size:36px!important}
+  .csel.selected{border-color:#166534!important;background:#e8f2e8!important}
+  .csel.selected .csel-lbl{color:#0a140a!important}
+  .est-panel-disc{display:block!important}
+  .print-header{display:block!important}
+  @page{margin:20mm}
+}
+.print-header{display:none;margin-bottom:24px}
+.print-header h2{font-family:'Archivo Black',sans-serif;font-size:22px;color:#0a140a}
+.print-header p{font-size:11px;color:#4b6b4b;margin-top:4px}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1200px){
+  .config-wrap{grid-template-columns:1fr 360px;gap:40px}
+}
+@media(max-width:1100px){
+  .config-wrap{grid-template-columns:1fr;gap:40px}
+  .config-sidebar{position:static}
   .card-sel.cols-3{grid-template-columns:1fr 1fr}
   .card-sel.cols-4{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .cfg-trade-bar{padding:0 20px}
+  .config-wrap{padding:32px 20px 60px}
+  .card-sel.cols-2{grid-template-columns:1fr}
   .e2c{grid-template-columns:1fr}
-  .est-tabs{width:100%}
-  .tab-btn{flex:1;padding:12px 16px;font-size:10px}
+  .est-panel-actions{grid-template-columns:1fr}
+  .est-action-send{grid-column:span 1}
 }
 </style>
 </head>
 <body>
+
+<!-- print-only header -->
+<div class="print-header">
+  <h2>Modern Engineering &amp; Construction</h2>
+  <p>Project Estimate &mdash; modernengineering.build &mdash; (305) 614-0219 &mdash; ethan@projex.live</p>
+</div>
+
 <!-- MOBILE MENU -->
 <div class="mmenu" id="mm">
   <a href="index.html">Home</a>
@@ -115,361 +201,330 @@
   </div>
 </nav>
 
-<div class="page-hero rv">
-  <p class="mono" style="margin-bottom:14px">Project Estimator</p>
-  <h1 class="head head-lg">Build Your<br>Bid Package</h1>
-  <p class="body-t" style="margin-top:18px;max-width:620px">Estimate what licensed contractors will charge for your project. <strong style="color:var(--white);font-weight:600">Standard</strong> is for property owners comparing options. <strong style="color:var(--white);font-weight:600">Advanced</strong> is for contractors and project managers needing a detailed breakdown. MEC builds the bid package &mdash; licensed contractors do the work.</p>
+<div class="page-hero rv" style="padding-bottom:0">
+  <p class="mono" style="margin-bottom:14px">Project Configurator</p>
+  <h1 class="head head-lg">Build Your<br>Estimate</h1>
+  <p class="body-t" style="margin-top:18px;max-width:600px">Select your trade, system, and scope. Your estimate updates live as you configure. When ready, send directly to our team or download for your records. MEC builds the bid package &mdash; licensed contractors do the work.</p>
 </div>
 
-<section class="sec">
-  <div class="est-tabs">
-    <button class="tab-btn active" onclick="switchTab('standard')">Standard</button>
-    <button class="tab-btn" onclick="switchTab('advanced')">Advanced</button>
+<!-- ── TRADE BAR ── -->
+<div class="cfg-trade-bar" style="margin-top:32px">
+  <button class="cfg-trade-btn active" data-trade="roofing" onclick="switchTrade('roofing')">Roofing</button>
+  <button class="cfg-trade-btn" data-trade="exterior" onclick="switchTrade('exterior')">Exterior</button>
+  <button class="cfg-trade-btn" data-trade="interior" onclick="switchTrade('interior')">Interior</button>
+  <button class="cfg-trade-btn" data-trade="carpentry" onclick="switchTrade('carpentry')">Carpentry</button>
+  <button class="cfg-trade-btn" data-trade="labor" onclick="switchTrade('labor')">Labor Supply</button>
+</div>
+
+<!-- ── CONFIGURATOR ── -->
+<div class="config-wrap">
+
+  <!-- LEFT: Configuration form -->
+  <div class="config-form">
+
+    <!-- ROOFING FIELDS -->
+    <div class="trade-fields active" id="trade-roofing">
+
+      <div class="cfg-section">
+        <div class="cfg-section-head">
+          <span class="cfg-step-num">01</span>
+          <div>
+            <div class="cfg-section-title">Roofing System</div>
+            <div class="cfg-section-sub">Select the membrane or material type</div>
+          </div>
+        </div>
+        <div class="card-sel cols-3" data-field="roofSystem">
+          <div class="csel" data-val="tpo"><div class="csel-lbl">TPO / EPDM</div><div class="csel-sub">Flat · Thermoplastic single-ply</div></div>
+          <div class="csel" data-val="tile"><div class="csel-lbl">Tile</div><div class="csel-sub">Steep slope · Concrete or clay</div></div>
+          <div class="csel" data-val="shingle"><div class="csel-lbl">Shingle</div><div class="csel-sub">Steep slope · Architectural</div></div>
+          <div class="csel" data-val="metal2"><div class="csel-lbl">Metal Panel</div><div class="csel-sub">Standing seam or R-panel</div></div>
+          <div class="csel" data-val="modbit"><div class="csel-lbl">Modified Bitumen</div><div class="csel-sub">Flat · Torch or cold-applied</div></div>
+          <div class="csel" data-val="bur"><div class="csel-lbl">Built-Up (BUR)</div><div class="csel-sub">Flat · Gravel surfaced</div></div>
+        </div>
+      </div>
+
+      <div class="cfg-section">
+        <div class="cfg-section-head">
+          <span class="cfg-step-num">02</span>
+          <div>
+            <div class="cfg-section-title">Scope Type</div>
+            <div class="cfg-section-sub">What work is being done?</div>
+          </div>
+        </div>
+        <div class="card-sel cols-2" data-field="condition">
+          <div class="csel" data-val="tear"><div class="csel-lbl">Full Tear-Off</div><div class="csel-sub">Remove existing system, replace</div></div>
+          <div class="csel" data-val="overlay"><div class="csel-lbl">Overlay / Recover</div><div class="csel-sub">Install over existing system</div></div>
+          <div class="csel" data-val="repair"><div class="csel-lbl">Repair Only</div><div class="csel-sub">Targeted patching or flashing</div></div>
+          <div class="csel" data-val="new"><div class="csel-lbl">New Construction</div><div class="csel-sub">No existing system to remove</div></div>
+        </div>
+      </div>
+
+      <div class="cfg-section">
+        <div class="cfg-section-head">
+          <span class="cfg-step-num">03</span>
+          <div>
+            <div class="cfg-section-title">Size &amp; Access</div>
+            <div class="cfg-section-sub">Roof area, building height, edge type</div>
+          </div>
+        </div>
+        <div class="e2c">
+          <div class="eg"><label class="el" for="s-sqft">Roof Area (sq ft)</label><input class="ei" type="number" id="s-sqft" placeholder="e.g. 2,500" min="100" oninput="calcStd()"></div>
+          <div class="eg"><label class="el" for="s-stories">Building Height</label>
+            <select class="esel" id="s-stories" onchange="calcStd()">
+              <option value="1">1 Story / Ground Level</option>
+              <option value="2">2&ndash;3 Stories</option>
+              <option value="3">4+ Stories / High-Rise</option>
+            </select>
+          </div>
+        </div>
+        <div class="eg" style="margin-top:4px"><label class="el">Edge Configuration</label>
+          <div class="card-sel cols-3" data-field="edgeType">
+            <div class="csel" data-val="parapet"><div class="csel-lbl">Parapet Wall</div></div>
+            <div class="csel" data-val="eave"><div class="csel-lbl">Open Eave</div></div>
+            <div class="csel" data-val="fascia"><div class="csel-lbl">Metal Fascia</div></div>
+          </div>
+        </div>
+        <div class="e2c" style="margin-top:16px">
+          <div class="eg"><label class="el" for="s-drains">Drains / Scuppers</label><input class="ei" type="number" id="s-drains" placeholder="e.g. 4" min="0" oninput="calcStd()"><div class="helper-note">Approximate roof drain count</div></div>
+          <div class="eg"><label class="el" for="s-penetrations">Penetrations</label><input class="ei" type="number" id="s-penetrations" placeholder="e.g. 8" min="0" oninput="calcStd()"><div class="helper-note">HVAC, vents, pipes, skylights</div></div>
+        </div>
+      </div>
+
+      <div class="cfg-section">
+        <div class="cfg-section-head">
+          <span class="cfg-step-num">04</span>
+          <div>
+            <div class="cfg-section-title">Special Conditions</div>
+            <div class="cfg-section-sub">Select all that apply</div>
+          </div>
+        </div>
+        <div class="card-sel cols-2" data-field="specials" id="adv-specials">
+          <div class="csel multi" data-val="solar"><div class="csel-lbl">Solar / Existing PV</div><div class="csel-sub">Panel removal and reinstall required</div></div>
+          <div class="csel multi" data-val="hvac"><div class="csel-lbl">HVAC Curbs / Equipment</div><div class="csel-sub">Rooftop units requiring work around</div></div>
+          <div class="csel multi" data-val="walkpads"><div class="csel-lbl">Walk Pads Required</div><div class="csel-sub">Protection path for roof access</div></div>
+          <div class="csel multi" data-val="occupied"><div class="csel-lbl">Occupied Facility</div><div class="csel-sub">Work must limit disruption</div></div>
+          <div class="csel multi" data-val="night"><div class="csel-lbl">Night / Weekend Work</div><div class="csel-sub">Off-hours scheduling required</div></div>
+          <div class="csel multi" data-val="phased"><div class="csel-lbl">Phased Scope</div><div class="csel-sub">Multi-mobilization project</div></div>
+        </div>
+      </div>
+
+      <!-- Advanced specs collapsible -->
+      <div class="cfg-section">
+        <div class="cfg-section-head">
+          <span class="cfg-step-num">05</span>
+          <div>
+            <div class="cfg-section-title">Technical Specifications</div>
+            <div class="cfg-section-sub">For contractors and project managers</div>
+          </div>
+        </div>
+        <button class="adv-toggle-btn" onclick="toggleAdv()" id="adv-toggle">
+          <span>Expand Technical Details</span>
+          <span class="adv-toggle-icon" id="adv-icon">+</span>
+        </button>
+        <div class="adv-specs-panel" id="adv-specs">
+          <div class="e2c" style="margin-top:20px">
+            <div class="eg"><label class="el" for="a-deck">Deck Type</label>
+              <select class="esel" id="a-deck"><option value="">Select / Unknown</option><option>Concrete / Precast</option><option>Steel Deck</option><option>Wood Plywood / OSB</option><option>Lightweight Concrete</option><option>Unknown</option></select>
+            </div>
+            <div class="eg"><label class="el" for="a-deck-cond">Deck Condition</label>
+              <select class="esel" id="a-deck-cond"><option value="">Select / Unknown</option><option>Good — No Replacement</option><option>Fair — Partial Replacement</option><option>Poor — Full Replacement</option><option>Unknown</option></select>
+            </div>
+          </div>
+          <div class="e2c">
+            <div class="eg"><label class="el" for="a-insul">Insulation R-Value</label>
+              <select class="esel" id="a-insul"><option value="">Select / Unknown</option><option>R-20</option><option>R-25</option><option>R-30</option><option>R-38</option><option>Code Minimum</option><option>N/A</option></select>
+            </div>
+            <div class="eg"><label class="el" for="a-attach">Attachment Method</label>
+              <select class="esel" id="a-attach"><option value="">Select / Unknown</option><option>Mechanically Attached</option><option>Fully Adhered</option><option>Ballasted</option><option>Torch Applied</option><option>Cold Applied</option></select>
+            </div>
+          </div>
+          <div class="e2c">
+            <div class="eg"><label class="el" for="a-warranty">Warranty Required</label>
+              <select class="esel" id="a-warranty"><option value="">Select</option><option>10-Year</option><option>15-Year</option><option>20-Year NDL</option><option>25-Year NDL</option><option>Labor Only</option></select>
+            </div>
+            <div class="eg"><label class="el" for="a-lic">Contractor License # (if GC)</label>
+              <input class="ei" type="text" id="a-lic" placeholder="CGC / CCC / RC number">
+            </div>
+          </div>
+          <div class="form-section-head">Permitting</div>
+          <div class="card-sel cols-3" data-field="permit">
+            <div class="csel" data-val="none"><div class="csel-lbl">None / Already Pulled</div></div>
+            <div class="csel" data-val="standard"><div class="csel-lbl">Standard Permit</div></div>
+            <div class="csel" data-val="hvhz"><div class="csel-lbl">HVHZ / Miami-Dade</div></div>
+          </div>
+          <div class="form-section-head" style="margin-top:24px">Project Notes</div>
+          <div class="eg"><textarea class="ei" style="min-height:90px;resize:vertical" id="proj-notes" placeholder="Access notes, scope details, bid deadline, site contacts..."></textarea></div>
+          <div class="form-section-head">Upload Photos / Drawings</div>
+          <div class="file-drop" onclick="document.getElementById('fileInput').click()">
+            <input type="file" id="fileInput" multiple accept="image/*,.pdf,.dwg" onchange="handleFiles(this.files)">
+            <div class="file-drop-label">Click to upload &mdash; <span>Photos, PDFs, Drawings</span></div>
+            <div class="file-list" id="fileList"></div>
+          </div>
+          <div class="helper-note" style="margin-top:6px">JPG, PNG, PDF, DWG &mdash; max 10 files</div>
+        </div>
+      </div>
+
+    </div><!-- end roofing -->
+
+    <!-- EXTERIOR FIELDS -->
+    <div class="trade-fields" id="trade-exterior">
+      <div class="cfg-section">
+        <div class="cfg-section-head"><span class="cfg-step-num">01</span><div><div class="cfg-section-title">Exterior Service</div></div></div>
+        <div class="card-sel cols-2" data-field="extService">
+          <div class="csel" data-val="stucco"><div class="csel-lbl">Stucco</div><div class="csel-sub">Patch, recoat, or full system</div></div>
+          <div class="csel" data-val="waterproof"><div class="csel-lbl">Waterproofing</div><div class="csel-sub">Deck, balcony, wall coating</div></div>
+          <div class="csel" data-val="fascia"><div class="csel-lbl">Fascia / Soffit</div><div class="csel-sub">Trim replacement or repair</div></div>
+          <div class="csel" data-val="gutters"><div class="csel-lbl">Gutters</div><div class="csel-sub">Replacement or new install</div></div>
+        </div>
+      </div>
+      <div class="cfg-section">
+        <div class="cfg-section-head"><span class="cfg-step-num">02</span><div><div class="cfg-section-title">Building Type &amp; Size</div></div></div>
+        <div class="card-sel cols-3" data-field="extBldg" style="margin-bottom:20px">
+          <div class="csel" data-val="res"><div class="csel-lbl">Residential</div></div>
+          <div class="csel" data-val="comm"><div class="csel-lbl">Commercial</div></div>
+          <div class="csel" data-val="hoa"><div class="csel-lbl">HOA / Condo</div></div>
+        </div>
+        <div class="eg"><label class="el" for="ext-lf">Perimeter / Area (linear ft or sq ft)</label><input class="ei" type="number" id="ext-lf" placeholder="e.g. 400" oninput="calcStd()"></div>
+      </div>
+    </div>
+
+    <!-- INTERIOR FIELDS -->
+    <div class="trade-fields" id="trade-interior">
+      <div class="cfg-section">
+        <div class="cfg-section-head"><span class="cfg-step-num">01</span><div><div class="cfg-section-title">Interior Service</div></div></div>
+        <div class="card-sel cols-2" data-field="intService">
+          <div class="csel" data-val="drywall"><div class="csel-lbl">Drywall</div><div class="csel-sub">Hang, tape, and finish</div></div>
+          <div class="csel" data-val="ceiling"><div class="csel-lbl">Drop Ceiling</div><div class="csel-sub">Grid and tile system</div></div>
+          <div class="csel" data-val="flooring"><div class="csel-lbl">Flooring</div><div class="csel-sub">Tile, LVP, or carpet</div></div>
+          <div class="csel" data-val="insulation"><div class="csel-lbl">Insulation</div><div class="csel-sub">Batt, blown, or spray foam</div></div>
+        </div>
+      </div>
+      <div class="cfg-section">
+        <div class="cfg-section-head"><span class="cfg-step-num">02</span><div><div class="cfg-section-title">Scope &amp; Condition</div></div></div>
+        <div class="card-sel cols-2" data-field="intCondition" style="margin-bottom:20px">
+          <div class="csel" data-val="new"><div class="csel-lbl">New Construction</div><div class="csel-sub">Clean install, no demo needed</div></div>
+          <div class="csel" data-val="reno"><div class="csel-lbl">Renovation / Repair</div><div class="csel-sub">Patch, demo, or replacement</div></div>
+        </div>
+        <div class="eg"><label class="el" for="int-sqft">Square Footage</label><input class="ei" type="number" id="int-sqft" placeholder="e.g. 1,200" oninput="calcStd()"></div>
+      </div>
+    </div>
+
+    <!-- CARPENTRY FIELDS -->
+    <div class="trade-fields" id="trade-carpentry">
+      <div class="cfg-section">
+        <div class="cfg-section-head"><span class="cfg-step-num">01</span><div><div class="cfg-section-title">Carpentry Type</div></div></div>
+        <div class="card-sel cols-2" data-field="carpType">
+          <div class="csel" data-val="framing"><div class="csel-lbl">Structural Framing</div><div class="csel-sub">Wood or light gauge steel</div></div>
+          <div class="csel" data-val="finish"><div class="csel-lbl">Finish Carpentry</div><div class="csel-sub">Trim, casing, and millwork</div></div>
+          <div class="csel" data-val="decking"><div class="csel-lbl">Decking / Pergola</div><div class="csel-sub">Outdoor structure or deck</div></div>
+          <div class="csel" data-val="millwork"><div class="csel-lbl">Custom Millwork</div><div class="csel-sub">Built-ins, cabinets, panels</div></div>
+        </div>
+      </div>
+      <div class="cfg-section">
+        <div class="cfg-section-head"><span class="cfg-step-num">02</span><div><div class="cfg-section-title">Scope Size</div></div></div>
+        <div class="eg"><label class="el" for="carp-sqft">Square Footage / Linear Footage</label><input class="ei" type="number" id="carp-sqft" placeholder="e.g. 800" oninput="calcStd()"></div>
+      </div>
+    </div>
+
+    <!-- LABOR FIELDS -->
+    <div class="trade-fields" id="trade-labor">
+      <div class="cfg-section">
+        <div class="cfg-section-head"><span class="cfg-step-num">01</span><div><div class="cfg-section-title">Labor Scope</div></div></div>
+        <div class="card-sel cols-2" data-field="laborType">
+          <div class="csel" data-val="daily"><div class="csel-lbl">Daily / Shift Rate</div><div class="csel-sub">Per-day crew deployment</div></div>
+          <div class="csel" data-val="project"><div class="csel-lbl">Project-Based</div><div class="csel-sub">Full project crew assignment</div></div>
+        </div>
+      </div>
+      <div class="cfg-section">
+        <div class="cfg-section-head"><span class="cfg-step-num">02</span><div><div class="cfg-section-title">Area &amp; Duration</div></div></div>
+        <div class="e2c">
+          <div class="eg"><label class="el" for="lab-sqft">Work Area (sq ft)</label><input class="ei" type="number" id="lab-sqft" placeholder="e.g. 5,000" oninput="calcStd()"></div>
+          <div class="eg"><label class="el" for="lab-days">Est. Duration (days)</label><input class="ei" type="number" id="lab-days" placeholder="e.g. 5" oninput="calcStd()"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SHARED: Location & Contact (always visible) -->
+    <div class="cfg-section" style="margin-top:0">
+      <div class="cfg-section-head">
+        <span class="cfg-step-num" id="loc-step-num">06</span>
+        <div>
+          <div class="cfg-section-title">Location</div>
+          <div class="cfg-section-sub">Affects contractor pricing and permit requirements</div>
+        </div>
+      </div>
+      <div class="eg" style="max-width:320px"><label class="el" for="s-county">County</label>
+        <select class="esel" id="s-county" onchange="calcStd()">
+          <option value="miami">Miami-Dade</option>
+          <option value="broward">Broward</option>
+          <option value="palm">Palm Beach</option>
+          <option value="other">Other Florida</option>
+        </select>
+      </div>
+    </div>
+
+  </div><!-- end config-form -->
+
+  <!-- RIGHT: Sticky estimate panel -->
+  <div class="config-sidebar">
+    <div class="est-panel" id="est-panel">
+
+      <div class="est-panel-header">
+        <span class="est-panel-title">Project Estimate</span>
+        <span class="est-trade-badge" id="est-trade-badge">Roofing</span>
+      </div>
+
+      <div class="est-panel-main" id="std-result">
+        <div class="est-range-lbl">Estimated Range</div>
+        <div class="est-range-val" id="std-display">&mdash;</div>
+        <p class="est-note" id="std-note">Configure your project above to see a live estimate.</p>
+        <div class="est-breakdown" id="std-rows" style="display:none">
+          <div class="est-row"><span>Base Labor &amp; Material</span><span id="sr-base">&mdash;</span></div>
+          <div class="est-row"><span>Penetrations / Details</span><span id="sr-pen">&mdash;</span></div>
+          <div class="est-row"><span>Height Factor</span><span id="sr-ht">&mdash;</span></div>
+          <div class="est-row"><span>County Adjustment</span><span id="sr-co">&mdash;</span></div>
+          <div class="est-row total"><span>Total Range</span><span id="sr-tot">&mdash;</span></div>
+        </div>
+        <div style="padding-bottom:20px"></div>
+      </div>
+
+      <!-- Actions -->
+      <div class="est-panel-actions">
+        <button class="est-action-btn" onclick="window.print()">Print</button>
+        <button class="est-action-btn" onclick="downloadEst()">Download</button>
+        <button class="est-action-btn est-action-send" id="send-btn" onclick="toggleSend()">Send to MEC &rarr;</button>
+      </div>
+
+      <!-- Expandable send form -->
+      <div class="est-send-form" id="est-send-form">
+        <div class="est-send-title">Send Estimate to MEC</div>
+        <input class="sf-input" id="sf-name" type="text" placeholder="Your name *">
+        <input class="sf-input" id="sf-email" type="email" placeholder="Email *">
+        <input class="sf-input" id="sf-phone" type="tel" placeholder="Phone">
+        <textarea class="sf-input" id="sf-notes" style="min-height:72px;resize:none" placeholder="Any additional notes..."></textarea>
+        <button class="sf-submit" onclick="sendProposal()">Send Proposal</button>
+        <div class="sf-success" id="sf-success">
+          <p>Proposal Sent</p>
+          <small>We&rsquo;ll respond within 24 hours with next steps.</small>
+        </div>
+      </div>
+
+      <!-- Disclaimer -->
+      <div class="est-panel-disc">
+        <p>Estimates reflect typical South Florida 2025 contractor market rates. MEC is a consulting firm &mdash; not a licensed contractor. Final pricing is confirmed through the bid process.</p>
+      </div>
+
+    </div>
   </div>
 
-  <!-- ══ STANDARD TAB ══ -->
-  <div class="tab-panel active" id="tab-standard">
-    <!-- Trade switcher -->
-    <div class="trade-switch">
-      <button class="trade-btn active" onclick="switchTrade('roofing')">Roofing</button>
-      <button class="trade-btn" onclick="switchTrade('exterior')">Exterior</button>
-      <button class="trade-btn" onclick="switchTrade('interior')">Interior</button>
-      <button class="trade-btn" onclick="switchTrade('carpentry')">Carpentry</button>
-    </div>
+</div><!-- end config-wrap -->
 
-    <div class="est-layout">
-      <div class="est-form">
-
-        <!-- ROOFING FIELDS -->
-        <div class="trade-fields active" id="trade-roofing">
-          <div class="form-section-head">Roof Type</div>
-          <div class="card-sel cols-3" data-field="roofType">
-            <div class="csel" data-val="flat"><div class="csel-icon">⬜</div><div class="csel-label">Flat / Low Slope</div></div>
-            <div class="csel" data-val="steep"><div class="csel-icon">🔺</div><div class="csel-label">Steep Slope</div></div>
-            <div class="csel" data-val="metal"><div class="csel-icon">🔲</div><div class="csel-label">Metal Panel</div></div>
-          </div>
-
-          <div class="form-section-head" style="margin-top:28px">Roofing System</div>
-          <div class="card-sel cols-3" data-field="roofSystem">
-            <div class="csel" data-val="tpo"><div class="csel-icon">○</div><div class="csel-label">TPO / EPDM</div></div>
-            <div class="csel" data-val="tile"><div class="csel-icon">⬡</div><div class="csel-label">Tile</div></div>
-            <div class="csel" data-val="shingle"><div class="csel-icon">▤</div><div class="csel-label">Shingle</div></div>
-            <div class="csel" data-val="metal2"><div class="csel-icon">▦</div><div class="csel-label">Metal</div></div>
-            <div class="csel" data-val="modbit"><div class="csel-icon">▬</div><div class="csel-label">Mod Bitumen</div></div>
-            <div class="csel" data-val="bur"><div class="csel-icon">▪</div><div class="csel-label">Built-Up</div></div>
-          </div>
-
-          <div class="form-section-head" style="margin-top:28px">Size &amp; Scope</div>
-          <div class="e2c">
-            <div class="eg"><label class="el" for="s-sqft">Roof Area (sq ft)</label><input class="ei" type="number" id="s-sqft" placeholder="e.g. 2,500" min="100" oninput="calcStd()"></div>
-            <div class="eg"><label class="el" for="s-stories">Building Stories</label>
-              <select class="esel" id="s-stories" onchange="calcStd()">
-                <option value="1">1 Story</option>
-                <option value="2">2&ndash;3 Stories</option>
-                <option value="3">4+ Stories</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-section-head">Edge &amp; Drainage</div>
-          <div class="eg"><label class="el">Edge Type</label>
-            <div class="card-sel cols-3" data-field="edgeType">
-              <div class="csel" data-val="parapet"><div class="csel-label">Parapet Wall</div></div>
-              <div class="csel" data-val="eave"><div class="csel-label">Open Eave</div></div>
-              <div class="csel" data-val="fascia"><div class="csel-label">Metal Fascia</div></div>
-            </div>
-          </div>
-          <div class="e2c" style="margin-top:16px">
-            <div class="eg"><label class="el" for="s-drains">Drain / Scupper Count</label><input class="ei" type="number" id="s-drains" placeholder="e.g. 4" min="0" oninput="calcStd()"><div class="helper-note">Approx. number of roof drains or scuppers</div></div>
-            <div class="eg"><label class="el" for="s-penetrations">Penetration Count</label><input class="ei" type="number" id="s-penetrations" placeholder="e.g. 8" min="0" oninput="calcStd()"><div class="helper-note">HVAC units, pipes, vents, skylights</div></div>
-          </div>
-
-          <div class="form-section-head">Current Condition</div>
-          <div class="card-sel cols-2" data-field="condition">
-            <div class="csel" data-val="tear"><div class="csel-label">Full Tear-Off</div></div>
-            <div class="csel" data-val="overlay"><div class="csel-label">Overlay / Recover</div></div>
-            <div class="csel" data-val="repair"><div class="csel-label">Repair Only</div></div>
-            <div class="csel" data-val="new"><div class="csel-label">New Construction</div></div>
-          </div>
-        </div>
-
-        <!-- EXTERIOR FIELDS -->
-        <div class="trade-fields" id="trade-exterior">
-          <div class="form-section-head">Exterior Service</div>
-          <div class="card-sel cols-2" data-field="extService">
-            <div class="csel" data-val="stucco"><div class="csel-label">Stucco</div></div>
-            <div class="csel" data-val="waterproof"><div class="csel-label">Waterproofing</div></div>
-            <div class="csel" data-val="fascia"><div class="csel-label">Fascia / Soffit</div></div>
-            <div class="csel" data-val="gutters"><div class="csel-label">Gutters</div></div>
-          </div>
-          <div class="form-section-head" style="margin-top:28px">Linear Footage</div>
-          <div class="eg"><label class="el" for="ext-lf">Perimeter / Area (linear ft or sq ft)</label><input class="ei" type="number" id="ext-lf" placeholder="e.g. 400" oninput="calcStd()"></div>
-          <div class="form-section-head">Building Type</div>
-          <div class="card-sel cols-3" data-field="extBldg">
-            <div class="csel" data-val="res"><div class="csel-label">Residential</div></div>
-            <div class="csel" data-val="comm"><div class="csel-label">Commercial</div></div>
-            <div class="csel" data-val="hoa"><div class="csel-label">HOA / Condo</div></div>
-          </div>
-        </div>
-
-        <!-- INTERIOR FIELDS -->
-        <div class="trade-fields" id="trade-interior">
-          <div class="form-section-head">Interior Service</div>
-          <div class="card-sel cols-2" data-field="intService">
-            <div class="csel" data-val="drywall"><div class="csel-label">Drywall</div></div>
-            <div class="csel" data-val="ceiling"><div class="csel-label">Drop Ceiling</div></div>
-            <div class="csel" data-val="flooring"><div class="csel-label">Flooring</div></div>
-            <div class="csel" data-val="insulation"><div class="csel-label">Insulation</div></div>
-          </div>
-          <div class="form-section-head" style="margin-top:28px">Area (sq ft)</div>
-          <div class="eg"><label class="el" for="int-sqft">Square Footage</label><input class="ei" type="number" id="int-sqft" placeholder="e.g. 1,200" oninput="calcStd()"></div>
-          <div class="form-section-head">Condition</div>
-          <div class="card-sel cols-2" data-field="intCondition">
-            <div class="csel" data-val="new"><div class="csel-label">New Construction</div></div>
-            <div class="csel" data-val="reno"><div class="csel-label">Renovation / Repair</div></div>
-          </div>
-        </div>
-
-        <!-- CARPENTRY FIELDS -->
-        <div class="trade-fields" id="trade-carpentry">
-          <div class="form-section-head">Carpentry Type</div>
-          <div class="card-sel cols-2" data-field="carpType">
-            <div class="csel" data-val="framing"><div class="csel-label">Structural Framing</div></div>
-            <div class="csel" data-val="finish"><div class="csel-label">Finish Carpentry</div></div>
-            <div class="csel" data-val="decking"><div class="csel-label">Decking / Pergola</div></div>
-            <div class="csel" data-val="millwork"><div class="csel-label">Custom Millwork</div></div>
-          </div>
-          <div class="form-section-head" style="margin-top:28px">Scope Size</div>
-          <div class="eg"><label class="el" for="carp-sqft">Square Footage / Linear Footage</label><input class="ei" type="number" id="carp-sqft" placeholder="e.g. 800" oninput="calcStd()"></div>
-        </div>
-
-        <!-- SHARED: COUNTY -->
-        <div class="form-section-head" style="margin-top:28px">Location</div>
-        <div class="eg"><label class="el" for="s-county">County</label>
-          <select class="esel" id="s-county" onchange="calcStd()">
-            <option value="miami">Miami-Dade</option>
-            <option value="broward">Broward</option>
-            <option value="palm">Palm Beach</option>
-            <option value="other">Other Florida</option>
-          </select>
-        </div>
-
-      </div><!-- end est-form -->
-
-      <div class="est-result" id="std-result">
-        <div>
-          <div class="er-lbl">Estimated Range</div>
-          <div class="er-rng" id="std-display">&mdash;</div>
-          <p class="er-note" id="std-note">Select your trade, system, and square footage to see a range.</p>
-          <div class="er-rows" id="std-rows" style="display:none">
-            <div class="er-row"><span>Base Labor &amp; Material</span><span id="sr-base">&mdash;</span></div>
-            <div class="er-row"><span>Penetrations / Details</span><span id="sr-pen">&mdash;</span></div>
-            <div class="er-row"><span>Height Factor</span><span id="sr-ht">&mdash;</span></div>
-            <div class="er-row"><span>County Adjustment</span><span id="sr-co">&mdash;</span></div>
-            <div class="er-row" style="border-bottom:none;padding-top:14px">
-              <span style="color:var(--green);font-weight:700">Total Range</span>
-              <span id="sr-tot" style="color:var(--green);font-weight:700">&mdash;</span>
-            </div>
-          </div>
-        </div>
-        <div>
-          <a href="contact.html" class="ecta" onclick="saveAndGo(event)">Get a Firm Quote &rarr;</a>
-          <p class="edis">These are estimates of what licensed contractors typically charge in South Florida (2025). MEC does not perform licensed work &mdash; we build bid packages and source licensed contractors for you. Final pricing is confirmed through the bid process.</p>
-        </div>
-      </div>
-    </div>
-  </div><!-- end standard tab -->
-
-  <!-- ══ ADVANCED TAB ══ -->
-  <div class="tab-panel" id="tab-advanced">
-    <div class="est-layout">
-      <div class="est-form">
-
-        <div class="form-section-head">Contact &amp; Company</div>
-        <div class="e2c">
-          <div class="eg"><label class="el" for="a-name">Name *</label><input class="ei" type="text" id="a-name" placeholder="Full name"></div>
-          <div class="eg"><label class="el" for="a-company">Company</label><input class="ei" type="text" id="a-company" placeholder="Company name"></div>
-        </div>
-        <div class="e2c">
-          <div class="eg"><label class="el" for="a-email">Email *</label><input class="ei" type="email" id="a-email" placeholder="email@company.com"></div>
-          <div class="eg"><label class="el" for="a-phone">Phone *</label><input class="ei" type="tel" id="a-phone" placeholder="(305) 614-0219"></div>
-        </div>
-        <div class="eg"><label class="el" for="a-lic">Contractor License # (optional)</label><input class="ei" type="text" id="a-lic" placeholder="CGC / CCC / RC license number"></div>
-
-        <div class="form-section-head">Project Details</div>
-        <div class="e2c">
-          <div class="eg"><label class="el" for="a-type">Trade</label>
-            <select class="esel" id="a-type" onchange="calcAdv()">
-              <option value="">Select trade</option>
-              <option value="comm_roof">Commercial Roofing</option>
-              <option value="res_roof">Residential Roofing</option>
-              <option value="exterior">Exterior Work</option>
-              <option value="interior">Interior Work</option>
-              <option value="carpentry">Carpentry</option>
-              <option value="labor">Labor Only</option>
-            </select>
-          </div>
-          <div class="eg"><label class="el" for="a-sys">System / Material</label>
-            <select class="esel" id="a-sys" onchange="calcAdv()">
-              <option value="">Select system</option>
-              <option value="tpo">TPO / EPDM</option>
-              <option value="metal">Metal</option>
-              <option value="shingle">Shingle</option>
-              <option value="tile">Tile</option>
-              <option value="modbit">Modified Bitumen</option>
-              <option value="builtup">Built-Up (BUR)</option>
-              <option value="other">Other / TBD</option>
-            </select>
-          </div>
-        </div>
-        <div class="e2c">
-          <div class="eg"><label class="el" for="a-sqft">Roof / Work Area (sq ft) *</label><input class="ei" type="number" id="a-sqft" placeholder="e.g. 45,000" oninput="calcAdv()"></div>
-          <div class="eg"><label class="el" for="a-stories">Stories / Height</label>
-            <select class="esel" id="a-stories" onchange="calcAdv()">
-              <option value="1">1 Story / Ground</option>
-              <option value="2">2&ndash;3 Stories</option>
-              <option value="3">4+ / High-Rise</option>
-            </select>
-          </div>
-        </div>
-        <div class="e2c">
-          <div class="eg"><label class="el" for="a-pen">Penetration Count</label><input class="ei" type="number" id="a-pen" placeholder="HVAC, vents, pipes..." oninput="calcAdv()"></div>
-          <div class="eg"><label class="el" for="a-drains">Drain / Scupper Count</label><input class="ei" type="number" id="a-drains" placeholder="e.g. 8" oninput="calcAdv()"></div>
-        </div>
-
-        <div class="form-section-head">Technical Specifications</div>
-        <div class="e2c">
-          <div class="eg"><label class="el" for="a-deck">Deck Type</label>
-            <select class="esel" id="a-deck">
-              <option value="">Select deck</option>
-              <option>Concrete / Precast</option>
-              <option>Steel Deck</option>
-              <option>Wood Plywood / OSB</option>
-              <option>Lightweight Concrete</option>
-              <option>Unknown</option>
-            </select>
-          </div>
-          <div class="eg"><label class="el" for="a-deck-cond">Deck Condition</label>
-            <select class="esel" id="a-deck-cond">
-              <option value="">Select condition</option>
-              <option>Good — No Replacement</option>
-              <option>Fair — Partial Replacement</option>
-              <option>Poor — Full Replacement</option>
-              <option>Unknown — Needs Assessment</option>
-            </select>
-          </div>
-        </div>
-        <div class="e2c">
-          <div class="eg"><label class="el" for="a-insul">Insulation R-Value Required</label>
-            <select class="esel" id="a-insul">
-              <option value="">Select / Unknown</option>
-              <option>R-20</option><option>R-25</option><option>R-30</option>
-              <option>R-38</option><option>Code Minimum</option><option>N/A</option>
-            </select>
-          </div>
-          <div class="eg"><label class="el" for="a-attach">Attachment Method</label>
-            <select class="esel" id="a-attach">
-              <option value="">Select / Unknown</option>
-              <option>Mechanically Attached</option>
-              <option>Fully Adhered</option>
-              <option>Ballasted</option>
-              <option>Torch Applied</option>
-              <option>Cold Applied</option>
-            </select>
-          </div>
-        </div>
-        <div class="e2c">
-          <div class="eg"><label class="el" for="a-warranty">Warranty Required</label>
-            <select class="esel" id="a-warranty">
-              <option value="">Select</option>
-              <option>10-Year</option><option>15-Year</option>
-              <option>20-Year NDL</option><option>25-Year NDL</option>
-              <option>Labor Only</option>
-            </select>
-          </div>
-          <div class="eg"><label class="el" for="a-county">County</label>
-            <select class="esel" id="a-county" onchange="calcAdv()">
-              <option value="miami">Miami-Dade</option>
-              <option value="broward">Broward</option>
-              <option value="palm">Palm Beach</option>
-              <option value="other">Other Florida</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-section-head">Special Conditions</div>
-        <div class="card-sel cols-2" data-field="specials" id="adv-specials" style="margin-bottom:16px">
-          <div class="csel multi" data-val="solar"><div class="csel-label">Solar / Existing PV</div></div>
-          <div class="csel multi" data-val="hvac"><div class="csel-label">HVAC Curbs / Equipment</div></div>
-          <div class="csel multi" data-val="walkpads"><div class="csel-label">Walk Pads Required</div></div>
-          <div class="csel multi" data-val="occupied"><div class="csel-label">Occupied Facility</div></div>
-          <div class="csel multi" data-val="night"><div class="csel-label">Night / Weekend Work</div></div>
-          <div class="csel multi" data-val="phased"><div class="csel-label">Phased Scope</div></div>
-        </div>
-
-        <div class="form-section-head">Permitting</div>
-        <div class="card-sel cols-3" data-field="permit">
-          <div class="csel" data-val="none"><div class="csel-label">None / Already Pulled</div></div>
-          <div class="csel" data-val="standard"><div class="csel-label">Standard Permit</div></div>
-          <div class="csel" data-val="hvhz"><div class="csel-label">HVHZ / Miami-Dade</div></div>
-        </div>
-
-        <div class="form-section-head" style="margin-top:28px">Project Notes</div>
-        <div class="eg"><textarea class="ei" style="min-height:100px;resize:vertical" placeholder="Additional scope details, site access notes, special requirements, bid deadline, etc..."></textarea></div>
-
-        <div class="form-section-head">Upload Photos / Drawings (optional)</div>
-        <div class="file-drop" id="fileDrop" onclick="document.getElementById('fileInput').click()">
-          <input type="file" id="fileInput" multiple accept="image/*,.pdf,.dwg" onchange="handleFiles(this.files)">
-          <div class="file-drop-label">Click or drag to upload &mdash; <span>Photos, PDFs, Drawings</span></div>
-          <div class="file-list" id="fileList"></div>
-        </div>
-        <p class="helper-note" style="margin-top:8px">Accepted: JPG, PNG, PDF, DWG &mdash; Max 10 files</p>
-
-        <button onclick="submitAdv()" class="ecta" style="display:block;margin-top:28px;width:100%;border:none;cursor:pointer">Submit for Detailed Quote</button>
-        <p class="edis">All information is kept confidential. We respond within 24 hours with a detailed scope review and pricing breakdown.</p>
-        <div id="adv-success" style="display:none" class="fsucc" ><p style="font-family:'Archivo Black',sans-serif;font-size:20px;color:var(--green)">Request Received</p><small style="display:block;margin-top:8px;font-size:12px;color:var(--muted)">We'll review your scope and respond within 24 hours with a detailed breakdown.</small></div>
-      </div>
-
-      <div class="est-result" id="adv-result-panel">
-        <div>
-          <div class="er-lbl">Advanced Estimate</div>
-          <div class="er-rng" id="adv-display">&mdash;</div>
-          <p class="er-note" id="adv-note">Fill in trade, system, and square footage to see a detailed range.</p>
-          <div class="er-rows" id="adv-rows" style="display:none">
-            <div class="er-row"><span>Base Installation</span><span id="ar-base">&mdash;</span></div>
-            <div class="er-row"><span>Penetrations</span><span id="ar-pen">&mdash;</span></div>
-            <div class="er-row"><span>Drainage</span><span id="ar-drain">&mdash;</span></div>
-            <div class="er-row"><span>Height Factor</span><span id="ar-ht">&mdash;</span></div>
-            <div class="er-row"><span>Permitting</span><span id="ar-permit">&mdash;</span></div>
-            <div class="er-row"><span>Special Conditions</span><span id="ar-spec">&mdash;</span></div>
-            <div class="er-row"><span>County</span><span id="ar-county">&mdash;</span></div>
-            <div class="er-row" style="border-bottom:none;padding-top:14px">
-              <span style="color:var(--green);font-weight:700">Total Range</span>
-              <span id="ar-tot" style="color:var(--green);font-weight:700">&mdash;</span>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div style="margin-top:24px;border-top:1px solid var(--border);padding-top:20px">
-            <p class="er-note" style="color:var(--white)">Need this in writing?</p>
-            <p class="er-note" style="margin-top:8px">Submit the form to receive a detailed scope breakdown and formal estimate via email within 24 hours.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div><!-- end advanced tab -->
-<div style="margin-top:48px;padding:20px 0;border-top:1px solid var(--border);">
-  <p style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.1em;color:var(--muted);line-height:1.8;max-width:900px">
-    <strong style="color:var(--text)">Disclosure:</strong> Modern Engineering &amp; Construction LLC is a construction consulting and labor supply firm &mdash; not a licensed contractor. Estimates reflect typical market rates charged by licensed contractors. MEC builds bid packages and connects clients with licensed contractors who perform the work. Labor supply services are separate and provided under our GL and Workers&rsquo; Comp insurance.
-  </p>
-</div>
-</section>
 <footer>
   <div class="fg">
     <div>
       <div class="fb-n">Modern Engineering</div>
       <div class="fb-s">&amp; Construction &middot; Florida</div>
-      <p class="fb-d">Commercial roofing, residential exteriors, interior work, carpentry, and full-service labor solutions built for Florida&apos;s most demanding projects.</p>
+      <p class="fb-d">Construction consulting, bid packaging, and insured W-2 labor supply for Florida&rsquo;s property owners, developers, and contractors.</p>
       <a href="https://projex.live" target="_blank" rel="noopener" class="fpx">Managed via Projex.live &rarr;</a>
     </div>
     <div class="fc"><h4>Services</h4><ul>
@@ -483,7 +538,7 @@
     </ul></div>
     <div class="fc"><h4>Company</h4><ul>
       <li><a href="index.html#about">About Us</a></li>
-      <li><a href="projects.html">Projects</a></li>
+      <li><a href="projects.html">Our Work</a></li>
       <li><a href="partners.html">GC Partners</a></li>
       <li><a href="estimator.html">Get an Estimate</a></li>
       <li><a href="https://projex.live" target="_blank">Projex Platform</a></li>
@@ -502,9 +557,9 @@
     <p>HVHZ Compliant &middot; Miami-Dade &middot; Broward &middot; Palm Beach</p>
   </div>
 </footer>
-<script>
 
-// NAV SCROLL
+<script>
+// NAV
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('sc',scrollY>50),{passive:true});
 
@@ -515,93 +570,83 @@ function tm(s){mo=s;hb.classList.toggle('o',mo);if(mo){mm.style.display='flex';d
 hb.addEventListener('click',()=>tm(!mo));
 mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>tm(false)));
 
-// THEME TOGGLE
+// THEME
 const tb=document.getElementById('themeBtn');
 function setTheme(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem('theme',t);tb.innerHTML=t==='dark'?'&#9788; Light':'&#9790; Dark';}
 const saved=localStorage.getItem('theme')||'light';
 setTheme(saved);
-tb.addEventListener('click',()=>setTheme(document.documentElement.getAttribute('data-theme')==='light'?'dark':'light'));
+tb.addEventListener('click',()=>setTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark'));
 
 // REVEAL
-const ro=new IntersectionObserver(e=>{e.forEach((x,i)=>{if(x.isIntersecting){setTimeout(()=>x.target.classList.add('on'),i*60);ro.unobserve(x.target);}});},{threshold:.07});
-document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+const allRv=document.querySelectorAll('.rv,.rv-l,.rv-r,.rv-scale');
+const ro=new IntersectionObserver(e=>{e.forEach((x,i)=>{if(x.isIntersecting){setTimeout(()=>x.target.classList.add('on'),i*55);ro.unobserve(x.target);}});},{threshold:.07});
+allRv.forEach(el=>ro.observe(el));
 
-// SMOOTH SCROLL
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click',function(e){const t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});
-});
-
-
-// ── TAB SWITCH ──
-function switchTab(t) {
-  document.querySelectorAll('.tab-btn').forEach((b,i)=>b.classList.toggle('active',['standard','advanced'][i]===t));
-  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
-  document.getElementById('tab-'+t).classList.add('active');
-}
-
-// ── TRADE SWITCH (Standard) ──
+// ── TRADE SWITCH ──
+const tradeBadgeLabels={roofing:'Roofing',exterior:'Exterior',interior:'Interior',carpentry:'Carpentry',labor:'Labor Supply'};
 function switchTrade(t) {
-  document.querySelectorAll('.trade-btn').forEach(b=>b.classList.toggle('active',b.textContent.toLowerCase()===t));
+  document.querySelectorAll('.cfg-trade-btn').forEach(b=>b.classList.toggle('active',b.dataset.trade===t));
   document.querySelectorAll('.trade-fields').forEach(f=>f.classList.remove('active'));
-  document.getElementById('trade-'+t).classList.add('active');
+  const tf=document.getElementById('trade-'+t);
+  if(tf)tf.classList.add('active');
+  document.getElementById('est-trade-badge').textContent=tradeBadgeLabels[t]||t;
   calcStd();
 }
 
 // ── CARD SELECTORS ──
-document.querySelectorAll('.card-sel:not([id="adv-specials"]) .csel:not(.multi)').forEach(c=>{
+// Single-select
+document.querySelectorAll('.card-sel:not(#adv-specials) .csel:not(.multi)').forEach(c=>{
   c.addEventListener('click',function(){
     const grp=this.closest('.card-sel');
     grp.querySelectorAll('.csel').forEach(x=>x.classList.remove('selected'));
     this.classList.add('selected');
-    calcStd(); calcAdv();
+    calcStd();
   });
 });
 // Multi-select (specials)
 document.querySelectorAll('#adv-specials .csel.multi').forEach(c=>{
   c.addEventListener('click',function(){
     this.classList.toggle('selected');
-    calcAdv();
+    calcStd();
   });
 });
 
-function getCardVal(field) {
-  const el=document.querySelector(`[data-field="${field}"] .csel.selected`);
-  return el ? el.dataset.val : '';
-}
-function getMultiVals(field) {
-  return [...document.querySelectorAll(`[data-field="${field}"] .csel.selected`)].map(e=>e.dataset.val);
-}
+// ── UTILITIES ──
+function getCardVal(field){const el=document.querySelector(`[data-field="${field}"] .csel.selected`);return el?el.dataset.val:'';}
+function getMultiVals(field){return[...document.querySelectorAll(`[data-field="${field}"] .csel.selected`)].map(e=>e.dataset.val);}
 const fmt=n=>n>=1000?'$'+(n/1000).toFixed(0)+'K':'$'+n.toLocaleString();
 const fmtFull=n=>'$'+Math.round(n).toLocaleString();
 
 // ── STANDARD CALC ──
-function calcStd() {
-  const activeTrade = document.querySelector('.trade-btn.active')?.textContent.toLowerCase() || 'roofing';
-  const county = document.getElementById('s-county').value;
-  const cm = {miami:1.08,broward:1.04,palm:1.06,other:1.0}[county]||1;
-  let sqft=0, lo=0, hi=0, penAdj=0, htAdj=0;
+function calcStd(){
+  const activeTrade=document.querySelector('.cfg-trade-btn.active')?.dataset.trade||'roofing';
+  const county=document.getElementById('s-county').value;
+  const cm={miami:1.08,broward:1.04,palm:1.06,other:1.0}[county]||1;
+  let sqft=0,lo=0,hi=0,penAdj=0,htAdj=0;
 
-  if(activeTrade==='roofing') {
-    sqft = parseFloat(document.getElementById('s-sqft').value)||0;
-    const sys = getCardVal('roofSystem');
-    const stories = document.getElementById('s-stories').value;
-    const pens = parseInt(document.getElementById('s-penetrations').value)||0;
+  if(activeTrade==='roofing'){
+    sqft=parseFloat(document.getElementById('s-sqft').value)||0;
+    const sys=getCardVal('roofSystem');
+    const stories=document.getElementById('s-stories').value;
+    const pens=parseInt(document.getElementById('s-penetrations').value)||0;
     if(sqft<100){reset('std');return;}
-    // South Florida 2025 market rates per sq ft (installed, labor+material)
-    const r={
-      tpo:[9,16],       // TPO/EPDM commercial flat
-      tile:[18,32],     // Concrete/clay tile residential
-      shingle:[8,15],   // Architectural shingle
-      metal2:[14,28],   // Metal panel/standing seam
-      modbit:[10,18],   // Modified bitumen
-      bur:[10,17]       // Built-up BUR
-    }[sys]||[10,18];
-    lo=sqft*r[0]; hi=sqft*r[1];
-    penAdj = pens * 380; // avg per penetration
+    const r={tpo:[9,16],tile:[18,32],shingle:[8,15],metal2:[14,28],modbit:[10,18],bur:[10,17]}[sys]||[10,18];
+    lo=sqft*r[0];hi=sqft*r[1];
+    penAdj=pens*380;
     const hm={1:1,2:1.12,3:1.28}[stories]||1;
-    htAdj = (hm-1)*(lo+hi)/2;
-    const tl=Math.round((lo+penAdj*0.5+htAdj*0.5)*cm/100)*100;
-    const th=Math.round((hi+penAdj*1.5+htAdj*1.5)*cm/100)*100;
+    htAdj=(hm-1)*(lo+hi)/2;
+    // Special conditions
+    const specials=getMultiVals('specials');
+    let specCost=0;
+    if(specials.includes('solar'))specCost+=3500;
+    if(specials.includes('occupied'))specCost+=1200;
+    if(specials.includes('night'))specCost+=1800;
+    if(specials.includes('phased'))specCost+=900;
+    // Permit
+    const permitVal=getCardVal('permit');
+    const permitCost={none:0,standard:3500,hvhz:7500}[permitVal]||0;
+    const tl=Math.round((lo+penAdj*0.5+htAdj*0.5+specCost+permitCost)*cm/100)*100;
+    const th=Math.round((hi+penAdj*1.5+htAdj*1.5+specCost+permitCost)*cm/100)*100;
     show('std',tl,th,[
       ['sr-base',fmtFull(lo)+' – '+fmtFull(hi)],
       ['sr-pen',pens>0?'+'+fmtFull(penAdj):'None'],
@@ -609,33 +654,45 @@ function calcStd() {
       ['sr-co',cm===1?'Standard':'+'+Math.round((cm-1)*100)+'%'],
       ['sr-tot',fmt(tl)+' – '+fmt(th)]
     ]);
-  } else if(activeTrade==='exterior') {
+  }else if(activeTrade==='exterior'){
     sqft=parseFloat(document.getElementById('ext-lf').value)||0;
     if(sqft<10){reset('std');return;}
-    lo=sqft*8; hi=sqft*18;
-    const tl=Math.round(lo*cm/100)*100, th=Math.round(hi*cm/100)*100;
+    lo=sqft*8;hi=sqft*18;
+    const tl=Math.round(lo*cm/100)*100,th=Math.round(hi*cm/100)*100;
     show('std',tl,th,[
       ['sr-base',fmtFull(lo)+' – '+fmtFull(hi)],
       ['sr-pen','N/A'],['sr-ht','N/A'],
       ['sr-co',cm===1?'Standard':'+'+Math.round((cm-1)*100)+'%'],
       ['sr-tot',fmt(tl)+' – '+fmt(th)]
     ]);
-  } else if(activeTrade==='interior') {
+  }else if(activeTrade==='interior'){
     sqft=parseFloat(document.getElementById('int-sqft').value)||0;
     if(sqft<50){reset('std');return;}
-    lo=sqft*6; hi=sqft*14;
-    const tl=Math.round(lo*cm/100)*100, th=Math.round(hi*cm/100)*100;
+    lo=sqft*6;hi=sqft*14;
+    const tl=Math.round(lo*cm/100)*100,th=Math.round(hi*cm/100)*100;
     show('std',tl,th,[
       ['sr-base',fmtFull(lo)+' – '+fmtFull(hi)],
       ['sr-pen','N/A'],['sr-ht','N/A'],
       ['sr-co',cm===1?'Standard':'+'+Math.round((cm-1)*100)+'%'],
       ['sr-tot',fmt(tl)+' – '+fmt(th)]
     ]);
-  } else if(activeTrade==='carpentry') {
+  }else if(activeTrade==='carpentry'){
     sqft=parseFloat(document.getElementById('carp-sqft').value)||0;
     if(sqft<10){reset('std');return;}
-    lo=sqft*40; hi=sqft*90;
-    const tl=Math.round(lo*cm/100)*100, th=Math.round(hi*cm/100)*100;
+    lo=sqft*40;hi=sqft*90;
+    const tl=Math.round(lo*cm/100)*100,th=Math.round(hi*cm/100)*100;
+    show('std',tl,th,[
+      ['sr-base',fmtFull(lo)+' – '+fmtFull(hi)],
+      ['sr-pen','N/A'],['sr-ht','N/A'],
+      ['sr-co',cm===1?'Standard':'+'+Math.round((cm-1)*100)+'%'],
+      ['sr-tot',fmt(tl)+' – '+fmt(th)]
+    ]);
+  }else if(activeTrade==='labor'){
+    sqft=parseFloat(document.getElementById('lab-sqft').value)||0;
+    const days=parseFloat(document.getElementById('lab-days').value)||1;
+    if(sqft<50){reset('std');return;}
+    lo=sqft*5*days;hi=sqft*9*days;
+    const tl=Math.round(lo*cm/100)*100,th=Math.round(hi*cm/100)*100;
     show('std',tl,th,[
       ['sr-base',fmtFull(lo)+' – '+fmtFull(hi)],
       ['sr-pen','N/A'],['sr-ht','N/A'],
@@ -645,142 +702,148 @@ function calcStd() {
   }
 }
 
-// ── ADVANCED CALC ──
-function calcAdv() {
-  const type=document.getElementById('a-type').value;
-  const sys=document.getElementById('a-sys').value;
-  const sqft=parseFloat(document.getElementById('a-sqft').value)||0;
-  const stories=document.getElementById('a-stories').value;
-  const pens=parseInt(document.getElementById('a-pen').value)||0;
-  const drains=parseInt(document.getElementById('a-drains').value)||0;
-  const county=document.getElementById('a-county').value;
-  const permitVal=getCardVal('permit');
-  const specials=getMultiVals('specials');
-
-  if(!type||sqft<100){reset('adv');return;}
-
-  // South Florida 2025 installed rates per sq ft
-  const rates={
-    comm_roof:{
-      tpo:[9,16],       // TPO/EPDM flat roof commercial
-      metal:[14,28],    // Metal roof commercial
-      shingle:[8,14],   // Shingle commercial/multifamily
-      tile:[18,32],     // Concrete/clay tile
-      modbit:[10,18],   // Modified bitumen
-      builtup:[10,17],  // Built-up BUR
-      other:[10,18]
-    },
-    res_roof:{
-      tpo:[10,18],      // TPO/EPDM residential flat
-      metal:[16,32],    // Metal residential
-      shingle:[9,16],   // Shingle residential
-      tile:[20,38],     // Tile residential (higher labor)
-      modbit:[11,19],   // Mod bit residential
-      builtup:[11,18],  // BUR residential
-      other:[12,20]
-    },
-    exterior:{other:[12,24]},  // Stucco/waterproofing/fascia
-    interior:{other:[9,18]},   // Drywall/ceiling/flooring
-    carpentry:{other:[55,110]},// Carpentry per sqft/lf blended
-    labor:{other:[5,9]}        // Labor only per sqft
-  };
-  const r=(rates[type]||{other:[5,12]})[sys]||(rates[type]||{other:[5,12]})['other']||[5,12];
-  let lo=sqft*r[0], hi=sqft*r[1];
-  const penAdj=pens*420, drainAdj=drains*350;
-  const hm={1:1,2:1.12,3:1.28}[stories]||1;
-  const htAdj=(hm-1)*(lo+hi)/2;
-  const permitCost={none:0,standard:3500,hvhz:7500}[permitVal]||0;
-  const specCost=specials.includes('solar')?3500:0 + specials.includes('occupied')?1200:0 + specials.includes('night')?1800:0 + specials.includes('phased')?900:0;
-  const cm={miami:1.08,broward:1.04,palm:1.06,other:1.0}[county]||1;
-
-  const tl=Math.round(((lo+penAdj*0.5+drainAdj*0.5+htAdj*0.5+permitCost+specCost)*cm)/100)*100;
-  const th=Math.round(((hi+penAdj*1.5+drainAdj*1.5+htAdj*1.5+permitCost+specCost)*cm)/100)*100;
-
-  document.getElementById('adv-display').textContent=fmt(tl)+' – '+fmt(th);
-  document.getElementById('adv-note').textContent='Detailed breakdown based on your specifications. Submit for a formal written estimate.';
-  document.getElementById('adv-rows').style.display='block';
-  document.getElementById('ar-base').textContent=fmtFull(lo)+' – '+fmtFull(hi);
-  document.getElementById('ar-pen').textContent=pens>0?'+'+fmtFull(penAdj):'None';
-  document.getElementById('ar-drain').textContent=drains>0?'+'+fmtFull(drainAdj):'None';
-  document.getElementById('ar-ht').textContent=hm===1?'None':'+'+Math.round((hm-1)*100)+'%';
-  document.getElementById('ar-permit').textContent=permitCost>0?'+'+fmtFull(permitCost):'Not included';
-  document.getElementById('ar-spec').textContent=specCost>0?'+'+fmtFull(specCost):'None selected';
-  document.getElementById('ar-county').textContent=cm===1?'Standard':'+'+Math.round((cm-1)*100)+'%';
-  document.getElementById('ar-tot').textContent=fmt(tl)+' – '+fmt(th);
-  // Save advanced estimate to sessionStorage
-  const advSummary=`Advanced Estimate | Type: ${type} | System: ${sys} | ${sqft.toLocaleString()} sqft | Range: ${fmt(tl)} – ${fmt(th)} | Permit: ${permitVal||'none'} | Specials: ${specials.join(',')||'none'} | County: ${county}`;
-  sessionStorage.setItem('mec_estimate', advSummary);
-}
-
-function show(pfx,tl,th,rows) {
+function show(pfx,tl,th,rows){
   document.getElementById(pfx+'-display').textContent=fmt(tl)+' – '+fmt(th);
-  document.getElementById(pfx+'-note').textContent='Budgeting range. Exact pricing requires a site visit.';
+  document.getElementById(pfx+'-note').textContent='Budget range based on your configuration. Exact pricing confirmed through bid process.';
   document.getElementById(pfx+'-rows').style.display='block';
   rows.forEach(([id,val])=>{const e=document.getElementById(id);if(e)e.textContent=val;});
-  // Save estimate summary to sessionStorage for contact form
-  const trade=document.querySelector('.trade-btn.active')?.textContent||'';
-  const summary=`Standard Estimate | Trade: ${trade} | Range: ${fmt(tl)} – ${fmt(th)} | ${rows.map(([,v])=>v).join(' | ')}`;
-  sessionStorage.setItem('mec_estimate', summary);
+  const trade=document.querySelector('.cfg-trade-btn.active')?.dataset.trade||'';
+  const summary=`Estimate | Trade: ${trade} | Range: ${fmt(tl)} – ${fmt(th)} | ${rows.map(([,v])=>v).join(' | ')}`;
+  sessionStorage.setItem('mec_estimate',summary);
+  // Update send form textarea if open
+  const sfNotes=document.getElementById('sf-notes');
+  if(sfNotes&&!sfNotes.value.startsWith('Estimate:'))sfNotes.placeholder='Any additional notes... (estimate auto-attached)';
 }
-function reset(pfx) {
+function reset(pfx){
   document.getElementById(pfx+'-display').textContent='—';
-  document.getElementById(pfx+'-note').textContent='Select your trade, system, and square footage.';
-  if(document.getElementById(pfx+'-rows'))document.getElementById(pfx+'-rows').style.display='none';
+  document.getElementById(pfx+'-note').textContent='Configure your project above to see a live estimate.';
+  const rows=document.getElementById(pfx+'-rows');
+  if(rows)rows.style.display='none';
+}
+
+// ── ADVANCED TOGGLE ──
+function toggleAdv(){
+  const panel=document.getElementById('adv-specs');
+  const icon=document.getElementById('adv-icon');
+  const btn=document.getElementById('adv-toggle');
+  const open=panel.classList.contains('open');
+  panel.classList.toggle('open',!open);
+  icon.classList.toggle('open',!open);
+  btn.querySelector('span:first-child').textContent=open?'Expand Technical Details':'Collapse Technical Details';
+}
+
+// ── SEND FORM TOGGLE ──
+function toggleSend(){
+  const form=document.getElementById('est-send-form');
+  const isOpen=form.classList.contains('open');
+  form.classList.toggle('open',!isOpen);
+  document.getElementById('send-btn').textContent=isOpen?'Send to MEC →':'Close';
+  if(!isOpen){
+    // Pre-fill notes with estimate summary
+    const est=sessionStorage.getItem('mec_estimate')||'';
+    const notes=document.getElementById('sf-notes');
+    if(est&&notes&&!notes.value)notes.value='Estimate summary: '+est;
+    // Scroll into view
+    setTimeout(()=>form.scrollIntoView({behavior:'smooth',block:'nearest'}),100);
+  }
+}
+
+// ── SEND PROPOSAL ──
+async function sendProposal(){
+  const name=document.getElementById('sf-name').value.trim();
+  const email=document.getElementById('sf-email').value.trim();
+  if(!name||!email){document.getElementById('sf-name').focus();return;}
+  const phone=document.getElementById('sf-phone').value.trim();
+  const notes=document.getElementById('sf-notes').value.trim();
+  const btn=document.querySelector('.sf-submit');
+  btn.textContent='Sending...';
+  btn.disabled=true;
+  const payload={
+    name,email,phone,
+    message:notes||'(no additional notes)',
+    estimate_summary:sessionStorage.getItem('mec_estimate')||'No estimate generated',
+    trade:document.querySelector('.cfg-trade-btn.active')?.dataset.trade||'',
+    county:document.getElementById('s-county').value,
+    license:document.getElementById('a-lic')?.value||'',
+    source:'estimator_panel'
+  };
+  try{
+    const res=await fetch('https://formspree.io/f/xkgwblvq',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});
+    if(res.ok){
+      document.getElementById('sf-success').style.display='block';
+      btn.style.display='none';
+      document.getElementById('send-btn').textContent='Sent';
+      document.getElementById('send-btn').classList.add('sent');
+      sessionStorage.removeItem('mec_estimate');
+    }else{btn.textContent='Try again';btn.disabled=false;}
+  }catch(err){btn.textContent='Try again';btn.disabled=false;}
+}
+
+// ── DOWNLOAD ESTIMATE ──
+function downloadEst(){
+  const range=document.getElementById('std-display').textContent;
+  if(range==='—'){alert('Configure your project first to generate an estimate.');return;}
+  const trade=document.querySelector('.cfg-trade-btn.active')?.dataset.trade||'';
+  const county=document.getElementById('s-county')?.options[document.getElementById('s-county').selectedIndex]?.text||'';
+  const base=document.getElementById('sr-base')?.textContent||'';
+  const pen=document.getElementById('sr-pen')?.textContent||'';
+  const ht=document.getElementById('sr-ht')?.textContent||'';
+  const co=document.getElementById('sr-co')?.textContent||'';
+  const now=new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+  const lines=[
+    'MODERN ENGINEERING & CONSTRUCTION',
+    'Project Estimate — '+now,
+    '─'.repeat(48),
+    '',
+    'Trade          : '+trade.toUpperCase(),
+    'County         : '+county,
+    '',
+    'ESTIMATE BREAKDOWN',
+    '─'.repeat(48),
+    'Base Labor & Material  : '+base,
+    'Penetrations / Details : '+pen,
+    'Height Factor          : '+ht,
+    'County Adjustment      : '+co,
+    '─'.repeat(48),
+    'TOTAL RANGE            : '+range,
+    '',
+    'This is a budget estimate based on typical South Florida',
+    '2025 contractor market rates. Actual pricing is confirmed',
+    'through MEC\'s competitive bid package process.',
+    '',
+    'MEC is a construction consulting and labor supply firm.',
+    'We are not a licensed contractor. All licensed work is',
+    'performed by independently licensed contractors.',
+    '',
+    '─'.repeat(48),
+    'modernengineering.build',
+    '(305) 614-0219  |  ethan@projex.live',
+    'Miami-Dade · Broward · Palm Beach',
+    '─'.repeat(48),
+  ];
+  const blob=new Blob([lines.join('\n')],{type:'text/plain'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='MEC-Estimate-'+Date.now()+'.txt';
+  a.click();
+  URL.revokeObjectURL(a.href);
 }
 
 // ── FILE UPLOAD ──
-function handleFiles(files) {
+function handleFiles(files){
   const list=document.getElementById('fileList');
   [...files].slice(0,10).forEach(f=>{
     const item=document.createElement('div');
     item.className='file-item';
-    item.innerHTML=`<span>${f.name} (${(f.size/1024).toFixed(0)}KB)</span><span class="file-remove" onclick="this.parentElement.remove()">✕</span>`;
+    item.innerHTML=`<span>${f.name} (${(f.size/1024).toFixed(0)}KB)</span><span class="file-remove" onclick="this.parentElement.remove()">x</span>`;
     list.appendChild(item);
   });
 }
 
-// ── SUBMIT ADVANCED ──
-function saveAndGo(e) {
-  // Estimate already saved by show() — just navigate
-  // sessionStorage persists for the tab session
-}
-
-async function submitAdv() {
-  const btn = document.querySelector('#tab-advanced .ecta');
-  if(btn){btn.textContent='Sending...';btn.style.pointerEvents='none';}
-
-  const payload = {
-    _to: 'ethan@projex.live',
-    name:    document.getElementById('a-name')?.value || '',
-    email:   document.getElementById('a-email')?.value || '',
-    phone:   document.getElementById('a-phone')?.value || '',
-    company: document.getElementById('a-company')?.value || '',
-    license: document.getElementById('a-lic')?.value || '',
-    trade:   document.getElementById('a-type')?.value || '',
-    system:  document.getElementById('a-sys')?.value || '',
-    sqft:    document.getElementById('a-sqft')?.value || '',
-    county:  document.getElementById('a-county')?.value || '',
-    deck:    document.getElementById('a-deck')?.value || '',
-    warranty:document.getElementById('a-warranty')?.value || '',
-    estimate_range: document.getElementById('adv-display')?.textContent || '',
-    estimate_summary: sessionStorage.getItem('mec_estimate') || '',
-    specials: [...document.querySelectorAll('#adv-specials .csel.selected')].map(e=>e.dataset.val).join(', '),
-  };
-
-  try {
-    const res = await fetch('https://formspree.io/f/xkgwblvq', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-    document.getElementById('adv-success').style.display='block';
-    document.getElementById('adv-success').scrollIntoView({behavior:'smooth',block:'nearest'});
-    sessionStorage.removeItem('mec_estimate');
-    if(btn){btn.style.display='none';}
-  } catch(err) {
-    if(btn){btn.textContent='Try again';btn.style.pointerEvents='';}
-  }
-}
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',function(e){const t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});
+});
 </script>
 </body>
 </html>
