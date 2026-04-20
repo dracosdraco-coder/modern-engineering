@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Project Estimator | Modern Engineering & Construction</title>
-<link rel="stylesheet" href="public/shared.css">
+<link rel="stylesheet" href="shared.css">
 <style>
 /* TABS */
 .est-tabs{display:flex;gap:2px;background:var(--border);margin-top:48px;width:fit-content}
 .tab-btn{padding:14px 36px;font-family:'Archivo Black',sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--bg2);border:none;cursor:pointer;transition:all .2s}
-.tab-btn.active{background:var(--green);color:#060d06}
+.tab-btn.active{background:var(--green);color:#fff}
 .tab-panel{display:none;margin-top:48px}
 .tab-panel.active{display:block}
 
@@ -45,8 +45,8 @@
 .er-row:last-child{border-bottom:none}
 .er-row span:first-child{color:var(--muted)}
 .er-row span:last-child{color:var(--white);font-weight:500}
-.ecta{display:block;margin-top:24px;background:var(--green);color:#060d06;text-align:center;padding:15px;font-family:'Archivo Black',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;transition:background .2s}
-.ecta:hover{background:#6dd46d}
+.ecta{display:block;margin-top:24px;background:var(--green);color:#fff;text-align:center;padding:15px;font-family:'Archivo Black',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;transition:background .2s,transform .2s}
+.ecta:hover{background:var(--green-dk);transform:translateY(-1px)}
 .edis{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.1em;color:var(--muted);margin-top:12px;line-height:1.7}
 
 /* SECTION HEADERS INSIDE FORM */
@@ -90,7 +90,7 @@
 <div class="mmenu" id="mm">
   <a href="index.html">Home</a>
   <a href="services.html">Services</a>
-  <a href="projects.html">Projects</a>
+  <a href="projects.html">Work</a>
   <a href="partners.html">Partners</a>
   <a href="estimator.html" class="active">Estimate</a>
   <a href="contact.html" class="mcta">Get a Quote &rarr;</a>
@@ -104,13 +104,13 @@
   <ul class="nav-ul">
     <li><a href="index.html">Home</a></li>
     <li><a href="services.html">Services</a></li>
-    <li><a href="projects.html">Projects</a></li>
+    <li><a href="projects.html">Work</a></li>
     <li><a href="partners.html">Partners</a></li>
     <li><a href="estimator.html" class="active">Estimate</a></li>
     <li><a href="contact.html" class="ncta">Get a Quote</a></li>
   </ul>
   <div class="nav-right">
-    <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">&#9788; Light</button>
+    <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">&#9790; Dark</button>
     <button class="hbtn" id="hb" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -517,8 +517,8 @@ mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>tm(false)));
 
 // THEME TOGGLE
 const tb=document.getElementById('themeBtn');
-function setTheme(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem('theme',t);tb.textContent=t==='light'?'&#9790; Dark':'&#9788; Light';tb.innerHTML=t==='light'?'&#9790; Dark':'&#9788; Light';}
-const saved=localStorage.getItem('theme')||'dark';
+function setTheme(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem('theme',t);tb.innerHTML=t==='dark'?'&#9788; Light':'&#9790; Dark';}
+const saved=localStorage.getItem('theme')||'light';
 setTheme(saved);
 tb.addEventListener('click',()=>setTheme(document.documentElement.getAttribute('data-theme')==='light'?'dark':'light'));
 

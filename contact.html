@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact | Modern Engineering & Construction</title>
-<link rel="stylesheet" href="public/shared.css">
+<link rel="stylesheet" href="shared.css">
 <style>
 .contact-layout{display:grid;grid-template-columns:1fr 1.5fr;gap:80px;align-items:start;margin-top:56px}
 .cl-contacts{border-top:1px solid var(--border);margin-top:36px}
-.cc{padding:18px 0;border-bottom:1px solid var(--border)}
+.cc{padding:18px 0;border-bottom:1px solid var(--border);transition:background .2s}
 .cc-l{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.26em;text-transform:uppercase;color:var(--green);margin-bottom:4px}
 .cc-v{font-size:14px;font-weight:500;color:var(--white);transition:color .2s}
 a.cc-v:hover{color:var(--green)}
@@ -16,16 +16,16 @@ a.cc-v:hover{color:var(--green)}
 .cf-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--green);padding-bottom:20px;border-bottom:1px solid var(--border);margin-bottom:24px}
 .fg2{margin-bottom:16px}
 .fl{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.24em;text-transform:uppercase;color:var(--green);display:block;margin-bottom:7px}
-.fi,.fs,.fta{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--white);padding:12px 16px;font-family:'Archivo',sans-serif;font-size:13.5px;font-weight:300;outline:none;appearance:none;transition:border-color .2s;resize:none}
+.fi,.fs,.fta{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--white);padding:12px 16px;font-family:'Archivo',sans-serif;font-size:13.5px;font-weight:300;outline:none;appearance:none;transition:border-color .2s;resize:none}
 .fi::placeholder{color:var(--muted)}
 .fi:focus,.fs:focus,.fta:focus{border-color:var(--green)}
-.fs option{background:var(--card)}
+.fs option{background:var(--bg)}
 .fta{min-height:120px}
 .f2c{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.fsub{width:100%;margin-top:8px;background:var(--green);color:#060d06;border:none;padding:16px;font-family:'Archivo Black',sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .2s}
-.fsub:hover{background:#6dd46d}
+.fsub{width:100%;margin-top:8px;background:var(--green);color:#fff;border:none;padding:16px;font-family:'Archivo Black',sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .2s,transform .2s}
+.fsub:hover{background:var(--green-dk);transform:translateY(-1px)}
 .fnote{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.1em;color:var(--muted);margin-top:12px;line-height:1.7}
-.fsucc{display:none;border:1px solid rgba(92,184,92,.3);background:rgba(92,184,92,.05);padding:24px;margin-top:16px;text-align:center}
+.fsucc{display:none;border:1px solid rgba(22,163,74,.3);background:var(--green-dim);padding:24px;margin-top:16px;text-align:center}
 .fsucc p{font-family:'Archivo Black',sans-serif;font-size:20px;color:var(--green)}
 .fsucc small{display:block;margin-top:8px;font-size:12px;color:var(--muted)}
 @media(max-width:1100px){.contact-layout{grid-template-columns:1fr;gap:48px}}
@@ -37,7 +37,7 @@ a.cc-v:hover{color:var(--green)}
 <div class="mmenu" id="mm">
   <a href="index.html">Home</a>
   <a href="services.html">Services</a>
-  <a href="projects.html">Projects</a>
+  <a href="projects.html">Work</a>
   <a href="partners.html">Partners</a>
   <a href="estimator.html">Estimate</a>
   <a href="contact.html" class="mcta">Get a Quote &rarr;</a>
@@ -51,24 +51,26 @@ a.cc-v:hover{color:var(--green)}
   <ul class="nav-ul">
     <li><a href="index.html">Home</a></li>
     <li><a href="services.html">Services</a></li>
-    <li><a href="projects.html">Projects</a></li>
+    <li><a href="projects.html">Work</a></li>
     <li><a href="partners.html">Partners</a></li>
     <li><a href="estimator.html">Estimate</a></li>
-    <li><a href="contact.html" class="ncta">Get a Quote</a></li>
+    <li><a href="contact.html" class="ncta active">Get a Quote</a></li>
   </ul>
   <div class="nav-right">
-    <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">&#9788; Light</button>
+    <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">&#9790; Dark</button>
     <button class="hbtn" id="hb" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
+
 <div class="page-hero rv">
   <p class="mono" style="margin-bottom:14px">Get In Touch</p>
   <h1 class="head head-lg">Start Your<br>Bid Package</h1>
   <p class="body-t" style="margin-top:18px;max-width:520px">Tell us about your project and we&rsquo;ll put together a bid package with 2&ndash;3 licensed contractor options &mdash; or discuss labor supply and consulting needs. We respond within 24 hours.</p>
 </div>
+
 <section class="sec">
   <div class="contact-layout">
-    <div class="rv">
+    <div class="rv-l">
       <h2 class="head head-md">Reach Us<br>Directly</h2>
       <div class="cl-contacts">
         <div class="cc"><div class="cc-l">Phone</div><a href="tel:+13056140219" class="cc-v">(305) 614-0219</a></div>
@@ -78,12 +80,12 @@ a.cc-v:hover{color:var(--green)}
         <div class="cc"><div class="cc-l">Hours</div><span class="cc-v">Mon&ndash;Fri 7AM &ndash; 6PM &middot; Sat 8AM &ndash; 2PM</span></div>
       </div>
       <div style="margin-top:36px">
-        <p class="body-t">Need a quick estimate before you call? <a href="estimator.html" style="color:var(--green);border-bottom:1px solid rgba(92,184,92,.3)">Use our project estimator</a> to get a budgeting range in under a minute.</p>
+        <p class="body-t">Need a quick estimate before you call? <a href="estimator.html" style="color:var(--green);border-bottom:1px solid var(--border2)">Use our project estimator</a> to get a budgeting range in under a minute.</p>
       </div>
     </div>
-    <div class="cf rv">
+    <div class="cf rv-r">
       <div class="cf-title">Project Inquiry</div>
-      <div id="est-attached" style="display:none;background:rgba(42,138,42,.08);border:1px solid rgba(42,138,42,.25);padding:12px 16px;margin-bottom:20px;">
+      <div id="est-attached" style="display:none;background:var(--green-dim);border:1px solid rgba(22,163,74,.25);padding:12px 16px;margin-bottom:20px;">
         <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.22em;text-transform:uppercase;color:var(--green);margin-bottom:4px">Estimate Attached</div>
         <div id="est-attached-text" style="font-size:12px;color:var(--muted);line-height:1.6"></div>
       </div>
@@ -116,18 +118,19 @@ a.cc-v:hover{color:var(--green)}
         <div class="fg2"><label class="fl" for="fm">Project Description *</label><textarea class="fta" id="fm" name="message" placeholder="Tell us about your project &mdash; scope, timeline, any specifics..." required></textarea></div>
         <button type="submit" class="fsub">Submit Inquiry</button>
         <p class="fnote">We respond within 24 hours. Your information stays private and is never sold or shared.</p>
-        <p class="fnote" style="margin-top:8px;color:#3a4e3a">MEC is a consulting and labor supply firm &mdash; not a licensed contractor. Licensed work is performed by independently licensed contractors sourced through our bid process.</p>
-        <div class="fsucc" id="fsucc"><p>Inquiry Received</p><small>We&apos;ll be in touch within 24 hours to discuss your project.</small></div>
+        <p class="fnote" style="margin-top:8px">MEC is a consulting and labor supply firm &mdash; not a licensed contractor. Licensed work is performed by independently licensed contractors sourced through our bid process.</p>
+        <div class="fsucc" id="fsucc"><p>Inquiry Received</p><small>We&rsquo;ll be in touch within 24 hours to discuss your project.</small></div>
       </form>
     </div>
   </div>
 </section>
+
 <footer>
   <div class="fg">
     <div>
       <div class="fb-n">Modern Engineering</div>
       <div class="fb-s">&amp; Construction &middot; Florida</div>
-      <p class="fb-d">Commercial roofing, residential exteriors, interior work, carpentry, and full-service labor solutions built for Florida&apos;s most demanding projects.</p>
+      <p class="fb-d">Construction consulting, bid packaging, and insured W-2 labor supply for Florida&rsquo;s property owners, developers, and contractors.</p>
       <a href="https://projex.live" target="_blank" rel="noopener" class="fpx">Managed via Projex.live &rarr;</a>
     </div>
     <div class="fc"><h4>Services</h4><ul>
@@ -141,7 +144,7 @@ a.cc-v:hover{color:var(--green)}
     </ul></div>
     <div class="fc"><h4>Company</h4><ul>
       <li><a href="index.html#about">About Us</a></li>
-      <li><a href="projects.html">Projects</a></li>
+      <li><a href="projects.html">Our Work</a></li>
       <li><a href="partners.html">GC Partners</a></li>
       <li><a href="estimator.html">Get an Estimate</a></li>
       <li><a href="https://projex.live" target="_blank">Projex Platform</a></li>
@@ -160,76 +163,41 @@ a.cc-v:hover{color:var(--green)}
     <p>HVHZ Compliant &middot; Miami-Dade &middot; Broward &middot; Palm Beach</p>
   </div>
 </footer>
+
 <script>
-// NAV SCROLL
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('sc',scrollY>50),{passive:true});
-
-// HAMBURGER
 const hb=document.getElementById('hb'),mm=document.getElementById('mm');
 let mo=false;
 function tm(s){mo=s;hb.classList.toggle('o',mo);if(mo){mm.style.display='flex';document.body.style.overflow='hidden';requestAnimationFrame(()=>mm.classList.add('o'));}else{mm.classList.remove('o');document.body.style.overflow='';setTimeout(()=>{if(!mo)mm.style.display='none'},400);}}
 hb.addEventListener('click',()=>tm(!mo));
 mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>tm(false)));
-
-// THEME TOGGLE
 const tb=document.getElementById('themeBtn');
-function setTheme(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem('theme',t);tb.textContent=t==='light'?'&#9790; Dark':'&#9788; Light';tb.innerHTML=t==='light'?'&#9790; Dark':'&#9788; Light';}
-const saved=localStorage.getItem('theme')||'dark';
+function setTheme(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem('theme',t);tb.innerHTML=t==='dark'?'&#9788; Light':'&#9790; Dark';}
+const saved=localStorage.getItem('theme')||'light';
 setTheme(saved);
-tb.addEventListener('click',()=>setTheme(document.documentElement.getAttribute('data-theme')==='light'?'dark':'light'));
-
-// REVEAL
-const ro=new IntersectionObserver(e=>{e.forEach((x,i)=>{if(x.isIntersecting){setTimeout(()=>x.target.classList.add('on'),i*60);ro.unobserve(x.target);}});},{threshold:.07});
-document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
-
-// SHOW ATTACHED ESTIMATE
-const est = sessionStorage.getItem('mec_estimate');
-if (est) {
-  const banner = document.getElementById('est-attached');
-  const text = document.getElementById('est-attached-text');
-  if (banner && text) {
-    banner.style.display = 'block';
-    text.textContent = est;
-  }
-}
-
-// SMOOTH SCROLL
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click',function(e){const t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});
-});
+tb.addEventListener('click',()=>setTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark'));
+const allRv=document.querySelectorAll('.rv,.rv-l,.rv-r,.rv-scale');
+const ro=new IntersectionObserver(e=>{e.forEach((x,i)=>{if(x.isIntersecting){setTimeout(()=>x.target.classList.add('on'),i*55);ro.unobserve(x.target);}});},{threshold:.07,rootMargin:'0px 0px -40px 0px'});
+allRv.forEach(el=>ro.observe(el));
+const est=sessionStorage.getItem('mec_estimate');
+if(est){const banner=document.getElementById('est-attached');const text=document.getElementById('est-attached-text');if(banner&&text){banner.style.display='block';text.textContent=est;}}
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){const t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});});
 </script>
 <script>
-document.getElementById('iform').addEventListener('submit', async function(e) {
+document.getElementById('iform').addEventListener('submit',async function(e){
   e.preventDefault();
-  const b = this.querySelector('.fsub');
-  b.textContent = 'Sending...';
-  b.disabled = true;
-
-  // Pull any estimate data saved from estimator page
-  const estData = sessionStorage.getItem('mec_estimate') || '';
-
-  const payload = Object.fromEntries(new FormData(this));
-  if (estData) payload.estimate_summary = estData;
-
-  try {
-    const res = await fetch('https://formspree.io/f/xkgwblvq', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-    if (res.ok) {
-      document.getElementById('fsucc').style.display = 'block';
-      b.style.display = 'none';
-      sessionStorage.removeItem('mec_estimate');
-    } else {
-      b.textContent = 'Try again';
-      b.disabled = false;
-    }
-  } catch(err) {
-    b.textContent = 'Try again';
-    b.disabled = false;
-  }
+  const b=this.querySelector('.fsub');
+  b.textContent='Sending...';
+  b.disabled=true;
+  const estData=sessionStorage.getItem('mec_estimate')||'';
+  const payload=Object.fromEntries(new FormData(this));
+  if(estData)payload.estimate_summary=estData;
+  try{
+    const res=await fetch('https://formspree.io/f/xkgwblvq',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});
+    if(res.ok){document.getElementById('fsucc').style.display='block';b.style.display='none';sessionStorage.removeItem('mec_estimate');}
+    else{b.textContent='Try again';b.disabled=false;}
+  }catch(err){b.textContent='Try again';b.disabled=false;}
 });
 </script>
 </body>
