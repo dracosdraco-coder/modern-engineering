@@ -17,12 +17,6 @@
 .config-wrap{max-width:1440px;margin:0 auto;padding:0 48px 80px;display:grid;grid-template-columns:1fr 400px;gap:64px;align-items:start;padding-top:48px}
 .config-form{min-width:0}
 
-/* ── STEPS / PROGRESS ── */
-.cfg-progress{display:flex;gap:0;margin-bottom:48px;border-bottom:1px solid var(--border)}
-.cfg-progress-step{flex:1;padding:0 0 14px;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid transparent;transition:color .2s,border-color .2s;cursor:default;position:relative;text-align:center}
-.cfg-progress-step.done{color:var(--green);border-bottom-color:var(--green)}
-.cfg-progress-step.active{color:var(--white);border-bottom-color:var(--white)}
-
 /* ── CONFIG SECTION ── */
 .cfg-section{margin-bottom:48px;padding-bottom:48px;border-bottom:1px solid var(--border)}
 .cfg-section:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
@@ -31,13 +25,13 @@
 .cfg-section-title{font-family:'Archivo Black',sans-serif;font-size:18px;color:var(--white);letter-spacing:.01em}
 .cfg-section-sub{font-size:12px;font-weight:300;color:var(--muted);margin-top:2px}
 
-/* ── CARD SELECTORS — no icons ── */
+/* ── CARD SELECTORS ── */
 .card-sel{display:grid;gap:6px}
 .card-sel.cols-2{grid-template-columns:1fr 1fr}
 .card-sel.cols-3{grid-template-columns:repeat(3,1fr)}
 .card-sel.cols-4{grid-template-columns:repeat(4,1fr)}
 .csel{border:1px solid var(--border);padding:18px 16px;background:var(--bg);cursor:pointer;text-align:left;transition:border-color .2s,background .2s;user-select:none;position:relative;overflow:hidden}
-.csel::after{content:'';position:absolute;top:10px;right:10px;width:18px;height:18px;border-radius:50%;background:var(--green);opacity:0;transition:opacity .2s;transform:scale(.6);transition:opacity .2s,transform .2s}
+.csel::after{content:'';position:absolute;top:10px;right:10px;width:18px;height:18px;border-radius:50%;background:var(--green);opacity:0;transform:scale(.6);transition:opacity .2s,transform .2s}
 .csel::before{content:'';position:absolute;top:15px;right:14px;width:5px;height:9px;border-right:1.5px solid #fff;border-bottom:1.5px solid #fff;transform:rotate(45deg) scale(.6);opacity:0;z-index:1;transition:opacity .2s,transform .2s}
 .csel:hover{border-color:var(--green);background:var(--card)}
 .csel.selected{border-color:var(--green);background:var(--green-dim)}
@@ -46,6 +40,7 @@
 .csel-lbl{font-family:'Archivo Black',sans-serif;font-size:13px;color:var(--white);letter-spacing:.01em;line-height:1.1;padding-right:22px}
 .csel-sub{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:6px;line-height:1.5}
 .csel.selected .csel-sub{color:var(--green)}
+.csel-price{font-family:'Archivo Black',sans-serif;font-size:16px;color:var(--green);margin-top:10px;line-height:1}
 
 /* ── FORM INPUTS ── */
 .eg{margin-bottom:16px}
@@ -57,7 +52,7 @@
 .helper-note{font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.6;font-weight:300}
 
 /* ── ADVANCED TOGGLE ── */
-.adv-toggle-btn{width:100%;background:transparent;border:1px solid var(--border);color:var(--muted);padding:14px 20px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:border-color .2s,color .2s;margin-bottom:0}
+.adv-toggle-btn{width:100%;background:transparent;border:1px solid var(--border);color:var(--muted);padding:14px 20px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:border-color .2s,color .2s}
 .adv-toggle-btn:hover{border-color:var(--green);color:var(--green)}
 .adv-toggle-icon{font-size:16px;line-height:1;transition:transform .3s}
 .adv-toggle-icon.open{transform:rotate(45deg)}
@@ -68,11 +63,11 @@
 .trade-fields{display:none}
 .trade-fields.active{display:block}
 
-/* ── FORM SECTION HEAD (inside trade fields) ── */
+/* ── FORM SECTION HEAD ── */
 .form-section-head{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--green);border-bottom:1px solid var(--border);padding-bottom:11px;margin-bottom:18px;margin-top:28px}
 .form-section-head:first-child{margin-top:0}
 
-/* file upload */
+/* ── FILE UPLOAD ── */
 .file-drop{border:1px dashed var(--border);padding:24px;text-align:center;cursor:pointer;transition:border-color .2s;background:var(--bg3)}
 .file-drop:hover{border-color:var(--green)}
 .file-drop input{display:none}
@@ -82,6 +77,22 @@
 .file-item{background:var(--card);padding:7px 12px;font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
 .file-remove{color:var(--muted);cursor:pointer;transition:color .2s}
 .file-remove:hover{color:#e55}
+
+/* ── INSPECTION STYLES ── */
+.insp-checklist{border-top:1px solid var(--border);margin-bottom:24px}
+.insp-check-item{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--border)}
+.insp-check-num{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;color:var(--green);background:var(--green-dim);width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid rgba(22,163,74,.2)}
+.insp-check-item strong{font-family:'Archivo Black',sans-serif;font-size:13px;color:var(--white);letter-spacing:.01em;display:block;margin-bottom:4px}
+.insp-check-item p{font-size:12.5px;color:var(--muted);font-weight:300;line-height:1.65;margin:0}
+.insp-fee-note{background:var(--green-dim);border:1px solid rgba(22,163,74,.25);padding:14px 18px;margin-bottom:20px}
+.insp-fee-note-label{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.22em;text-transform:uppercase;color:var(--green);margin-bottom:4px}
+.insp-fee-note-body{font-size:13px;color:var(--white);font-weight:300;line-height:1.6}
+.insp-required-lbl{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--green);border-bottom:1px solid var(--border);padding-bottom:10px;margin-bottom:16px;margin-top:20px}
+.book-submit-btn{width:100%;background:var(--green);color:#fff;border:none;padding:16px;font-family:'Archivo Black',sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .2s;margin-top:8px}
+.book-submit-btn:hover{background:var(--green-dk)}
+.book-success{display:none;border:1px solid rgba(22,163,74,.3);background:var(--green-dim);padding:20px;margin-top:12px;text-align:center}
+.book-success-title{font-family:'Archivo Black',sans-serif;font-size:18px;color:var(--green)}
+.book-success-body{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.7}
 
 /* ── SIDEBAR / ESTIMATE PANEL ── */
 .config-sidebar{position:sticky;top:80px;align-self:start}
@@ -127,8 +138,8 @@
 
 /* ── PRINT STYLES ── */
 @media print{
-  nav,footer,.cfg-trade-bar,.config-sidebar .est-panel-actions,.est-send-form,.mmenu,
-  .adv-toggle-btn,.cfg-progress{display:none!important}
+  nav,footer,.cfg-trade-bar,.est-panel-actions,.est-send-form,.mmenu,
+  .adv-toggle-btn,.book-submit-btn,#book-success{display:none!important}
   body{background:#fff!important;color:#000!important}
   .config-wrap{display:block!important;padding:24px!important}
   .config-sidebar{position:static!important;margin-top:32px}
@@ -136,18 +147,23 @@
   .est-range-val{color:#166534!important;font-size:36px!important}
   .csel.selected{border-color:#166534!important;background:#e8f2e8!important}
   .csel.selected .csel-lbl{color:#0a140a!important}
+  .trade-fields:not(.active){display:none!important}
+  .adv-specs-panel{display:block!important}
   .est-panel-disc{display:block!important}
   .print-header{display:block!important}
   @page{margin:20mm}
 }
-.print-header{display:none;margin-bottom:24px}
-.print-header h2{font-family:'Archivo Black',sans-serif;font-size:22px;color:#0a140a}
+.print-header{display:none;margin-bottom:24px;padding-bottom:16px;border-bottom:2px solid #166534}
+.print-header h2{font-family:'Archivo Black',sans-serif;font-size:22px;color:#0a140a;margin:0}
 .print-header p{font-size:11px;color:#4b6b4b;margin-top:4px}
 
+/* ── CARD GROUP DIVIDERS (inspection service groups) ── */
+.insp-type-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.card-group-divider{grid-column:span 2;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.28em;text-transform:uppercase;color:var(--green);padding:22px 0 8px;border-bottom:1px solid var(--border);pointer-events:none;user-select:none}
+.card-group-divider:first-child{padding-top:0}
+
 /* ── RESPONSIVE ── */
-@media(max-width:1200px){
-  .config-wrap{grid-template-columns:1fr 360px;gap:40px}
-}
+@media(max-width:1200px){.config-wrap{grid-template-columns:1fr 360px;gap:40px}}
 @media(max-width:1100px){
   .config-wrap{grid-template-columns:1fr;gap:40px}
   .config-sidebar{position:static}
@@ -169,7 +185,7 @@
 <!-- print-only header -->
 <div class="print-header">
   <h2>Modern Engineering &amp; Construction</h2>
-  <p>Project Estimate &mdash; modernengineering.build &mdash; (305) 614-0219 &mdash; ethan@projex.live</p>
+  <p>Project Estimate &mdash; (305) 614-0219 &mdash; ethan@projex.live &mdash; Miami-Dade &middot; Broward &middot; Palm Beach</p>
 </div>
 
 <!-- MOBILE MENU -->
@@ -204,7 +220,7 @@
 <div class="page-hero rv" style="padding-bottom:0">
   <p class="mono" style="margin-bottom:14px">Project Configurator</p>
   <h1 class="head head-lg">Build Your<br>Estimate</h1>
-  <p class="body-t" style="margin-top:18px;max-width:600px">Select your trade, system, and scope. Your estimate updates live as you configure. When ready, send directly to our team or download for your records. MEC builds the bid package &mdash; licensed contractors do the work.</p>
+  <p class="body-t" style="margin-top:18px;max-width:600px">Select your trade, system, and scope. Your estimate updates live as you configure. When ready, view a formatted summary, send directly to our team, or book an inspection. MEC builds the bid package &mdash; licensed contractors do the work.</p>
 </div>
 
 <!-- ── TRADE BAR ── -->
@@ -214,6 +230,7 @@
   <button class="cfg-trade-btn" data-trade="interior" onclick="switchTrade('interior')">Interior</button>
   <button class="cfg-trade-btn" data-trade="carpentry" onclick="switchTrade('carpentry')">Carpentry</button>
   <button class="cfg-trade-btn" data-trade="labor" onclick="switchTrade('labor')">Labor Supply</button>
+  <button class="cfg-trade-btn" data-trade="inspection" onclick="switchTrade('inspection')">Inspections</button>
 </div>
 
 <!-- ── CONFIGURATOR ── -->
@@ -222,7 +239,7 @@
   <!-- LEFT: Configuration form -->
   <div class="config-form">
 
-    <!-- ROOFING FIELDS -->
+    <!-- ── ROOFING ── -->
     <div class="trade-fields active" id="trade-roofing">
 
       <div class="cfg-section">
@@ -234,12 +251,12 @@
           </div>
         </div>
         <div class="card-sel cols-3" data-field="roofSystem">
-          <div class="csel" data-val="tpo"><div class="csel-lbl">TPO / EPDM</div><div class="csel-sub">Flat · Thermoplastic single-ply</div></div>
-          <div class="csel" data-val="tile"><div class="csel-lbl">Tile</div><div class="csel-sub">Steep slope · Concrete or clay</div></div>
-          <div class="csel" data-val="shingle"><div class="csel-lbl">Shingle</div><div class="csel-sub">Steep slope · Architectural</div></div>
-          <div class="csel" data-val="metal2"><div class="csel-lbl">Metal Panel</div><div class="csel-sub">Standing seam or R-panel</div></div>
+          <div class="csel" data-val="tpo"><div class="csel-lbl">TPO / EPDM</div><div class="csel-sub">Flat · Single-ply thermoplastic</div></div>
           <div class="csel" data-val="modbit"><div class="csel-lbl">Modified Bitumen</div><div class="csel-sub">Flat · Torch or cold-applied</div></div>
           <div class="csel" data-val="bur"><div class="csel-lbl">Built-Up (BUR)</div><div class="csel-sub">Flat · Gravel surfaced</div></div>
+          <div class="csel" data-val="tile"><div class="csel-lbl">Tile</div><div class="csel-sub">Steep slope · Concrete or clay</div></div>
+          <div class="csel" data-val="shingle"><div class="csel-lbl">Shingle</div><div class="csel-sub">Steep slope · Impact-rated FL</div></div>
+          <div class="csel" data-val="metal2"><div class="csel-lbl">Metal Panel</div><div class="csel-sub">Standing seam or R-panel</div></div>
         </div>
       </div>
 
@@ -248,14 +265,14 @@
           <span class="cfg-step-num">02</span>
           <div>
             <div class="cfg-section-title">Scope Type</div>
-            <div class="cfg-section-sub">What work is being done?</div>
+            <div class="cfg-section-sub">What work is being performed?</div>
           </div>
         </div>
         <div class="card-sel cols-2" data-field="condition">
-          <div class="csel" data-val="tear"><div class="csel-lbl">Full Tear-Off</div><div class="csel-sub">Remove existing system, replace</div></div>
+          <div class="csel" data-val="tear"><div class="csel-lbl">Full Tear-Off</div><div class="csel-sub">Remove existing system, full replace</div></div>
           <div class="csel" data-val="overlay"><div class="csel-lbl">Overlay / Recover</div><div class="csel-sub">Install over existing system</div></div>
-          <div class="csel" data-val="repair"><div class="csel-lbl">Repair Only</div><div class="csel-sub">Targeted patching or flashing</div></div>
           <div class="csel" data-val="new"><div class="csel-lbl">New Construction</div><div class="csel-sub">No existing system to remove</div></div>
+          <div class="csel" data-val="repair"><div class="csel-lbl">Repair Only</div><div class="csel-sub">Targeted patch or flashing work</div></div>
         </div>
       </div>
 
@@ -264,7 +281,7 @@
           <span class="cfg-step-num">03</span>
           <div>
             <div class="cfg-section-title">Size &amp; Access</div>
-            <div class="cfg-section-sub">Roof area, building height, edge type</div>
+            <div class="cfg-section-sub">Roof area, building height, edge configuration</div>
           </div>
         </div>
         <div class="e2c">
@@ -277,7 +294,7 @@
             </select>
           </div>
         </div>
-        <div class="eg" style="margin-top:4px"><label class="el">Edge Configuration</label>
+        <div class="eg"><label class="el">Edge Configuration</label>
           <div class="card-sel cols-3" data-field="edgeType">
             <div class="csel" data-val="parapet"><div class="csel-lbl">Parapet Wall</div></div>
             <div class="csel" data-val="eave"><div class="csel-lbl">Open Eave</div></div>
@@ -308,7 +325,6 @@
         </div>
       </div>
 
-      <!-- Advanced specs collapsible -->
       <div class="cfg-section">
         <div class="cfg-section-head">
           <span class="cfg-step-num">05</span>
@@ -366,13 +382,13 @@
 
     </div><!-- end roofing -->
 
-    <!-- EXTERIOR FIELDS -->
+    <!-- ── EXTERIOR ── -->
     <div class="trade-fields" id="trade-exterior">
       <div class="cfg-section">
         <div class="cfg-section-head"><span class="cfg-step-num">01</span><div><div class="cfg-section-title">Exterior Service</div></div></div>
         <div class="card-sel cols-2" data-field="extService">
           <div class="csel" data-val="stucco"><div class="csel-lbl">Stucco</div><div class="csel-sub">Patch, recoat, or full system</div></div>
-          <div class="csel" data-val="waterproof"><div class="csel-lbl">Waterproofing</div><div class="csel-sub">Deck, balcony, wall coating</div></div>
+          <div class="csel" data-val="waterproof"><div class="csel-lbl">Waterproofing</div><div class="csel-sub">Deck, balcony, or wall coating</div></div>
           <div class="csel" data-val="fascia"><div class="csel-lbl">Fascia / Soffit</div><div class="csel-sub">Trim replacement or repair</div></div>
           <div class="csel" data-val="gutters"><div class="csel-lbl">Gutters</div><div class="csel-sub">Replacement or new install</div></div>
         </div>
@@ -388,7 +404,7 @@
       </div>
     </div>
 
-    <!-- INTERIOR FIELDS -->
+    <!-- ── INTERIOR ── -->
     <div class="trade-fields" id="trade-interior">
       <div class="cfg-section">
         <div class="cfg-section-head"><span class="cfg-step-num">01</span><div><div class="cfg-section-title">Interior Service</div></div></div>
@@ -409,7 +425,7 @@
       </div>
     </div>
 
-    <!-- CARPENTRY FIELDS -->
+    <!-- ── CARPENTRY ── -->
     <div class="trade-fields" id="trade-carpentry">
       <div class="cfg-section">
         <div class="cfg-section-head"><span class="cfg-step-num">01</span><div><div class="cfg-section-title">Carpentry Type</div></div></div>
@@ -426,7 +442,7 @@
       </div>
     </div>
 
-    <!-- LABOR FIELDS -->
+    <!-- ── LABOR ── -->
     <div class="trade-fields" id="trade-labor">
       <div class="cfg-section">
         <div class="cfg-section-head"><span class="cfg-step-num">01</span><div><div class="cfg-section-title">Labor Scope</div></div></div>
@@ -444,8 +460,371 @@
       </div>
     </div>
 
-    <!-- SHARED: Location & Contact (always visible) -->
-    <div class="cfg-section" style="margin-top:0">
+    <!-- ── INSPECTIONS ── -->
+    <div class="trade-fields" id="trade-inspection">
+
+      <div class="cfg-section">
+        <div class="cfg-section-head">
+          <span class="cfg-step-num">01</span>
+          <div>
+            <div class="cfg-section-title">Select a Service</div>
+            <div class="cfg-section-sub">Inspections, engineering, bid packages, and permit coordination</div>
+          </div>
+        </div>
+        <div class="insp-type-grid" data-field="inspType">
+
+          <div class="card-group-divider">Inspections &amp; Assessments</div>
+
+          <div class="csel" data-val="roof-free">
+            <div class="csel-lbl">Roof Inspection</div>
+            <div class="csel-sub">Visual assessment &amp; written report</div>
+            <div class="csel-price">FREE</div>
+          </div>
+          <div class="csel" data-val="storm">
+            <div class="csel-lbl">Post-Storm / Insurance</div>
+            <div class="csel-sub">Damage documentation for claims</div>
+            <div class="csel-price">FREE</div>
+          </div>
+          <div class="csel" data-val="prepurchase">
+            <div class="csel-lbl">Pre-Purchase Assessment</div>
+            <div class="csel-sub">Roof condition before closing</div>
+            <div class="csel-price">FREE</div>
+          </div>
+          <div class="csel" data-val="exterior-insp">
+            <div class="csel-lbl">Exterior &amp; Stucco</div>
+            <div class="csel-sub">Crack mapping, waterproofing, sealant</div>
+            <div class="csel-price">FREE</div>
+          </div>
+
+          <div class="card-group-divider">Engineering Services</div>
+
+          <div class="csel" data-val="drainage">
+            <div class="csel-lbl">Drainage Calculations</div>
+            <div class="csel-sub">Engineer stamped &middot; Florida approved</div>
+            <div class="csel-price">From $150</div>
+          </div>
+          <div class="csel" data-val="wind">
+            <div class="csel-lbl">Wind Design Calcs</div>
+            <div class="csel-sub">Engineer stamped &middot; NOA required</div>
+            <div class="csel-price">$150</div>
+          </div>
+          <div class="csel" data-val="structural">
+            <div class="csel-lbl">Structural / Load Calcs</div>
+            <div class="csel-sub">Beam sizing, load path, lateral design</div>
+            <div class="csel-price">Quote</div>
+          </div>
+
+          <div class="card-group-divider" style="grid-column:span 2">Project Services</div>
+
+          <div class="csel" data-val="bid-package">
+            <div class="csel-lbl">Bid Package Preparation</div>
+            <div class="csel-sub">Scope writing &amp; licensed contractor bids</div>
+            <div class="csel-price">From $350</div>
+          </div>
+          <div class="csel" data-val="permit-svc">
+            <div class="csel-lbl">Permit Coordination</div>
+            <div class="csel-sub">Application prep, submission, follow-up</div>
+            <div class="csel-price">From $350</div>
+          </div>
+          <div class="csel" data-val="drone">
+            <div class="csel-lbl">Drone / Aerial Survey</div>
+            <div class="csel-sub">Aerial documentation &amp; condition report</div>
+            <div class="csel-price">From $250</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── DETAIL: Roof Inspection (FREE) ── -->
+      <div class="cfg-section insp-detail" id="insp-detail-roof-free" style="display:none">
+        <div class="cfg-section-head"><span class="cfg-step-num">02</span><div>
+          <div class="cfg-section-title">Free Roof Assessment</div>
+          <div class="cfg-section-sub">What&rsquo;s included in your complimentary inspection</div>
+        </div></div>
+        <div class="insp-checklist">
+          <div class="insp-check-item"><div class="insp-check-num">A</div><div><strong>Visual Membrane Condition</strong><p>Surface integrity, blistering, cracking, ponding water patterns, seam separation and membrane adhesion</p></div></div>
+          <div class="insp-check-item"><div class="insp-check-num">B</div><div><strong>Drainage &amp; Scupper Review</strong><p>Drain condition, debris obstruction, flow path, standing water indicators and slope adequacy</p></div></div>
+          <div class="insp-check-item"><div class="insp-check-num">C</div><div><strong>Penetrations &amp; Flashing</strong><p>Penetrations, curbs, HVAC equipment, edge metal, and parapet conditions checked for seal integrity</p></div></div>
+          <div class="insp-check-item"><div class="insp-check-num">D</div><div><strong>Written Report &amp; Photos</strong><p>Delivered by email within 48 hours — photo documentation, condition ratings, and recommended action items</p></div></div>
+        </div>
+        <div class="e2c">
+          <div class="eg"><label class="el" for="insp-address">Property Address *</label><input class="ei" type="text" id="insp-address" placeholder="123 Main St, Miami, FL 33101"></div>
+          <div class="eg"><label class="el" for="insp-bldg-type">Building Type</label>
+            <select class="esel" id="insp-bldg-type"><option value="">Select</option><option>Single-Family Residential</option><option>Multi-Family / Condo</option><option>Commercial / Industrial</option><option>HOA / Common Area</option></select>
+          </div>
+        </div>
+        <div class="eg"><label class="el" for="insp-access">Access Notes</label><input class="ei" type="text" id="insp-access" placeholder="e.g. Roof hatch in unit 201, gate code 1234, contact building manager"></div>
+      </div>
+
+      <!-- ── DETAIL: Post-Storm / Insurance (FREE) ── -->
+      <div class="cfg-section insp-detail" id="insp-detail-storm" style="display:none">
+        <div class="cfg-section-head"><span class="cfg-step-num">02</span><div>
+          <div class="cfg-section-title">Post-Storm Damage Assessment</div>
+          <div class="cfg-section-sub">Documentation for insurance claims and scope-of-repair bidding</div>
+        </div></div>
+        <div class="insp-checklist">
+          <div class="insp-check-item"><div class="insp-check-num">A</div><div><strong>Storm Damage Documentation</strong><p>Photo and written evidence of all damage — suitable for insurance claim submission and adjuster review</p></div></div>
+          <div class="insp-check-item"><div class="insp-check-num">B</div><div><strong>Scope of Repair</strong><p>Detailed written scope of work prepared for bidding to 2&ndash;3 licensed contractors through our bid process</p></div></div>
+          <div class="insp-check-item"><div class="insp-check-num">C</div><div><strong>Estimate Range</strong><p>Budget range for repair cost to support your insurance negotiation or out-of-pocket planning</p></div></div>
+          <div class="insp-check-item"><div class="insp-check-num">D</div><div><strong>Delivered Within 48 Hours</strong><p>Full photo report, damage inventory, and scope document sent by email for your records</p></div></div>
+        </div>
+        <div class="e2c">
+          <div class="eg"><label class="el" for="storm-address">Property Address *</label><input class="ei" type="text" id="storm-address" placeholder="123 Main St, Miami, FL 33101"></div>
+          <div class="eg"><label class="el" for="storm-date">Storm / Damage Date</label><input class="ei" type="date" id="storm-date"></div>
+        </div>
+        <div class="e2c">
+          <div class="eg"><label class="el" for="storm-insurer">Insurance Company</label><input class="ei" type="text" id="storm-insurer" placeholder="e.g. Citizens, Universal, Heritage"></div>
+          <div class="eg"><label class="el" for="storm-claim">Claim Number (if open)</label><input class="ei" type="text" id="storm-claim" placeholder="Optional"></div>
+        </div>
+        <div class="eg"><label class="el" for="storm-notes">Damage Description</label><textarea class="ei" style="min-height:72px;resize:vertical" id="storm-notes" placeholder="Describe visible damage — missing shingles, leaks, ponding, fascia damage..."></textarea></div>
+      </div>
+
+      <!-- ── DETAIL: Pre-Purchase (FREE) ── -->
+      <div class="cfg-section insp-detail" id="insp-detail-prepurchase" style="display:none">
+        <div class="cfg-section-head"><span class="cfg-step-num">02</span><div>
+          <div class="cfg-section-title">Pre-Purchase Roof Assessment</div>
+          <div class="cfg-section-sub">Know what you&rsquo;re buying before you close</div>
+        </div></div>
+        <div class="insp-checklist">
+          <div class="insp-check-item"><div class="insp-check-num">A</div><div><strong>Condition &amp; Remaining Life</strong><p>Current condition rating and estimated remaining service life — use it to negotiate price or request seller repairs</p></div></div>
+          <div class="insp-check-item"><div class="insp-check-num">B</div><div><strong>Repair Cost Estimate</strong><p>Budgetary range for any immediate or near-term repair needs — helps with due diligence and negotiation leverage</p></div></div>
+          <div class="insp-check-item"><div class="insp-check-num">C</div><div><strong>Written Report with Photos</strong><p>Delivered within 48 hours — shareable with your realtor, attorney, or lender as part of your due diligence package</p></div></div>
+        </div>
+        <div class="e2c">
+          <div class="eg"><label class="el" for="pp-address">Property Address *</label><input class="ei" type="text" id="pp-address" placeholder="123 Main St, Miami, FL 33101"></div>
+          <div class="eg"><label class="el" for="pp-closing">Closing Date (if known)</label><input class="ei" type="date" id="pp-closing"></div>
+        </div>
+        <div class="e2c">
+          <div class="eg"><label class="el" for="pp-type">Property Type</label>
+            <select class="esel" id="pp-type"><option value="">Select</option><option>Single-Family Residential</option><option>Multi-Family / Condo</option><option>Commercial</option><option>Investment Property</option></select>
+          </div>
+          <div class="eg"><label class="el" for="pp-age">Approx. Roof Age (if known)</label><input class="ei" type="text" id="pp-age" placeholder="e.g. 8 years, unknown"></div>
+        </div>
+      </div>
+
+      <!-- ── DETAIL: Exterior & Stucco (FREE) ── -->
+      <div class="cfg-section insp-detail" id="insp-detail-exterior-insp" style="display:none">
+        <div class="cfg-section-head"><span class="cfg-step-num">02</span><div>
+          <div class="cfg-section-title">Exterior &amp; Stucco Assessment</div>
+          <div class="cfg-section-sub">Visual condition survey of the building envelope</div>
+        </div></div>
+        <div class="insp-checklist">
+          <div class="insp-check-item"><div class="insp-check-num">A</div><div><strong>Crack &amp; Delamination Mapping</strong><p>Structural and cosmetic cracking, stucco delamination, efflorescence, and substrate exposure</p></div></div>
+          <div class="insp-check-item"><div class="insp-check-num">B</div><div><strong>Waterproofing &amp; Sealant Review</strong><p>Window perimeter caulk, expansion joints, penetration seals, balcony waterproofing, and coating condition</p></div></div>
+          <div class="insp-check-item"><div class="insp-check-num">C</div><div><strong>Fascia, Soffit &amp; Trim</strong><p>Wood rot, paint failure, soffit venting, and gutter condition assessed with photo documentation</p></div></div>
+          <div class="insp-check-item"><div class="insp-check-num">D</div><div><strong>Written Report &amp; Bid Scope</strong><p>Condition report with photos, repair priority ratings, and scope-of-work for bidding if repairs are needed</p></div></div>
+        </div>
+        <div class="e2c">
+          <div class="eg"><label class="el" for="ext-address">Property Address *</label><input class="ei" type="text" id="ext-address" placeholder="123 Main St, Miami, FL 33101"></div>
+          <div class="eg"><label class="el" for="ext-insp-type">Building Type</label>
+            <select class="esel" id="ext-insp-type"><option value="">Select</option><option>Single-Family Residential</option><option>Multi-Family / Condo</option><option>Commercial</option><option>HOA / Common Area</option></select>
+          </div>
+        </div>
+        <div class="eg"><label class="el" for="ext-concerns">Specific Concerns</label><textarea class="ei" style="min-height:72px;resize:vertical" id="ext-concerns" placeholder="Areas of concern, visible damage, recent leaks, upcoming insurance inspection..."></textarea></div>
+      </div>
+
+      <!-- ── DETAIL: Drainage Calcs ── -->
+      <div class="cfg-section insp-detail" id="insp-detail-drainage" style="display:none">
+        <div class="cfg-section-head"><span class="cfg-step-num">02</span><div>
+          <div class="cfg-section-title">Drainage Calculation Scope</div>
+          <div class="cfg-section-sub">Engineer-stamped drainage calcs for permit or design compliance</div>
+        </div></div>
+        <div class="insp-fee-note">
+          <div class="insp-fee-note-label">Fee Schedule</div>
+          <div class="insp-fee-note-body">$150 minimum &middot; $150 for first 100 sq ft &middot; $1.00/sq ft above 100 sq ft<br>Example: 500 sq ft = $550 &middot; 1,000 sq ft = $1,050</div>
+        </div>
+        <div class="e2c">
+          <div class="eg"><label class="el" for="insp-sqft-dr">Roof Area (sq ft) *</label><input class="ei" type="number" id="insp-sqft-dr" placeholder="e.g. 500" min="0" oninput="calcStd()"></div>
+          <div class="eg"><label class="el" for="insp-drain-ct">Drain / Scupper Count</label><input class="ei" type="number" id="insp-drain-ct" placeholder="e.g. 4"></div>
+        </div>
+        <div class="eg"><label class="el" for="insp-bldg-addr">Property Address *</label><input class="ei" type="text" id="insp-bldg-addr" placeholder="123 Main St, Miami, FL 33101"></div>
+        <div class="eg"><label class="el" for="insp-drain-notes">Scope Notes</label><textarea class="ei" style="min-height:72px;resize:vertical" id="insp-drain-notes" placeholder="Permit number, jurisdiction, engineer contact, special conditions..."></textarea></div>
+      </div>
+
+      <!-- ── DETAIL: Wind Design Calcs ── -->
+      <div class="cfg-section insp-detail" id="insp-detail-wind" style="display:none">
+        <div class="cfg-section-head"><span class="cfg-step-num">02</span><div>
+          <div class="cfg-section-title">Wind Design Calculation Scope</div>
+          <div class="cfg-section-sub">Engineer-stamped wind load design for roofing permit submittal</div>
+        </div></div>
+        <div class="insp-fee-note">
+          <div class="insp-fee-note-label">Flat Fee</div>
+          <div class="insp-fee-note-body">$150 &mdash; includes engineer stamp and Florida product approval coordination. NOA or product approval number is required to proceed.</div>
+        </div>
+        <div class="insp-required-lbl">Required Information</div>
+        <div class="e2c">
+          <div class="eg"><label class="el" for="wind-noa">NOA / Product Approval Number *</label><input class="ei" type="text" id="wind-noa" placeholder="e.g. 23-0101.07"></div>
+          <div class="eg"><label class="el" for="wind-system">Roofing System</label>
+            <select class="esel" id="wind-system"><option value="">Select system</option><option>TPO Mechanically Attached</option><option>TPO Fully Adhered</option><option>Modified Bitumen Torch</option><option>Modified Bitumen Cold-Applied</option><option>Built-Up / BUR</option><option>Metal Standing Seam</option><option>Metal R-Panel</option><option>Concrete Tile</option><option>Clay Tile</option><option>Architectural Shingle</option></select>
+          </div>
+        </div>
+        <div class="e2c">
+          <div class="eg"><label class="el" for="wind-sqft">Roof Area (sq ft) *</label><input class="ei" type="number" id="wind-sqft" placeholder="e.g. 3,000"></div>
+          <div class="eg"><label class="el" for="wind-county-sel">County *</label>
+            <select class="esel" id="wind-county-sel"><option value="">Select</option><option>Miami-Dade</option><option>Broward</option><option>Palm Beach</option><option>Other Florida</option></select>
+          </div>
+        </div>
+        <div class="eg"><label class="el" for="wind-addr">Property Address *</label><input class="ei" type="text" id="wind-addr" placeholder="123 Main St, Miami, FL 33101"></div>
+        <div class="e2c">
+          <div class="eg"><label class="el" for="wind-exposure">Wind Exposure Category</label>
+            <select class="esel" id="wind-exposure"><option value="">Select / Unknown</option><option>Exposure B (Suburban)</option><option>Exposure C (Open Terrain)</option><option>Exposure D (Coastal / HVHZ)</option></select>
+          </div>
+          <div class="eg"><label class="el" for="wind-attach">Attachment Method</label>
+            <select class="esel" id="wind-attach"><option value="">Select / Unknown</option><option>Mechanically Attached</option><option>Fully Adhered</option><option>Torch Applied</option><option>Cold Applied</option><option>Ballasted</option></select>
+          </div>
+        </div>
+        <div class="eg"><label class="el" for="wind-notes">Additional Notes</label><textarea class="ei" style="min-height:72px;resize:vertical" id="wind-notes" placeholder="Permit number, jurisdiction, deck type, design speed override..."></textarea></div>
+      </div>
+
+      <!-- ── DETAIL: Structural / Load Calcs (Quote) ── -->
+      <div class="cfg-section insp-detail" id="insp-detail-structural" style="display:none">
+        <div class="cfg-section-head"><span class="cfg-step-num">02</span><div>
+          <div class="cfg-section-title">Structural &amp; Load Calculation Scope</div>
+          <div class="cfg-section-sub">Engineer-stamped structural analysis for permit or design</div>
+        </div></div>
+        <div class="insp-fee-note">
+          <div class="insp-fee-note-label">Pricing</div>
+          <div class="insp-fee-note-body">Fee varies by scope &mdash; submit your project details and we&rsquo;ll respond with a fixed quote within 24 hours.</div>
+        </div>
+        <div class="card-sel cols-2" data-field="structScope" style="margin-bottom:20px">
+          <div class="csel" data-val="beam"><div class="csel-lbl">Beam Sizing</div><div class="csel-sub">New or replacement structural members</div></div>
+          <div class="csel" data-val="loadpath"><div class="csel-lbl">Load Path Analysis</div><div class="csel-sub">Vertical and lateral force distribution</div></div>
+          <div class="csel" data-val="lateral"><div class="csel-lbl">Lateral / Shear Design</div><div class="csel-sub">Wind and seismic resistance</div></div>
+          <div class="csel" data-val="foundation"><div class="csel-lbl">Foundation / Slab Review</div><div class="csel-sub">Load bearing capacity assessment</div></div>
+        </div>
+        <div class="e2c">
+          <div class="eg"><label class="el" for="struct-sqft">Building Area (sq ft)</label><input class="ei" type="number" id="struct-sqft" placeholder="e.g. 3,000"></div>
+          <div class="eg"><label class="el" for="struct-type">Building Type</label>
+            <select class="esel" id="struct-type"><option value="">Select</option><option>Single-Family Residential</option><option>Multi-Family</option><option>Commercial</option><option>Industrial / Warehouse</option></select>
+          </div>
+        </div>
+        <div class="eg"><label class="el" for="struct-addr">Property Address *</label><input class="ei" type="text" id="struct-addr" placeholder="123 Main St, Miami, FL 33101"></div>
+        <div class="eg"><label class="el" for="struct-notes">Scope Description *</label><textarea class="ei" style="min-height:90px;resize:vertical" id="struct-notes" placeholder="Describe the structural work — new addition, beam replacement, wall removal, roof framing, etc. Include permit jurisdiction if known."></textarea></div>
+      </div>
+
+      <!-- ── DETAIL: Bid Package Preparation ── -->
+      <div class="cfg-section insp-detail" id="insp-detail-bid-package" style="display:none">
+        <div class="cfg-section-head"><span class="cfg-step-num">02</span><div>
+          <div class="cfg-section-title">Bid Package Preparation</div>
+          <div class="cfg-section-sub">MEC writes your scope of work and sources 2&ndash;3 licensed contractor bids</div>
+        </div></div>
+        <div class="insp-checklist">
+          <div class="insp-check-item"><div class="insp-check-num">A</div><div><strong>Scope of Work Document</strong><p>Detailed written scope with material specifications, quantities, and sequence of work — ready to send to licensed contractors</p></div></div>
+          <div class="insp-check-item"><div class="insp-check-num">B</div><div><strong>2&ndash;3 Licensed Contractor Bids</strong><p>MEC sources competitive pricing from our vetted contractor network — you compare bids and choose</p></div></div>
+          <div class="insp-check-item"><div class="insp-check-num">C</div><div><strong>Bid Leveling &amp; Recommendation</strong><p>We review bids for completeness and flag scope gaps — our recommendation is always included</p></div></div>
+        </div>
+        <div class="insp-fee-note">
+          <div class="insp-fee-note-label">Fee Schedule</div>
+          <div class="insp-fee-note-body">Up to $50K project scope: $350 &middot; $50K&ndash;$250K: $650 &middot; $250K&ndash;$1M: $1,200 &middot; Over $1M: Quote</div>
+        </div>
+        <div class="card-sel cols-2" data-field="bidBudget" style="margin-bottom:20px" id="bid-budget-cards">
+          <div class="csel" data-val="under50"><div class="csel-lbl">Under $50K</div><div class="csel-sub">Bid package fee: $350</div></div>
+          <div class="csel" data-val="50to250"><div class="csel-lbl">$50K &ndash; $250K</div><div class="csel-sub">Bid package fee: $650</div></div>
+          <div class="csel" data-val="250to1m"><div class="csel-lbl">$250K &ndash; $1M</div><div class="csel-sub">Bid package fee: $1,200</div></div>
+          <div class="csel" data-val="over1m"><div class="csel-lbl">Over $1M</div><div class="csel-sub">Custom quote required</div></div>
+        </div>
+        <div class="eg"><label class="el">Trades Needed (select all)</label>
+          <div class="card-sel cols-2" data-field="bidTrades" id="bid-trades-cards">
+            <div class="csel multi" data-val="roofing"><div class="csel-lbl">Roofing</div></div>
+            <div class="csel multi" data-val="exterior"><div class="csel-lbl">Exterior / Stucco</div></div>
+            <div class="csel multi" data-val="interior"><div class="csel-lbl">Interior Buildout</div></div>
+            <div class="csel multi" data-val="electric"><div class="csel-lbl">Electrical</div></div>
+            <div class="csel multi" data-val="plumbing"><div class="csel-lbl">Plumbing</div></div>
+            <div class="csel multi" data-val="hvac"><div class="csel-lbl">HVAC</div></div>
+            <div class="csel multi" data-val="concrete"><div class="csel-lbl">Concrete / Flatwork</div></div>
+            <div class="csel multi" data-val="carpentry"><div class="csel-lbl">Carpentry / Framing</div></div>
+          </div>
+        </div>
+        <div class="e2c" style="margin-top:16px">
+          <div class="eg"><label class="el" for="bid-addr">Property Address *</label><input class="ei" type="text" id="bid-addr" placeholder="123 Main St, Miami, FL 33101"></div>
+          <div class="eg"><label class="el" for="bid-timeline">Bid Needed By</label><input class="ei" type="date" id="bid-timeline"></div>
+        </div>
+        <div class="eg"><label class="el" for="bid-notes">Project Description</label><textarea class="ei" style="min-height:80px;resize:vertical" id="bid-notes" placeholder="Describe the project scope — what needs to be done, any existing conditions, access considerations..."></textarea></div>
+      </div>
+
+      <!-- ── DETAIL: Permit Coordination ── -->
+      <div class="cfg-section insp-detail" id="insp-detail-permit-svc" style="display:none">
+        <div class="cfg-section-head"><span class="cfg-step-num">02</span><div>
+          <div class="cfg-section-title">Permit Application &amp; Coordination</div>
+          <div class="cfg-section-sub">We handle application prep, submission, and city follow-up</div>
+        </div></div>
+        <div class="insp-checklist">
+          <div class="insp-check-item"><div class="insp-check-num">A</div><div><strong>Application Preparation</strong><p>Complete permit application package including NOA documentation, product approvals, contractor license verification, and required drawings</p></div></div>
+          <div class="insp-check-item"><div class="insp-check-num">B</div><div><strong>Jurisdiction Submission</strong><p>Electronic or in-person submission to the AHJ — we know the Miami-Dade, Broward, and Palm Beach building departments</p></div></div>
+          <div class="insp-check-item"><div class="insp-check-num">C</div><div><strong>Status Follow-Up</strong><p>We track permit status, respond to corrections, and coordinate city inspections through to Certificate of Completion</p></div></div>
+        </div>
+        <div class="card-sel cols-2" data-field="permitType" style="margin-bottom:20px" id="permit-type-cards">
+          <div class="csel" data-val="reroof"><div class="csel-lbl">Re-Roof Permit</div><div class="csel-sub">Residential or commercial</div><div class="csel-price">$350</div></div>
+          <div class="csel" data-val="newconst"><div class="csel-lbl">New Construction</div><div class="csel-sub">Full building permit coordination</div><div class="csel-price">$650</div></div>
+          <div class="csel" data-val="addition"><div class="csel-lbl">Addition / Renovation</div><div class="csel-sub">Structural or scope changes</div><div class="csel-price">$450</div></div>
+          <div class="csel" data-val="expedite"><div class="csel-lbl">Permit Expediting</div><div class="csel-sub">Fast-track an existing application</div><div class="csel-price">$500</div></div>
+        </div>
+        <div class="e2c">
+          <div class="eg"><label class="el" for="permit-addr">Property Address *</label><input class="ei" type="text" id="permit-addr" placeholder="123 Main St, Miami, FL 33101"></div>
+          <div class="eg"><label class="el" for="permit-county-sel">County *</label>
+            <select class="esel" id="permit-county-sel"><option value="">Select</option><option>Miami-Dade</option><option>Broward</option><option>Palm Beach</option><option>Other Florida</option></select>
+          </div>
+        </div>
+        <div class="e2c">
+          <div class="eg"><label class="el" for="permit-lic">Contractor License # *</label><input class="ei" type="text" id="permit-lic" placeholder="CGC / CCC / RC / EC number"></div>
+          <div class="eg"><label class="el" for="permit-deadline">Permit Needed By</label><input class="ei" type="date" id="permit-deadline"></div>
+        </div>
+        <div class="eg"><label class="el" for="permit-notes">Notes</label><textarea class="ei" style="min-height:72px;resize:vertical" id="permit-notes" placeholder="Existing permit number (if expediting), scope description, engineer of record, any prior rejections..."></textarea></div>
+      </div>
+
+      <!-- ── DETAIL: Drone / Aerial Survey ── -->
+      <div class="cfg-section insp-detail" id="insp-detail-drone" style="display:none">
+        <div class="cfg-section-head"><span class="cfg-step-num">02</span><div>
+          <div class="cfg-section-title">Drone &amp; Aerial Survey Scope</div>
+          <div class="cfg-section-sub">FAA-compliant aerial documentation with condition report</div>
+        </div></div>
+        <div class="insp-fee-note">
+          <div class="insp-fee-note-label">Fee Schedule</div>
+          <div class="insp-fee-note-body">$250 minimum for visual survey &middot; Add $150 for orthographic 3D render &middot; Sites over 5,000 sq ft: +$0.05/sq ft</div>
+        </div>
+        <div class="card-sel cols-2" data-field="droneScope" style="margin-bottom:20px">
+          <div class="csel" data-val="visual"><div class="csel-lbl">Visual Survey</div><div class="csel-sub">Aerial photo documentation &amp; report</div></div>
+          <div class="csel" data-val="render"><div class="csel-lbl">Survey + 3D Render</div><div class="csel-sub">Photos + orthographic rendered output</div></div>
+          <div class="csel" data-val="prebid"><div class="csel-lbl">Pre-Bid Site Docs</div><div class="csel-sub">Site photos &amp; measurements for bidding</div></div>
+        </div>
+        <div class="e2c">
+          <div class="eg"><label class="el" for="drone-sqft">Site / Roof Area (sq ft) *</label><input class="ei" type="number" id="drone-sqft" placeholder="e.g. 5,000" oninput="calcStd()"></div>
+          <div class="eg"><label class="el" for="drone-type">Property Type</label>
+            <select class="esel" id="drone-type"><option value="">Select</option><option>Single-Family</option><option>Multi-Family</option><option>Commercial Low-Rise</option><option>Commercial High-Rise</option><option>Industrial</option></select>
+          </div>
+        </div>
+        <div class="eg"><label class="el" for="drone-addr">Property Address *</label><input class="ei" type="text" id="drone-addr" placeholder="123 Main St, Miami, FL 33101"></div>
+        <div class="eg"><label class="el" for="drone-notes">Notes</label><textarea class="ei" style="min-height:72px;resize:vertical" id="drone-notes" placeholder="Access restrictions, FAA concerns, specific areas of interest, preferred day/time..."></textarea></div>
+      </div>
+
+      <!-- ── Shared: Booking / Contact ── -->
+      <div class="cfg-section" id="insp-contact-section" style="display:none">
+        <div class="cfg-section-head">
+          <span class="cfg-step-num">03</span>
+          <div>
+            <div class="cfg-section-title">Contact &amp; Schedule</div>
+            <div class="cfg-section-sub" id="insp-contact-sub">Complete your booking</div>
+          </div>
+        </div>
+        <div class="e2c">
+          <div class="eg"><label class="el" for="insp-name">Name *</label><input class="ei" type="text" id="insp-name" placeholder="Full name"></div>
+          <div class="eg"><label class="el" for="insp-email">Email *</label><input class="ei" type="email" id="insp-email" placeholder="your@email.com"></div>
+        </div>
+        <div class="e2c">
+          <div class="eg"><label class="el" for="insp-phone">Phone</label><input class="ei" type="tel" id="insp-phone" placeholder="(305) 614-0219"></div>
+          <div class="eg"><label class="el" for="insp-date">Preferred Date</label><input class="ei" type="date" id="insp-date"></div>
+        </div>
+        <button class="book-submit-btn" id="book-btn" onclick="bookInspection()">Submit</button>
+        <div class="book-success" id="book-success">
+          <div class="book-success-title">Request Received</div>
+          <div class="book-success-body" id="book-success-body">We&rsquo;ll be in touch within 24 hours to confirm details.</div>
+        </div>
+      </div>
+
+    </div><!-- end inspection -->
+
+    <!-- SHARED: Location (always visible) -->
+    <div class="cfg-section" id="location-section" style="margin-top:0">
       <div class="cfg-section-head">
         <span class="cfg-step-num" id="loc-step-num">06</span>
         <div>
@@ -470,7 +849,7 @@
     <div class="est-panel" id="est-panel">
 
       <div class="est-panel-header">
-        <span class="est-panel-title">Project Estimate</span>
+        <span class="est-panel-title" id="est-panel-title-lbl">Project Estimate</span>
         <span class="est-trade-badge" id="est-trade-badge">Roofing</span>
       </div>
 
@@ -479,11 +858,11 @@
         <div class="est-range-val" id="std-display">&mdash;</div>
         <p class="est-note" id="std-note">Configure your project above to see a live estimate.</p>
         <div class="est-breakdown" id="std-rows" style="display:none">
-          <div class="est-row"><span>Base Labor &amp; Material</span><span id="sr-base">&mdash;</span></div>
-          <div class="est-row"><span>Penetrations / Details</span><span id="sr-pen">&mdash;</span></div>
-          <div class="est-row"><span>Height Factor</span><span id="sr-ht">&mdash;</span></div>
-          <div class="est-row"><span>County Adjustment</span><span id="sr-co">&mdash;</span></div>
-          <div class="est-row total"><span>Total Range</span><span id="sr-tot">&mdash;</span></div>
+          <div class="est-row"><span id="sr-lbl-base">Base Labor &amp; Material</span><span id="sr-base">&mdash;</span></div>
+          <div class="est-row"><span id="sr-lbl-pen">Penetrations / Details</span><span id="sr-pen">&mdash;</span></div>
+          <div class="est-row"><span id="sr-lbl-ht">Height Factor</span><span id="sr-ht">&mdash;</span></div>
+          <div class="est-row"><span id="sr-lbl-co">County Adjustment</span><span id="sr-co">&mdash;</span></div>
+          <div class="est-row total"><span id="sr-lbl-tot">Total Range</span><span id="sr-tot">&mdash;</span></div>
         </div>
         <div style="padding-bottom:20px"></div>
       </div>
@@ -491,7 +870,7 @@
       <!-- Actions -->
       <div class="est-panel-actions">
         <button class="est-action-btn" onclick="window.print()">Print</button>
-        <button class="est-action-btn" onclick="downloadEst()">Download</button>
+        <button class="est-action-btn" onclick="openEstPage()">View / Save</button>
         <button class="est-action-btn est-action-send" id="send-btn" onclick="toggleSend()">Send to MEC &rarr;</button>
       </div>
 
@@ -511,7 +890,7 @@
 
       <!-- Disclaimer -->
       <div class="est-panel-disc">
-        <p>Estimates reflect typical South Florida 2025 contractor market rates. MEC is a consulting firm &mdash; not a licensed contractor. Final pricing is confirmed through the bid process.</p>
+        <p id="est-disc-text">Estimates reflect typical South Florida 2025 contractor market rates. MEC is a consulting firm &mdash; not a licensed contractor. Final pricing confirmed through the bid process.</p>
       </div>
 
     </div>
@@ -582,19 +961,54 @@ const allRv=document.querySelectorAll('.rv,.rv-l,.rv-r,.rv-scale');
 const ro=new IntersectionObserver(e=>{e.forEach((x,i)=>{if(x.isIntersecting){setTimeout(()=>x.target.classList.add('on'),i*55);ro.unobserve(x.target);}});},{threshold:.07});
 allRv.forEach(el=>ro.observe(el));
 
+// Set min date for inspection picker
+(function(){const d=new Date().toISOString().split('T')[0];const el=document.getElementById('insp-date');if(el)el.min=d;})();
+
 // ── TRADE SWITCH ──
-const tradeBadgeLabels={roofing:'Roofing',exterior:'Exterior',interior:'Interior',carpentry:'Carpentry',labor:'Labor Supply'};
-function switchTrade(t) {
+const tradeBadgeLabels={roofing:'Roofing',exterior:'Exterior',interior:'Interior',carpentry:'Carpentry',labor:'Labor Supply',inspection:'Inspections'};
+function switchTrade(t){
   document.querySelectorAll('.cfg-trade-btn').forEach(b=>b.classList.toggle('active',b.dataset.trade===t));
   document.querySelectorAll('.trade-fields').forEach(f=>f.classList.remove('active'));
   const tf=document.getElementById('trade-'+t);
   if(tf)tf.classList.add('active');
   document.getElementById('est-trade-badge').textContent=tradeBadgeLabels[t]||t;
+
+  const sendBtn=document.getElementById('send-btn');
+  const panelTitle=document.getElementById('est-panel-title-lbl');
+  const disc=document.getElementById('est-disc-text');
+  const locSection=document.getElementById('location-section');
+
+  if(t==='inspection'){
+    sendBtn.textContent='Book Inspection \u2192';
+    panelTitle.textContent='Booking Summary';
+    disc.textContent='All inspections are scheduled and confirmed within 24 hours. Engineer-stamped reports require 3-5 business days.';
+    locSection.style.display='none';
+    setBreakdownLabels(['Service','Scope','Details','Type','Fee']);
+  }else{
+    sendBtn.textContent='Send to MEC \u2192';
+    panelTitle.textContent='Project Estimate';
+    disc.textContent='Estimates reflect typical South Florida 2025 contractor market rates. MEC is a consulting firm \u2014 not a licensed contractor. Final pricing confirmed through the bid process.';
+    locSection.style.display='block';
+    resetBreakdownLabels();
+    // Close send form if switching trades
+    document.getElementById('est-send-form').classList.remove('open');
+  }
+  reset('std');
   calcStd();
 }
 
+// ── BREAKDOWN LABEL HELPERS ──
+const defaultBkLabels=['Base Labor & Material','Penetrations / Details','Height Factor','County Adjustment','Total Range'];
+function setBreakdownLabels(labels){
+  ['base','pen','ht','co','tot'].forEach((k,i)=>{
+    const el=document.getElementById('sr-lbl-'+k);
+    if(el)el.textContent=(labels&&labels[i])?labels[i]:defaultBkLabels[i];
+  });
+}
+function resetBreakdownLabels(){setBreakdownLabels(defaultBkLabels);}
+
 // ── CARD SELECTORS ──
-// Single-select
+// Single-select (excludes multi and inspType which has side effects)
 document.querySelectorAll('.card-sel:not(#adv-specials) .csel:not(.multi)').forEach(c=>{
   c.addEventListener('click',function(){
     const grp=this.closest('.card-sel');
@@ -603,13 +1017,40 @@ document.querySelectorAll('.card-sel:not(#adv-specials) .csel:not(.multi)').forE
     calcStd();
   });
 });
-// Multi-select (specials)
-document.querySelectorAll('#adv-specials .csel.multi').forEach(c=>{
+// Multi-select (specials + bid trades)
+document.querySelectorAll('#adv-specials .csel.multi, #bid-trades-cards .csel.multi').forEach(c=>{
+  c.addEventListener('click',function(){this.classList.toggle('selected');calcStd();});
+});
+// Inspection type (insp-type-grid) — handle selection + show detail section
+document.querySelectorAll('[data-field="inspType"] .csel').forEach(c=>{
   c.addEventListener('click',function(){
-    this.classList.toggle('selected');
+    this.closest('[data-field="inspType"]').querySelectorAll('.csel').forEach(x=>x.classList.remove('selected'));
+    this.classList.add('selected');
+    showInspDetail(this.dataset.val);
     calcStd();
   });
 });
+
+function showInspDetail(val){
+  document.querySelectorAll('.insp-detail').forEach(d=>d.style.display='none');
+  const detail=document.getElementById('insp-detail-'+val);
+  if(detail)detail.style.display='block';
+  document.getElementById('insp-contact-section').style.display='block';
+  // Update contact section subtitle and button label
+  const quoteTypes=['structural','bid-package','permit-svc'];
+  const contactSub=document.getElementById('insp-contact-sub');
+  const bookBtn=document.getElementById('book-btn');
+  if(quoteTypes.includes(val)){
+    if(contactSub)contactSub.textContent='Tell us how to reach you and we\u2019ll send a quote';
+    if(bookBtn)bookBtn.textContent='Request a Quote';
+  }else if(['roof-free','storm','prepurchase','exterior-insp'].includes(val)){
+    if(contactSub)contactSub.textContent='Schedule your complimentary inspection';
+    if(bookBtn)bookBtn.textContent='Book Free Inspection';
+  }else{
+    if(contactSub)contactSub.textContent='Complete your booking';
+    if(bookBtn)bookBtn.textContent='Book &amp; Submit';
+  }
+}
 
 // ── UTILITIES ──
 function getCardVal(field){const el=document.querySelector(`[data-field="${field}"] .csel.selected`);return el?el.dataset.val:'';}
@@ -620,21 +1061,52 @@ const fmtFull=n=>'$'+Math.round(n).toLocaleString();
 // ── STANDARD CALC ──
 function calcStd(){
   const activeTrade=document.querySelector('.cfg-trade-btn.active')?.dataset.trade||'roofing';
-  const county=document.getElementById('s-county').value;
-  const cm={miami:1.08,broward:1.04,palm:1.06,other:1.0}[county]||1;
+  const county=document.getElementById('s-county')?.value||'miami';
+  const cm={miami:1.10,broward:1.05,palm:1.04,other:1.0}[county]||1;
   let sqft=0,lo=0,hi=0,penAdj=0,htAdj=0;
 
   if(activeTrade==='roofing'){
     sqft=parseFloat(document.getElementById('s-sqft').value)||0;
     const sys=getCardVal('roofSystem');
+    const scope=getCardVal('condition');
     const stories=document.getElementById('s-stories').value;
     const pens=parseInt(document.getElementById('s-penetrations').value)||0;
-    if(sqft<100){reset('std');return;}
-    const r={tpo:[9,16],tile:[18,32],shingle:[8,15],metal2:[14,28],modbit:[10,18],bur:[10,17]}[sys]||[10,18];
-    lo=sqft*r[0];hi=sqft*r[1];
-    penAdj=pens*380;
-    const hm={1:1,2:1.12,3:1.28}[stories]||1;
+    if(sqft<100||!sys){reset('std');return;}
+
+    // Updated 2025 South FL installed rates ($/sqft, material+labor)
+    const baseRates={
+      tpo:[7,15],      // TPO/EPDM: mechanically attached to fully adhered HVHZ
+      modbit:[8,14],   // Modified bitumen: torch or cold-applied
+      bur:[8,14],      // Built-up: 4-ply gravel surfaced
+      tile:[12,26],    // Tile: concrete $12-18, clay $18-26
+      shingle:[7,13],  // Shingle: impact-rated FL architectural
+      metal2:[10,28]   // Metal: R-panel $10-16, standing seam $16-28
+    };
+    const r=baseRates[sys]||[8,14];
+
+    // Scope multiplier
+    if(scope==='repair'){
+      const repLo=Math.max(800,sqft*1.5);
+      const repHi=Math.max(3500,sqft*4);
+      const tl=Math.round(repLo*cm/100)*100;
+      const th=Math.round(repHi*cm/100)*100;
+      show('std',tl,th,[
+        ['sr-base','Repair scope — per site conditions'],
+        ['sr-pen',pens>0?pens+' penetrations':'+0'],
+        ['sr-ht','Requires site visit to confirm'],
+        ['sr-co',cm===1?'Standard':'+'+Math.round((cm-1)*100)+'%'],
+        ['sr-tot',fmt(tl)+' \u2013 '+fmt(th)]
+      ]);
+      return;
+    }
+
+    const scopeMul={tear:1.0,overlay:0.80,new:0.90}[scope]||1.0;
+    lo=sqft*r[0]*scopeMul;
+    hi=sqft*r[1]*scopeMul;
+    penAdj=pens*350;
+    const hm={1:1,2:1.12,3:1.30}[stories]||1;
     htAdj=(hm-1)*(lo+hi)/2;
+
     // Special conditions
     const specials=getMultiVals('specials');
     let specCost=0;
@@ -642,80 +1114,195 @@ function calcStd(){
     if(specials.includes('occupied'))specCost+=1200;
     if(specials.includes('night'))specCost+=1800;
     if(specials.includes('phased'))specCost+=900;
+
     // Permit
     const permitVal=getCardVal('permit');
-    const permitCost={none:0,standard:3500,hvhz:7500}[permitVal]||0;
+    const permitCost={none:0,standard:3500,hvhz:8500}[permitVal]||0;
+
     const tl=Math.round((lo+penAdj*0.5+htAdj*0.5+specCost+permitCost)*cm/100)*100;
     const th=Math.round((hi+penAdj*1.5+htAdj*1.5+specCost+permitCost)*cm/100)*100;
     show('std',tl,th,[
-      ['sr-base',fmtFull(lo)+' – '+fmtFull(hi)],
+      ['sr-base',fmtFull(lo)+' \u2013 '+fmtFull(hi)+(scope&&scope!=='tear'?' ('+{overlay:'overlay',new:'new const.'}[scope]+')':'')],
       ['sr-pen',pens>0?'+'+fmtFull(penAdj):'None'],
-      ['sr-ht',hm===1?'None':'+'+Math.round((hm-1)*100)+'%'],
+      ['sr-ht',hm===1?'Ground level':'+'+Math.round((hm-1)*100)+'%'],
       ['sr-co',cm===1?'Standard':'+'+Math.round((cm-1)*100)+'%'],
-      ['sr-tot',fmt(tl)+' – '+fmt(th)]
+      ['sr-tot',fmt(tl)+' \u2013 '+fmt(th)]
     ]);
+
   }else if(activeTrade==='exterior'){
     sqft=parseFloat(document.getElementById('ext-lf').value)||0;
     if(sqft<10){reset('std');return;}
-    lo=sqft*8;hi=sqft*18;
+    const svc=getCardVal('extService');
+    // Per-service rates: stucco $7-14/sqft, waterproof $5-10, fascia $12-22/lf, gutters $18-35/lf
+    const extRates={stucco:[7,14],waterproof:[5,10],fascia:[12,22],gutters:[18,35]};
+    const r=extRates[svc]||[8,16];
+    lo=sqft*r[0];hi=sqft*r[1];
     const tl=Math.round(lo*cm/100)*100,th=Math.round(hi*cm/100)*100;
     show('std',tl,th,[
-      ['sr-base',fmtFull(lo)+' – '+fmtFull(hi)],
+      ['sr-base',fmtFull(lo)+' \u2013 '+fmtFull(hi)],
       ['sr-pen','N/A'],['sr-ht','N/A'],
       ['sr-co',cm===1?'Standard':'+'+Math.round((cm-1)*100)+'%'],
-      ['sr-tot',fmt(tl)+' – '+fmt(th)]
+      ['sr-tot',fmt(tl)+' \u2013 '+fmt(th)]
     ]);
+
   }else if(activeTrade==='interior'){
     sqft=parseFloat(document.getElementById('int-sqft').value)||0;
     if(sqft<50){reset('std');return;}
-    lo=sqft*6;hi=sqft*14;
+    const svc=getCardVal('intService');
+    const cond=getCardVal('intCondition');
+    // Per-service rates: drywall $3-6, drop ceiling $4-8, flooring $6-14, insulation $2-5
+    const intRates={drywall:[3,6],ceiling:[4,8],flooring:[6,14],insulation:[2,5]};
+    const r=intRates[svc]||[4,10];
+    const condMul=cond==='reno'?1.15:1.0; // demo adds ~15%
+    lo=sqft*r[0]*condMul;hi=sqft*r[1]*condMul;
     const tl=Math.round(lo*cm/100)*100,th=Math.round(hi*cm/100)*100;
     show('std',tl,th,[
-      ['sr-base',fmtFull(lo)+' – '+fmtFull(hi)],
+      ['sr-base',fmtFull(lo)+' \u2013 '+fmtFull(hi)],
       ['sr-pen','N/A'],['sr-ht','N/A'],
       ['sr-co',cm===1?'Standard':'+'+Math.round((cm-1)*100)+'%'],
-      ['sr-tot',fmt(tl)+' – '+fmt(th)]
+      ['sr-tot',fmt(tl)+' \u2013 '+fmt(th)]
     ]);
+
   }else if(activeTrade==='carpentry'){
     sqft=parseFloat(document.getElementById('carp-sqft').value)||0;
     if(sqft<10){reset('std');return;}
-    lo=sqft*40;hi=sqft*90;
+    const type=getCardVal('carpType');
+    // Per-type rates: framing $18-40/sqft, finish $55-110/lf, decking $28-65, millwork $80-180
+    const carpRates={framing:[18,40],finish:[55,110],decking:[28,65],millwork:[80,180]};
+    const r=carpRates[type]||[25,65];
+    lo=sqft*r[0];hi=sqft*r[1];
     const tl=Math.round(lo*cm/100)*100,th=Math.round(hi*cm/100)*100;
     show('std',tl,th,[
-      ['sr-base',fmtFull(lo)+' – '+fmtFull(hi)],
+      ['sr-base',fmtFull(lo)+' \u2013 '+fmtFull(hi)],
       ['sr-pen','N/A'],['sr-ht','N/A'],
       ['sr-co',cm===1?'Standard':'+'+Math.round((cm-1)*100)+'%'],
-      ['sr-tot',fmt(tl)+' – '+fmt(th)]
+      ['sr-tot',fmt(tl)+' \u2013 '+fmt(th)]
     ]);
+
   }else if(activeTrade==='labor'){
     sqft=parseFloat(document.getElementById('lab-sqft').value)||0;
     const days=parseFloat(document.getElementById('lab-days').value)||1;
     if(sqft<50){reset('std');return;}
-    lo=sqft*5*days;hi=sqft*9*days;
+    // W-2 crew: $45-80/hr per worker, typical crew covers ~500-1000sqft/day
+    lo=sqft*5.5*days;hi=sqft*9.5*days;
     const tl=Math.round(lo*cm/100)*100,th=Math.round(hi*cm/100)*100;
     show('std',tl,th,[
-      ['sr-base',fmtFull(lo)+' – '+fmtFull(hi)],
+      ['sr-base',fmtFull(lo)+' \u2013 '+fmtFull(hi)],
       ['sr-pen','N/A'],['sr-ht','N/A'],
       ['sr-co',cm===1?'Standard':'+'+Math.round((cm-1)*100)+'%'],
-      ['sr-tot',fmt(tl)+' – '+fmt(th)]
+      ['sr-tot',fmt(tl)+' \u2013 '+fmt(th)]
     ]);
+
+  }else if(activeTrade==='inspection'){
+    const inspType=getCardVal('inspType');
+    if(!inspType){reset('std');return;}
+    setBreakdownLabels(['Service','Details','Type','Note','Fee']);
+    const freeTypes=['roof-free','storm','prepurchase','exterior-insp'];
+    if(freeTypes.includes(inspType)){
+      const labels={'roof-free':'Free Roof Inspection','storm':'Post-Storm Assessment','prepurchase':'Pre-Purchase Assessment','exterior-insp':'Exterior & Stucco Assessment'};
+      document.getElementById('std-display').textContent='FREE';
+      document.getElementById('std-note').textContent='Complimentary \u2014 no cost, no obligation. Written report with photos delivered within 48 hours.';
+      document.getElementById('std-rows').style.display='none';
+      sessionStorage.setItem('mec_estimate','Inspection: '+labels[inspType]);
+    }else if(inspType==='drainage'){
+      const sq=parseFloat(document.getElementById('insp-sqft-dr')?.value)||0;
+      const fee=Math.max(150,sq<=100?150:150+Math.round(sq-100));
+      showFixed('std','$'+fee.toLocaleString(),'Engineer-stamped drainage calculation fee.',[
+        ['sr-base','Drainage Calculations'],
+        ['sr-pen',sq>=100?sq.toLocaleString()+' sq ft':'Minimum charge'],
+        ['sr-ht','Engineer Stamped'],
+        ['sr-co','FL Product Approval'],
+        ['sr-tot','$'+fee.toLocaleString()]
+      ]);
+    }else if(inspType==='wind'){
+      showFixed('std','$150','Flat fee for engineer-stamped wind design calculations.',[
+        ['sr-base','Wind Design Calculations'],
+        ['sr-pen','NOA / PA # Required'],
+        ['sr-ht','Engineer Stamped'],
+        ['sr-co','FL Product Approval'],
+        ['sr-tot','$150']
+      ]);
+    }else if(inspType==='structural'){
+      document.getElementById('std-display').textContent='Get a Quote';
+      document.getElementById('std-note').textContent='Fee varies by scope \u2014 submit your project details and we\u2019ll respond with a fixed quote within 24 hours.';
+      document.getElementById('std-rows').style.display='none';
+      sessionStorage.setItem('mec_estimate','Engineering: Structural / Load Calcs | Quote Required');
+    }else if(inspType==='bid-package'){
+      const budget=getCardVal('bidBudget');
+      const fees={'under50':350,'50to250':650,'250to1m':1200,'over1m':0};
+      const fee=fees[budget]||0;
+      if(!budget||!fee){
+        document.getElementById('std-display').textContent='From $350';
+        document.getElementById('std-note').textContent='Select project budget range above to see your bid package fee.';
+        document.getElementById('std-rows').style.display='none';
+        sessionStorage.setItem('mec_estimate','Service: Bid Package Preparation | From $350');
+      }else{
+        showFixed('std','$'+fee,'Bid package preparation fee for your project size.',[
+          ['sr-base','Bid Package Preparation'],
+          ['sr-pen','Scope writing + 2\u20133 bids'],
+          ['sr-ht','Bid leveling included'],
+          ['sr-co',budget==='over1m'?'Custom Quote':budget],
+          ['sr-tot','$'+fee]
+        ]);
+      }
+    }else if(inspType==='permit-svc'){
+      const pType=getCardVal('permitType');
+      const fees={'reroof':350,'newconst':650,'addition':450,'expedite':500};
+      const fee=fees[pType]||0;
+      if(!pType||!fee){
+        document.getElementById('std-display').textContent='From $350';
+        document.getElementById('std-note').textContent='Select permit type above to see the coordination fee.';
+        document.getElementById('std-rows').style.display='none';
+        sessionStorage.setItem('mec_estimate','Service: Permit Coordination | From $350');
+      }else{
+        showFixed('std','$'+fee,'Permit coordination and application fee.',[
+          ['sr-base','Permit Coordination'],
+          ['sr-pen',{reroof:'Re-Roof Permit',newconst:'New Construction',addition:'Addition / Renovation',expedite:'Permit Expediting'}[pType]||pType],
+          ['sr-ht','App + submission + follow-up'],
+          ['sr-co','Through CO / Completion'],
+          ['sr-tot','$'+fee]
+        ]);
+      }
+    }else if(inspType==='drone'){
+      const sq=parseFloat(document.getElementById('drone-sqft')?.value)||0;
+      const droneScope=getCardVal('droneScope');
+      const renderFee=droneScope==='render'?150:droneScope==='prebid'?100:0;
+      const scaleFee=sq>5000?Math.round((sq-5000)*0.05):0;
+      const fee=Math.max(250,250+scaleFee)+renderFee;
+      showFixed('std','$'+fee.toLocaleString(),'Aerial survey and documentation fee.',[
+        ['sr-base','Drone / Aerial Survey'],
+        ['sr-pen',droneScope==='render'?'+3D Render ($150)':droneScope==='prebid'?'+Pre-bid Docs ($100)':'Visual Only'],
+        ['sr-ht',sq>0?sq.toLocaleString()+' sq ft site':'\u2014'],
+        ['sr-co','$250 minimum'],
+        ['sr-tot','$'+fee.toLocaleString()]
+      ]);
+    }
   }
 }
 
 function show(pfx,tl,th,rows){
-  document.getElementById(pfx+'-display').textContent=fmt(tl)+' – '+fmt(th);
+  const display=tl===th?fmt(tl):fmt(tl)+' \u2013 '+fmt(th);
+  document.getElementById(pfx+'-display').textContent=display;
   document.getElementById(pfx+'-note').textContent='Budget range based on your configuration. Exact pricing confirmed through bid process.';
   document.getElementById(pfx+'-rows').style.display='block';
   rows.forEach(([id,val])=>{const e=document.getElementById(id);if(e)e.textContent=val;});
   const trade=document.querySelector('.cfg-trade-btn.active')?.dataset.trade||'';
-  const summary=`Estimate | Trade: ${trade} | Range: ${fmt(tl)} – ${fmt(th)} | ${rows.map(([,v])=>v).join(' | ')}`;
+  const summary=`Estimate | Trade: ${trade} | Range: ${display} | ${rows.map(([,v])=>v).join(' | ')}`;
   sessionStorage.setItem('mec_estimate',summary);
-  // Update send form textarea if open
   const sfNotes=document.getElementById('sf-notes');
   if(sfNotes&&!sfNotes.value.startsWith('Estimate:'))sfNotes.placeholder='Any additional notes... (estimate auto-attached)';
 }
+
+function showFixed(pfx,label,note,rows){
+  document.getElementById(pfx+'-display').textContent=label;
+  document.getElementById(pfx+'-note').textContent=note;
+  document.getElementById(pfx+'-rows').style.display='block';
+  rows.forEach(([id,val])=>{const e=document.getElementById(id);if(e)e.textContent=val;});
+  sessionStorage.setItem('mec_estimate','Inspection | '+label+' | '+rows.map(([,v])=>v).join(' | '));
+}
+
 function reset(pfx){
-  document.getElementById(pfx+'-display').textContent='—';
+  document.getElementById(pfx+'-display').textContent='\u2014';
   document.getElementById(pfx+'-note').textContent='Configure your project above to see a live estimate.';
   const rows=document.getElementById(pfx+'-rows');
   if(rows)rows.style.display='none';
@@ -734,16 +1321,24 @@ function toggleAdv(){
 
 // ── SEND FORM TOGGLE ──
 function toggleSend(){
+  const activeTrade=document.querySelector('.cfg-trade-btn.active')?.dataset.trade||'';
+  if(activeTrade==='inspection'){
+    const section=document.getElementById('insp-contact-section');
+    if(section&&section.style.display!=='none'){
+      section.scrollIntoView({behavior:'smooth',block:'start'});
+    }else{
+      document.getElementById('trade-inspection').scrollIntoView({behavior:'smooth',block:'start'});
+    }
+    return;
+  }
   const form=document.getElementById('est-send-form');
   const isOpen=form.classList.contains('open');
   form.classList.toggle('open',!isOpen);
-  document.getElementById('send-btn').textContent=isOpen?'Send to MEC →':'Close';
+  document.getElementById('send-btn').textContent=isOpen?'Send to MEC \u2192':'Close';
   if(!isOpen){
-    // Pre-fill notes with estimate summary
     const est=sessionStorage.getItem('mec_estimate')||'';
     const notes=document.getElementById('sf-notes');
     if(est&&notes&&!notes.value)notes.value='Estimate summary: '+est;
-    // Scroll into view
     setTimeout(()=>form.scrollIntoView({behavior:'smooth',block:'nearest'}),100);
   }
 }
@@ -756,77 +1351,251 @@ async function sendProposal(){
   const phone=document.getElementById('sf-phone').value.trim();
   const notes=document.getElementById('sf-notes').value.trim();
   const btn=document.querySelector('.sf-submit');
-  btn.textContent='Sending...';
-  btn.disabled=true;
+  btn.textContent='Sending...';btn.disabled=true;
   const payload={
     name,email,phone,
     message:notes||'(no additional notes)',
     estimate_summary:sessionStorage.getItem('mec_estimate')||'No estimate generated',
     trade:document.querySelector('.cfg-trade-btn.active')?.dataset.trade||'',
-    county:document.getElementById('s-county').value,
-    license:document.getElementById('a-lic')?.value||'',
+    county:document.getElementById('s-county')?.value||'',
     source:'estimator_panel'
   };
   try{
     const res=await fetch('https://formspree.io/f/xkgwblvq',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});
+    if(res.ok){document.getElementById('sf-success').style.display='block';btn.style.display='none';document.getElementById('send-btn').textContent='Sent';document.getElementById('send-btn').classList.add('sent');sessionStorage.removeItem('mec_estimate');}
+    else{btn.textContent='Try again';btn.disabled=false;}
+  }catch(err){btn.textContent='Try again';btn.disabled=false;}
+}
+
+// ── BOOK INSPECTION ──
+async function bookInspection(){
+  const name=document.getElementById('insp-name')?.value.trim()||'';
+  const email=document.getElementById('insp-email')?.value.trim()||'';
+  if(!name||!email){document.getElementById('insp-name')?.focus();return;}
+  const inspType=getCardVal('inspType');
+  const phone=document.getElementById('insp-phone')?.value.trim()||'';
+  const date=document.getElementById('insp-date')?.value||'';
+  const btn=document.getElementById('book-btn');
+  btn.textContent='Submitting...';btn.disabled=true;
+  let address='',notes='';
+  const freeTypes=['roof-free','storm','prepurchase','exterior-insp'];
+  if(inspType==='roof-free'){
+    address=document.getElementById('insp-address')?.value||'';
+    notes='Building: '+(document.getElementById('insp-bldg-type')?.value||'N/A')+'. Access: '+(document.getElementById('insp-access')?.value||'N/A');
+  }else if(inspType==='storm'){
+    address=document.getElementById('storm-address')?.value||'';
+    notes='Storm date: '+(document.getElementById('storm-date')?.value||'N/A')+'. Insurer: '+(document.getElementById('storm-insurer')?.value||'N/A')+'. Claim: '+(document.getElementById('storm-claim')?.value||'none')+'. '+(document.getElementById('storm-notes')?.value||'');
+  }else if(inspType==='prepurchase'){
+    address=document.getElementById('pp-address')?.value||'';
+    notes='Closing: '+(document.getElementById('pp-closing')?.value||'N/A')+'. Type: '+(document.getElementById('pp-type')?.value||'N/A')+'. Roof age: '+(document.getElementById('pp-age')?.value||'unknown');
+  }else if(inspType==='exterior-insp'){
+    address=document.getElementById('ext-address')?.value||'';
+    notes='Building: '+(document.getElementById('ext-insp-type')?.value||'N/A')+'. Concerns: '+(document.getElementById('ext-concerns')?.value||'none');
+  }else if(inspType==='drainage'){
+    address=document.getElementById('insp-bldg-addr')?.value||'';
+    notes='Area: '+(document.getElementById('insp-sqft-dr')?.value||'N/A')+' sqft. Drains: '+(document.getElementById('insp-drain-ct')?.value||'N/A')+'. '+(document.getElementById('insp-drain-notes')?.value||'');
+  }else if(inspType==='wind'){
+    address=document.getElementById('wind-addr')?.value||'';
+    notes='NOA: '+(document.getElementById('wind-noa')?.value||'N/A')+'. System: '+(document.getElementById('wind-system')?.value||'N/A')+'. County: '+(document.getElementById('wind-county-sel')?.value||'N/A')+'. '+(document.getElementById('wind-notes')?.value||'');
+  }else if(inspType==='structural'){
+    address=document.getElementById('struct-addr')?.value||'';
+    notes='Type: '+(document.getElementById('struct-type')?.value||'N/A')+'. Scope: '+(document.getElementById('struct-notes')?.value||'N/A');
+  }else if(inspType==='bid-package'){
+    address=document.getElementById('bid-addr')?.value||'';
+    const trades=getMultiVals('bidTrades').join(', ')||'not specified';
+    notes='Budget: '+(getCardVal('bidBudget')||'N/A')+'. Trades: '+trades+'. Timeline: '+(document.getElementById('bid-timeline')?.value||'N/A')+'. '+(document.getElementById('bid-notes')?.value||'');
+  }else if(inspType==='permit-svc'){
+    address=document.getElementById('permit-addr')?.value||'';
+    notes='Type: '+(getCardVal('permitType')||'N/A')+'. County: '+(document.getElementById('permit-county-sel')?.value||'N/A')+'. License: '+(document.getElementById('permit-lic')?.value||'N/A')+'. '+(document.getElementById('permit-notes')?.value||'');
+  }else if(inspType==='drone'){
+    address=document.getElementById('drone-addr')?.value||'';
+    notes='Scope: '+(getCardVal('droneScope')||'visual')+'. Area: '+(document.getElementById('drone-sqft')?.value||'N/A')+' sqft. '+(document.getElementById('drone-notes')?.value||'');
+  }
+  // Build descriptive success message
+  const successMsgs={
+    'roof-free':'We\u2019ll confirm your inspection time within 24 hours. Expect a prep guide by email \u2014 know what to have ready before our visit.',
+    'storm':'We\u2019ll be in touch within 24 hours to schedule the damage assessment and begin documentation for your claim.',
+    'prepurchase':'We\u2019ll reach out within 24 hours to schedule your assessment. The written report will be delivered within 48 hours of the visit.',
+    'exterior-insp':'We\u2019ll confirm scheduling within 24 hours. Your written condition report and bid scope will follow within 48 hours.',
+    'drainage':'We\u2019ll review your scope and confirm the engagement within 24 hours. Engineer-stamped calcs typically take 3\u20135 business days.',
+    'wind':'We\u2019ll confirm the engagement within 24 hours. Engineer-stamped wind calcs typically take 3\u20135 business days after NOA is verified.',
+    'structural':'We\u2019ll review your project and send a fixed quote within 24 hours.',
+    'bid-package':'We\u2019ll confirm receipt within 24 hours and begin assembling your bid package. Contractor bids are typically returned within 5\u20137 business days.',
+    'permit-svc':'We\u2019ll be in touch within 24 hours to begin your permit application package.',
+    'drone':'We\u2019ll confirm your site survey appointment within 24 hours.'
+  };
+  const payload={
+    name,email,phone,
+    service_type:inspType,
+    address,
+    preferred_date:date,
+    message:notes||'(no additional notes)',
+    estimate_summary:sessionStorage.getItem('mec_estimate')||('Service: '+inspType),
+    source:'inspection_booking'
+  };
+  try{
+    const res=await fetch('https://formspree.io/f/xkgwblvq',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});
     if(res.ok){
-      document.getElementById('sf-success').style.display='block';
+      const msgEl=document.getElementById('book-success-body');
+      if(msgEl)msgEl.textContent=successMsgs[inspType]||'We\u2019ll be in touch within 24 hours.';
+      document.getElementById('book-success').style.display='block';
       btn.style.display='none';
-      document.getElementById('send-btn').textContent='Sent';
-      document.getElementById('send-btn').classList.add('sent');
-      sessionStorage.removeItem('mec_estimate');
     }else{btn.textContent='Try again';btn.disabled=false;}
   }catch(err){btn.textContent='Try again';btn.disabled=false;}
 }
 
-// ── DOWNLOAD ESTIMATE ──
-function downloadEst(){
+// ── VIEW / SAVE — opens formatted estimate in new tab ──
+function openEstPage(){
   const range=document.getElementById('std-display').textContent;
-  if(range==='—'){alert('Configure your project first to generate an estimate.');return;}
+  if(range==='\u2014'){alert('Configure your project first to generate an estimate.');return;}
   const trade=document.querySelector('.cfg-trade-btn.active')?.dataset.trade||'';
-  const county=document.getElementById('s-county')?.options[document.getElementById('s-county').selectedIndex]?.text||'';
+  const tradeName=tradeBadgeLabels[trade]||trade;
+  const countyEl=document.getElementById('s-county');
+  const county=countyEl?.options[countyEl.selectedIndex]?.text||'';
+  const now=new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+  const time=new Date().toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'});
+  const estId='MEC-'+Date.now().toString(36).toUpperCase();
+
+  // Gather selected option cards
+  const activeFields=document.querySelector('#trade-'+trade);
+  const selItems=[];
+  if(activeFields){
+    activeFields.querySelectorAll('.csel.selected').forEach(el=>{
+      const lbl=el.querySelector('.csel-lbl')?.textContent||'';
+      const sub=el.querySelector('.csel-sub')?.textContent||'';
+      if(lbl)selItems.push({lbl,sub});
+    });
+  }
+
+  // Gather inputs
+  const inputRows=[];
+  if(trade==='roofing'){
+    const sqEl=document.getElementById('s-sqft');if(sqEl?.value)inputRows.push(['Roof Area',sqEl.value+' sq ft']);
+    const stEl=document.getElementById('s-stories');if(stEl)inputRows.push(['Building Height',stEl.options[stEl.selectedIndex]?.text||'']);
+    const dr=document.getElementById('s-drains');if(dr?.value)inputRows.push(['Drains / Scuppers',dr.value]);
+    const pe=document.getElementById('s-penetrations');if(pe?.value)inputRows.push(['Penetrations',pe.value]);
+    const notes=document.getElementById('proj-notes')?.value;if(notes)inputRows.push(['Project Notes',notes]);
+  }else if(trade==='inspection'){
+    const inspType=getCardVal('inspType');
+    if(inspType)inputRows.push(['Inspection Type',{
+      'roof-free':'Free Roof Inspection','drainage':'Drainage Calculations',
+      'wind':'Wind Design Calcs','drone':'Drone Inspection'
+    }[inspType]||inspType]);
+    const addrEl=document.getElementById('insp-address')||document.getElementById('insp-bldg-addr')||document.getElementById('wind-addr')||document.getElementById('drone-addr');
+    if(addrEl?.value)inputRows.push(['Property',addrEl.value]);
+  }
+
   const base=document.getElementById('sr-base')?.textContent||'';
   const pen=document.getElementById('sr-pen')?.textContent||'';
   const ht=document.getElementById('sr-ht')?.textContent||'';
   const co=document.getElementById('sr-co')?.textContent||'';
-  const now=new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
-  const lines=[
-    'MODERN ENGINEERING & CONSTRUCTION',
-    'Project Estimate — '+now,
-    '─'.repeat(48),
-    '',
-    'Trade          : '+trade.toUpperCase(),
-    'County         : '+county,
-    '',
-    'ESTIMATE BREAKDOWN',
-    '─'.repeat(48),
-    'Base Labor & Material  : '+base,
-    'Penetrations / Details : '+pen,
-    'Height Factor          : '+ht,
-    'County Adjustment      : '+co,
-    '─'.repeat(48),
-    'TOTAL RANGE            : '+range,
-    '',
-    'This is a budget estimate based on typical South Florida',
-    '2025 contractor market rates. Actual pricing is confirmed',
-    'through MEC\'s competitive bid package process.',
-    '',
-    'MEC is a construction consulting and labor supply firm.',
-    'We are not a licensed contractor. All licensed work is',
-    'performed by independently licensed contractors.',
-    '',
-    '─'.repeat(48),
-    'modernengineering.build',
-    '(305) 614-0219  |  ethan@projex.live',
-    'Miami-Dade · Broward · Palm Beach',
-    '─'.repeat(48),
-  ];
-  const blob=new Blob([lines.join('\n')],{type:'text/plain'});
-  const a=document.createElement('a');
-  a.href=URL.createObjectURL(blob);
-  a.download='MEC-Estimate-'+Date.now()+'.txt';
-  a.click();
-  URL.revokeObjectURL(a.href);
+  const lblBase=document.getElementById('sr-lbl-base')?.textContent||'Base Labor & Material';
+  const lblPen=document.getElementById('sr-lbl-pen')?.textContent||'Penetrations / Details';
+  const lblHt=document.getElementById('sr-lbl-ht')?.textContent||'Height Factor';
+  const lblCo=document.getElementById('sr-lbl-co')?.textContent||'County Adjustment';
+
+  const selHtml=selItems.length?selItems.map(s=>`<div class="sel-item"><div class="sel-lbl">${s.lbl}</div>${s.sub?'<div class="sel-sub">'+s.sub+'</div>':''}</div>`).join(''):'';
+  const inpHtml=inputRows.filter(([,v])=>v).map(([k,v])=>`<tr><td class="inp-k">${k}</td><td>${v}</td></tr>`).join('');
+
+  const isInspection=trade==='inspection';
+  const isFree=range==='FREE';
+
+  const html=`<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>MEC Estimate ${estId}</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f4f9f4;color:#0a140a;padding:40px 20px}
+.page{max-width:760px;margin:0 auto;background:#fff;border:1px solid #c4dcc4}
+.hd{padding:32px 40px;border-bottom:3px solid #16a34a;display:flex;justify-content:space-between;align-items:flex-start}
+.co-name{font-family:'Arial Black',Arial,sans-serif;font-size:20px;font-weight:900;color:#0a140a}
+.co-sub{font-size:11px;color:#4b6b4b;margin-top:3px}
+.est-id{text-align:right;font-family:monospace;font-size:11px;color:#4b6b4b}
+.est-id .lbl{font-size:9px;letter-spacing:.15em;text-transform:uppercase;display:block;margin-bottom:3px;color:#a3c4a3}
+.meta-bar{display:flex;gap:0;border-bottom:1px solid #d4e8d4}
+.meta-item{flex:1;padding:16px 20px;border-right:1px solid #d4e8d4}
+.meta-item:last-child{border-right:none}
+.meta-item .k{font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:#4b6b4b;margin-bottom:4px}
+.meta-item .v{font-size:14px;font-weight:700;color:#0a140a}
+.body{padding:32px 40px}
+.sec-lbl{font-family:monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#16a34a;border-bottom:1px solid #d4e8d4;padding-bottom:8px;margin-bottom:14px;margin-top:24px}
+.sec-lbl:first-child{margin-top:0}
+.sel-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px}
+.sel-item{background:#f4f9f4;border:1px solid #d4e8d4;padding:10px 14px}
+.sel-lbl{font-size:13px;font-weight:700;color:#0a140a}
+.sel-sub{font-size:11px;color:#4b6b4b;margin-top:2px}
+.inp-tbl{width:100%;border-collapse:collapse}
+.inp-tbl td{padding:9px 12px;border-bottom:1px solid #e4f0e4;font-size:13px;vertical-align:top}
+.inp-k{color:#4b6b4b;font-size:10px;letter-spacing:.1em;text-transform:uppercase;width:160px}
+.bk{border:1px solid #d4e8d4;overflow:hidden}
+.bk-row{display:flex;justify-content:space-between;padding:12px 16px;border-bottom:1px solid #d4e8d4;font-size:13px}
+.bk-row:last-child{border-bottom:none;background:#0a140a;padding:14px 16px}
+.bk-key{color:#4b6b4b}
+.bk-row:last-child .bk-key{color:#a3c4a3}
+.bk-val{font-weight:600}
+.bk-row:last-child .bk-val{color:#4ade80;font-size:16px;font-family:'Arial Black',Arial,sans-serif}
+.range-box{background:#0a140a;padding:24px 40px;display:flex;justify-content:space-between;align-items:center}
+.range-lbl{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#a3c4a3}
+.range-val{font-family:'Arial Black',Arial,sans-serif;font-size:36px;color:#4ade80;letter-spacing:-.02em}
+.free-box{background:#166534;padding:24px 40px;text-align:center}
+.free-lbl{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#86efac;margin-bottom:6px}
+.free-val{font-family:'Arial Black',Arial,sans-serif;font-size:48px;color:#fff}
+.free-note{font-size:12px;color:#86efac;margin-top:8px}
+.disc{padding:20px 40px;background:#f9fdf9;border-top:1px solid #d4e8d4;font-size:11px;color:#4b6b4b;line-height:1.75}
+.actions{padding:20px 40px;border-top:1px solid #d4e8d4;display:flex;gap:10px;align-items:center}
+.print-btn{background:#16a34a;color:#fff;border:none;padding:11px 22px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:Arial,sans-serif}
+.print-btn:hover{background:#14532d}
+.close-btn{background:transparent;color:#4b6b4b;border:1px solid #d4e8d4;padding:11px 22px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:Arial,sans-serif}
+@media print{.actions{display:none!important}body{background:#fff!important;padding:0}.page{border:none}@page{margin:15mm}}
+</style></head>
+<body>
+<div class="page">
+  <div class="hd">
+    <div><div class="co-name">Modern Engineering &amp; Construction</div><div class="co-sub">Construction Consulting &amp; Labor Supply &middot; Florida</div></div>
+    <div class="est-id"><span class="lbl">Estimate ID</span>${estId}<br><span style="color:#4b6b4b;font-size:10px">${now} &middot; ${time}</span></div>
+  </div>
+  <div class="meta-bar">
+    <div class="meta-item"><div class="k">Trade</div><div class="v">${tradeName}</div></div>
+    <div class="meta-item"><div class="k">County</div><div class="v">${county||'Florida'}</div></div>
+    <div class="meta-item"><div class="k">Prepared</div><div class="v">${now}</div></div>
+  </div>
+  <div class="body">
+    ${selHtml?'<div class="sec-lbl">Selected Options</div><div class="sel-grid">'+selHtml+'</div>':''}
+    ${inpHtml?'<div class="sec-lbl">Project Details</div><table class="inp-tbl">'+inpHtml+'</table>':''}
+    <div class="sec-lbl">Cost Breakdown</div>
+    <div class="bk">
+      <div class="bk-row"><span class="bk-key">${lblBase}</span><span class="bk-val">${base}</span></div>
+      <div class="bk-row"><span class="bk-key">${lblPen}</span><span class="bk-val">${pen}</span></div>
+      <div class="bk-row"><span class="bk-key">${lblHt}</span><span class="bk-val">${ht}</span></div>
+      <div class="bk-row"><span class="bk-key">${lblCo}</span><span class="bk-val">${co}</span></div>
+      <div class="bk-row"><span class="bk-key" style="color:#a3c4a3">${isInspection?'Fee':'Total Range'}</span><span class="bk-val" style="color:#4ade80;font-size:16px;font-family:'Arial Black',Arial,sans-serif">${range}</span></div>
+    </div>
+  </div>
+  ${isFree?`<div class="free-box"><div class="free-lbl">Complimentary Service</div><div class="free-val">FREE</div><div class="free-note">No cost &mdash; no obligation. Confirm your booking and we&rsquo;ll send next steps by email.</div></div>`:`<div class="range-box"><div><div class="range-lbl">${isInspection?'Service Fee':'Estimated Total Range'}</div></div><div class="range-val">${range}</div></div>`}
+  <div class="disc">
+    ${isInspection?'Inspection and engineering fees are fixed as shown. Free roof inspections are complimentary with no obligation. Engineer-stamped reports require 3&ndash;5 business days.':'This is a budget-range estimate based on typical South Florida 2025 contractor market rates. It is not a contract or final bid. Actual pricing is determined through MEC&rsquo;s competitive bid package process involving independently licensed contractors. MEC is a construction consulting and labor supply firm &mdash; not a licensed contractor.'}
+    <br><br><strong>(305) 614-0219</strong> &middot; ethan@projex.live &middot; Miami-Dade &middot; Broward &middot; Palm Beach
+  </div>
+  <div class="actions">
+    <button class="print-btn" onclick="window.print()">Print This Estimate</button>
+    <button class="close-btn" onclick="window.close()">Close</button>
+  </div>
+</div>
+</body></html>`;
+
+  const w=window.open('','_blank','width=900,height=720');
+  if(w){w.document.write(html);w.document.close();}
+}
+
+// ── ADVANCED TOGGLE ──
+function toggleAdv(){
+  const panel=document.getElementById('adv-specs');
+  const icon=document.getElementById('adv-icon');
+  const btn=document.getElementById('adv-toggle');
+  const open=panel.classList.contains('open');
+  panel.classList.toggle('open',!open);
+  icon.classList.toggle('open',!open);
+  btn.querySelector('span:first-child').textContent=open?'Expand Technical Details':'Collapse Technical Details';
 }
 
 // ── FILE UPLOAD ──
