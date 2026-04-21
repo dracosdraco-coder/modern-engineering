@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://modernengineering.build/sitemap.xml
+Sitemap: https://mecgroup.live/sitemap.xml
