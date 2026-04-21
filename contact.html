@@ -194,7 +194,7 @@ document.getElementById('iform').addEventListener('submit',async function(e){
   const payload=Object.fromEntries(new FormData(this));
   if(estData)payload.estimate_summary=estData;
   try{
-    const res=await fetch('https://formspree.io/f/xkgwblvq',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});
+    const res=await fetch('https://formspree.io/f/xqewdldw',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});
     if(res.ok){document.getElementById('fsucc').style.display='block';b.style.display='none';sessionStorage.removeItem('mec_estimate');}
     else{
       let hint='';
