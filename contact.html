@@ -196,8 +196,19 @@ document.getElementById('iform').addEventListener('submit',async function(e){
   try{
     const res=await fetch('https://formspree.io/f/xkgwblvq',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});
     if(res.ok){document.getElementById('fsucc').style.display='block';b.style.display='none';sessionStorage.removeItem('mec_estimate');}
-    else{b.textContent='Try again';b.disabled=false;}
-  }catch(err){b.textContent='Try again';b.disabled=false;}
+    else{
+      let hint='';
+      if(res.status===422)hint=' (form not activated)';
+      else if(res.status===403)hint=' (domain not allowed)';
+      b.textContent='Error '+res.status+hint+' \u2014 retry';
+      b.disabled=false;
+      console.error('Formspree error',res.status,await res.text());
+    }
+  }catch(err){
+    b.textContent='Network error \u2014 retry';
+    b.disabled=false;
+    console.error('Formspree network error',err);
+  }
 });
 </script>
 </body>

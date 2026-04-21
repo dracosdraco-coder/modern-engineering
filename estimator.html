@@ -1363,8 +1363,19 @@ async function sendProposal(){
   try{
     const res=await fetch('https://formspree.io/f/xkgwblvq',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});
     if(res.ok){document.getElementById('sf-success').style.display='block';btn.style.display='none';document.getElementById('send-btn').textContent='Sent';document.getElementById('send-btn').classList.add('sent');sessionStorage.removeItem('mec_estimate');}
-    else{btn.textContent='Try again';btn.disabled=false;}
-  }catch(err){btn.textContent='Try again';btn.disabled=false;}
+    else{
+      let hint='';
+      if(res.status===422)hint=' (form not activated)';
+      else if(res.status===403)hint=' (domain not allowed)';
+      btn.textContent='Error '+res.status+hint+' \u2014 retry';
+      btn.disabled=false;
+      console.error('Formspree error',res.status,await res.text());
+    }
+  }catch(err){
+    btn.textContent='Network error \u2014 retry';
+    btn.disabled=false;
+    console.error('Formspree network error',err);
+  }
 }
 
 // ── BOOK INSPECTION ──
@@ -1440,8 +1451,19 @@ async function bookInspection(){
       if(msgEl)msgEl.textContent=successMsgs[inspType]||'We\u2019ll be in touch within 24 hours.';
       document.getElementById('book-success').style.display='block';
       btn.style.display='none';
-    }else{btn.textContent='Try again';btn.disabled=false;}
-  }catch(err){btn.textContent='Try again';btn.disabled=false;}
+    }else{
+      let hint='';
+      if(res.status===422)hint=' (form not activated)';
+      else if(res.status===403)hint=' (domain not allowed)';
+      btn.textContent='Error '+res.status+hint+' \u2014 retry';
+      btn.disabled=false;
+      console.error('Formspree error',res.status,await res.text());
+    }
+  }catch(err){
+    btn.textContent='Network error \u2014 retry';
+    btn.disabled=false;
+    console.error('Formspree network error',err);
+  }
 }
 
 // ── VIEW / SAVE — opens formatted estimate in new tab ──
