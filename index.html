@@ -61,25 +61,23 @@
 </script>
 <link rel="stylesheet" href="shared.css">
 <style>
-/* ── HERO ── */
-#hero{position:relative;height:100vh;min-height:640px;display:flex;align-items:flex-start;overflow:hidden;padding-bottom:110px}
-.hv{position:absolute;inset:0}
-.hv video{width:100%;height:100%;object-fit:cover;filter:brightness(.4) saturate(.75)}
-.hv-accent{position:absolute;bottom:-10%;left:30%;width:50%;height:80%;background:radial-gradient(ellipse,rgba(21,128,61,.15) 0%,transparent 60%);pointer-events:none;z-index:1}
-.ho{position:absolute;inset:0;background:linear-gradient(to right,rgba(7,26,15,.9) 0%,rgba(7,26,15,.65) 50%,transparent 100%),linear-gradient(to top,rgba(7,26,15,.8) 0%,transparent 45%)}
-.hb{position:relative;z-index:2;padding:clamp(100px,16vh,180px) 48px 0;max-width:760px}
-.hb .mono{margin-bottom:28px;opacity:0;animation:up .8s .15s forwards}
-.hh1{opacity:0;animation:up 1s .3s forwards;color:#fff}
-.hh1 em{font-style:normal;color:#4ade80;display:block}
-.hsub{margin-top:22px;max-width:480px;font-size:15px;font-weight:300;color:rgba(255,255,255,.65);line-height:1.85;letter-spacing:.015em;opacity:0;animation:up .9s .5s forwards}
-.hact{display:flex;gap:12px;margin-top:40px;flex-wrap:wrap;opacity:0;animation:up .9s .68s forwards}
-.hscr{position:absolute;right:48px;bottom:56px;z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px;opacity:0;animation:fi .8s 1.2s forwards}
-.hscr span{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.4);writing-mode:vertical-rl}
-.hscr-ln{width:1px;height:48px;background:linear-gradient(to bottom,#4ade80,transparent);animation:pls 2.5s ease-in-out infinite}
-
-/* hero stat pills */
-.hpills{position:absolute;bottom:48px;left:48px;z-index:2;display:flex;gap:8px;flex-wrap:wrap;opacity:0;animation:up .8s .9s forwards}
-.hpill{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.14);padding:6px 14px;backdrop-filter:blur(8px);background:rgba(11,36,22,.4)}
+/* ── HERO — elegant, light, no video ── */
+#hero{position:relative;padding:clamp(150px,20vh,210px) 48px clamp(90px,9vw,120px);overflow:hidden;background:var(--bg)}
+#hero::before{content:'';position:absolute;top:-15%;right:-10%;width:55%;height:120%;background:radial-gradient(ellipse at center,var(--gold-dim) 0%,transparent 68%);pointer-events:none}
+#hero::after{content:'';position:absolute;bottom:-25%;left:-8%;width:40%;height:90%;background:radial-gradient(ellipse at center,var(--green-dim) 0%,transparent 68%);pointer-events:none}
+.hb{position:relative;z-index:2;max-width:800px;margin:0 auto}
+.hb .mono{margin-bottom:24px;opacity:0;animation:up .8s .15s forwards}
+.hh1{opacity:0;animation:up 1s .3s forwards;color:var(--white);text-align:center}
+.hh1 em{font-style:normal;color:var(--gold);display:block}
+.hsub{margin-top:22px;max-width:540px;opacity:0;animation:up .9s .5s forwards;margin-left:auto;margin-right:auto;text-align:center}
+.hb .mono{text-align:center}
+.hcta-row{display:flex;gap:16px;margin-top:48px;flex-wrap:wrap;opacity:0;animation:up .9s .68s forwards;justify-content:center}
+.hcta-card{flex:1;min-width:230px;max-width:300px;background:var(--bg2);border:1px solid var(--border);padding:26px 28px;transition:border-color .25s,transform .25s,background .25s}
+.hcta-card:hover{border-color:var(--gold);transform:translateY(-3px);background:var(--card)}
+.hcta-lbl{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.hcta-t{font-family:'Archivo Black',sans-serif;font-size:20px;color:var(--white);letter-spacing:.01em;line-height:1.15}
+.hcta-arrow{margin-top:16px;font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);transition:color .2s;letter-spacing:.1em;text-transform:uppercase}
+.hcta-card:hover .hcta-arrow{color:var(--gold)}
 
 /* ── ABOUT ── */
 #about{display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:1440px;margin:0 auto;padding:clamp(80px,10vw,140px) 48px}
@@ -151,8 +149,6 @@
 
 /* ── KEYFRAMES ── */
 @keyframes up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
-@keyframes fi{from{opacity:0}to{opacity:1}}
-@keyframes pls{0%,100%{opacity:.35}50%{opacity:1}}
 
 /* ── RESPONSIVE ── */
 @media(max-width:1100px){
@@ -171,10 +167,9 @@
   .sp-grid{grid-template-columns:1fr 1fr}
   .sp-head{padding:0 20px 40px;flex-direction:column;gap:16px}
   .sp-cta{padding:32px 20px 0}
-  .hb{padding:clamp(90px,14vh,140px) 20px 0}
-  .hscr{display:none}
-  .hpills{display:none}
-  .hact{flex-direction:column}
+  #hero{padding:clamp(120px,18vh,160px) 20px 64px}
+  .hcta-row{flex-direction:column;align-items:stretch}
+  .hcta-card{max-width:none}
   .btn{width:100%;text-align:center;padding:14px 20px}
   #ba{padding:64px 20px}
   #process{padding:64px 20px}
@@ -194,25 +189,20 @@
 <body>
 <!-- MOBILE MENU -->
 <div class="mmenu" id="mm">
-  <a href="index.html" class="active">Home</a>
-  <a href="services.html">Services</a>
-  <a href="projects.html">Work</a>
-  <a href="partners.html">Partners</a>
+  <a href="index.html" class="active">MEC</a>
   <a href="estimator.html">Estimate</a>
+  <a href="projects.html">Work</a>
   <a href="contact.html" class="mcta">Get a Quote &rarr;</a>
 </div>
 
-<nav id="nav" class="dark-hero">
+<nav id="nav">
   <a href="index.html" class="nav-logo">
-    <div class="nav-logo-name">Modern Engineering</div>
-    <div class="nav-logo-sub">&amp; Construction &middot; Florida</div>
+    <div class="nav-logo-name">MEC</div>
+    <div class="nav-logo-sub">Group &middot; Florida</div>
   </a>
   <ul class="nav-ul">
-    <li><a href="index.html" class="active">Home</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="projects.html">Work</a></li>
-    <li><a href="partners.html">Partners</a></li>
     <li><a href="estimator.html">Estimate</a></li>
+    <li><a href="projects.html">Work</a></li>
     <li><a href="contact.html" class="ncta">Get a Quote</a></li>
   </ul>
   <div class="nav-right">
@@ -223,25 +213,23 @@
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hv">
-    <video autoplay muted loop playsinline preload="auto" poster="public/images/proj5.jpg">
-      <source src="public/videos/main.mp4" type="video/mp4">
-    </video>
-    <div class="hv-accent"></div>
-  </div>
-  <div class="ho"></div>
   <div class="hb">
-    <p class="mono" style="color:rgba(134,239,172,.75)">Florida&apos;s Construction Partner &middot; Est. 2025</p>
+    <p class="mono">Florida&apos;s Construction Partner &middot; Est. 2025</p>
     <h1 class="head head-xl hh1">Do It Once.<em>Do It Right.</em></h1>
-
+    <p class="body-t hsub">Construction consulting, bid packaging, and insured W-2 labor supply &mdash; protecting your investment from start to finish.</p>
+    <div class="hcta-row">
+      <a href="estimator.html" class="hcta-card">
+        <div class="hcta-lbl">Start Here</div>
+        <div class="hcta-t">Get an Estimate</div>
+        <div class="hcta-arrow">Configure your project &rarr;</div>
+      </a>
+      <a href="projects.html" class="hcta-card">
+        <div class="hcta-lbl">See the Proof</div>
+        <div class="hcta-t">View Our Work</div>
+        <div class="hcta-arrow">Browse the gallery &rarr;</div>
+      </a>
+    </div>
   </div>
-  <div class="hpills">
-    <span class="hpill">GL + Workers&rsquo; Comp</span>
-    <span class="hpill">W-2 Employees</span>
-    <span class="hpill">24H Response</span>
-    <span class="hpill">Miami-Dade &middot; Broward &middot; Palm Beach</span>
-  </div>
-  <div class="hscr" aria-hidden="true"><span>Scroll</span><div class="hscr-ln"></div></div>
 </section>
 
 <!-- STATS BAR -->
@@ -288,7 +276,7 @@
     <div class="spc rv d7"><div class="spc-n">07</div><h3 class="spc-t">Site Assessments</h3><p class="spc-d">Condition reports, drone surveys, and pre-bid documentation to define the scope before contractors are engaged.</p></div>
     <div class="spc rv d8"><div class="spc-n">08</div><h3 class="spc-t">Insurance Coordination</h3><p class="spc-d">We work alongside adjusters and property owners to define scope, organize bids, and coordinate licensed contractor selections.</p></div>
   </div>
-  <div class="sp-cta rv"><a href="services.html" class="btn btn-green">View All Services</a></div>
+  <div class="sp-cta rv"><a href="estimator.html#services" class="btn btn-green">View All Services</a></div>
 </div>
 
 <!-- BEFORE / AFTER -->
@@ -400,18 +388,18 @@
       <a href="https://projex.live" target="_blank" rel="noopener" class="fpx">Managed via Projex.live &rarr;</a>
     </div>
     <div class="fc"><h4>Services</h4><ul>
-      <li><a href="services.html">Commercial Roofing</a></li>
-      <li><a href="services.html">Residential Roofing</a></li>
-      <li><a href="services.html">Exterior Work</a></li>
-      <li><a href="services.html">Interior Work</a></li>
-      <li><a href="services.html">Carpentry</a></li>
-      <li><a href="services.html">Labor / Sub-Contract</a></li>
-      <li><a href="services.html">Permitting &amp; PM</a></li>
+      <li><a href="estimator.html#services">Commercial Roofing</a></li>
+      <li><a href="estimator.html#services">Residential Roofing</a></li>
+      <li><a href="estimator.html#services">Exterior Work</a></li>
+      <li><a href="estimator.html#services">Interior Work</a></li>
+      <li><a href="estimator.html#services">Carpentry</a></li>
+      <li><a href="estimator.html#services">Labor / Sub-Contract</a></li>
+      <li><a href="estimator.html#services">Permitting &amp; PM</a></li>
     </ul></div>
     <div class="fc"><h4>Company</h4><ul>
       <li><a href="index.html#about">About Us</a></li>
       <li><a href="projects.html">Our Work</a></li>
-      <li><a href="partners.html">GC Partners</a></li>
+      <li><a href="projects.html#partners">GC Partners</a></li>
       <li><a href="estimator.html">Get an Estimate</a></li>
       <li><a href="https://projex.live" target="_blank">Projex Platform</a></li>
     </ul></div>
@@ -465,15 +453,6 @@ function animateCount(el,target,suffix=''){
 }
 const statObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){const el=x.target;const raw=el.dataset.count;animateCount(el,raw);statObs.unobserve(el);}});},{threshold:.5});
 document.querySelectorAll('.stn[data-count]').forEach(el=>statObs.observe(el));
-
-// FORCE VIDEO AUTOPLAY
-document.querySelectorAll('video').forEach(v=>{
-  v.muted=true;
-  const p=v.play();
-  if(p!==undefined){p.catch(()=>{
-    document.addEventListener('click',()=>v.play(),{once:true});
-  });}
-});
 
 // SMOOTH SCROLL
 document.querySelectorAll('a[href^="#"]').forEach(a=>{

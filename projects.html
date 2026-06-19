@@ -55,40 +55,61 @@
 .scope-title{font-family:'Archivo Black',sans-serif;font-size:18px;color:var(--white);margin-bottom:12px;letter-spacing:.01em}
 .scope-body{font-size:13px;color:var(--muted);line-height:1.75;font-weight:300}
 
+/* Partners (merged) */
+.partners-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-top:64px}
+.plist{border-top:1px solid var(--border)}
+.pit{display:flex;gap:20px;padding:24px 0;border-bottom:1px solid var(--border);transition:background .2s}
+.pit:hover{background:var(--green-dim)}
+.pin{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;color:var(--gold);min-width:28px;padding-top:2px}
+.pit-t{font-family:'Archivo Black',sans-serif;font-size:15px;color:var(--white);margin-bottom:4px;letter-spacing:.01em}
+.pit-d{font-size:13px;color:var(--muted);font-weight:300;line-height:1.7}
+.pxc{background:var(--card);border:1px solid var(--border);padding:40px;position:relative;overflow:hidden;transition:border-color .3s}
+.pxc:hover{border-color:var(--green)}
+.pxc::before{content:'';position:absolute;top:0;right:0;width:180px;height:180px;background:radial-gradient(circle,var(--green-dim) 0%,transparent 70%)}
+.pxn{font-family:'Archivo Black',sans-serif;font-size:32px;color:var(--green);letter-spacing:.01em}
+.pxb{font-size:14px;color:var(--muted);margin-top:14px;line-height:1.8;font-weight:300}
+.pxl{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--border2);padding-bottom:2px;transition:border-color .2s}
+.pxl:hover{border-color:var(--gold)}
+.reach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:80px}
+.rc{background:var(--bg2);padding:40px 32px;transition:background .3s}
+.rc:hover{background:var(--card)}
+.rc-title{font-family:'Archivo Black',sans-serif;font-size:18px;color:var(--white);margin-bottom:12px;letter-spacing:.01em}
+.rc-body{font-size:13px;color:var(--muted);line-height:1.75;font-weight:300}
+
 @media(max-width:1100px){
   .gallery-wall{grid-template-columns:repeat(3,1fr);grid-auto-rows:170px}
   .scope-grid{grid-template-columns:1fr 1fr}
+  .partners-layout{grid-template-columns:1fr;gap:48px}
+  .reach-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:768px){
   .gallery-wall{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;gap:4px}
   .lightbox{padding:20px}
   .lightbox-close{top:14px;right:14px;width:36px;height:36px}
   .scope-grid{grid-template-columns:1fr}
+  .reach-grid{grid-template-columns:1fr}
+  .rc{padding:28px 20px}
+  .pxc{padding:28px 20px}
 }
 </style>
 </head>
 <body>
 <!-- MOBILE MENU -->
 <div class="mmenu" id="mm">
-  <a href="index.html">Home</a>
-  <a href="services.html">Services</a>
-  <a href="projects.html" class="active">Work</a>
-  <a href="partners.html">Partners</a>
+  <a href="index.html">MEC</a>
   <a href="estimator.html">Estimate</a>
+  <a href="projects.html" class="active">Work</a>
   <a href="contact.html" class="mcta">Get a Quote &rarr;</a>
 </div>
 
 <nav id="nav">
   <a href="index.html" class="nav-logo">
-    <div class="nav-logo-name">Modern Engineering</div>
-    <div class="nav-logo-sub">&amp; Construction &middot; Florida</div>
+    <div class="nav-logo-name">MEC</div>
+    <div class="nav-logo-sub">Group &middot; Florida</div>
   </a>
   <ul class="nav-ul">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="projects.html" class="active">Work</a></li>
-    <li><a href="partners.html">Partners</a></li>
     <li><a href="estimator.html">Estimate</a></li>
+    <li><a href="projects.html" class="active">Work</a></li>
     <li><a href="contact.html" class="ncta">Get a Quote</a></li>
   </ul>
   <div class="nav-right">
@@ -215,6 +236,58 @@
 
 </section>
 
+<!-- PARTNERS (merged from former /partners.html) -->
+<section class="sec" id="partners" style="padding-top:0">
+  <div class="page-hero rv" style="padding:0 0 56px;max-width:none">
+    <p class="mono" style="margin-bottom:14px">For GCs &amp; Contractors</p>
+    <h1 class="head head-lg">Your Consulting<br>&amp; Labor Partner</h1>
+    <p class="body-t" style="margin-top:18px;max-width:560px">We partner with licensed general contractors and specialty contractors as independent consultants and insured labor suppliers &mdash; not as a licensed contractor competing for your work.</p>
+  </div>
+  <div class="partners-layout">
+    <div class="rv-l">
+      <h2 class="head head-md">What We<br>Bring to Your<br>Business</h2>
+      <div class="plist" style="margin-top:32px">
+        <div class="pit"><span class="pin">01</span><div><div class="pit-t">W-2 Labor Supply</div><div class="pit-d">Our field workers are W-2 employees covered under our GL and Workers&rsquo; Comp. You get the labor without the liability &mdash; no subcontractor risk on your end.</div></div></div>
+        <div class="pit"><span class="pin">02</span><div><div class="pit-t">Independent Estimating &amp; Consulting</div><div class="pit-d">We provide 1099 consulting to licensed GCs &mdash; estimating, takeoffs, scope writing, and budget management without being on your license or your payroll.</div></div></div>
+        <div class="pit"><span class="pin">03</span><div><div class="pit-t">Bid Package Support</div><div class="pit-d">We help licensed contractors win more work by developing detailed bid packages, pre-bid site documentation, and competitive scope breakdowns.</div></div></div>
+        <div class="pit"><span class="pin">04</span><div><div class="pit-t">Project Coordination</div><div class="pit-d">On-site coordination, schedule tracking, and daily reporting on your active projects. You stay in the loop without being on-site every day.</div></div></div>
+        <div class="pit"><span class="pin">05</span><div><div class="pit-t">Projex Client Portal</div><div class="pit-d">All project activity tracked in real time via Projex. Your clients see progress. You see the full picture. No status call needed.</div></div></div>
+      </div>
+    </div>
+    <div class="rv-r">
+      <div class="pxc">
+        <div class="pxn">Projex</div>
+        <p class="pxb">All Modern Engineering &amp; Construction projects are managed and tracked through Projex &mdash; our B2B construction project management platform. GC partners and their clients receive real-time status updates, photo reports, document access, and schedule visibility through a dedicated portal.</p>
+        <a href="https://projex.live" target="_blank" rel="noopener" class="pxl">Visit projex.live &rarr;</a>
+      </div>
+      <div class="pxc" style="margin-top:4px">
+        <p class="mono" style="margin-bottom:12px">Ready to Partner?</p>
+        <p class="pxb">We offer flexible labor agreements, monthly retainer arrangements, and project-by-project engagements. Tell us your workflow &mdash; we&rsquo;ll fit into it.</p>
+        <a href="contact.html" class="pxl">Start the conversation &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="reach-grid rv">
+    <div class="rc rv d1">
+      <div class="rc-title">Any Scope Size</div>
+      <p class="rc-body">From a single-family re-roof to a 50,000SF commercial membrane &mdash; our crews scale up or down to match your project without the overhead of keeping a full team on payroll.</p>
+    </div>
+    <div class="rc rv d2">
+      <div class="rc-title">Your Schedule, Not Ours</div>
+      <p class="rc-body">We integrate into your critical path from day one. Night work, weekends, phased rollouts, occupied facilities &mdash; we structure around your timeline, not the other way around.</p>
+    </div>
+    <div class="rc rv d3">
+      <div class="rc-title">Fully Documented</div>
+      <p class="rc-body">Daily reports, photo logs, as-built documentation, and closeout packages are standard on every scope &mdash; not upsells. Your clients get what they paid for, on paper.</p>
+    </div>
+  </div>
+</section>
+
+<div class="legal-strip">
+  <p><strong style="color:#3a5a3a">Legal Disclosure:</strong> Modern Engineering &amp; Construction LLC provides consulting and labor supply services. We are not a licensed contractor. Labor is supplied under our General Liability and Workers&rsquo; Compensation insurance. Consulting services are provided independently and do not constitute a contractor relationship.</p>
+</div>
+
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
   <button class="lightbox-close" id="lightboxClose" aria-label="Close">&#10005;</button>
@@ -231,18 +304,18 @@
       <a href="https://projex.live" target="_blank" rel="noopener" class="fpx">Managed via Projex.live &rarr;</a>
     </div>
     <div class="fc"><h4>Services</h4><ul>
-      <li><a href="services.html">Commercial Roofing</a></li>
-      <li><a href="services.html">Residential Roofing</a></li>
-      <li><a href="services.html">Exterior Work</a></li>
-      <li><a href="services.html">Interior Work</a></li>
-      <li><a href="services.html">Carpentry</a></li>
-      <li><a href="services.html">Labor / Sub-Contract</a></li>
-      <li><a href="services.html">Permitting &amp; PM</a></li>
+      <li><a href="estimator.html#services">Commercial Roofing</a></li>
+      <li><a href="estimator.html#services">Residential Roofing</a></li>
+      <li><a href="estimator.html#services">Exterior Work</a></li>
+      <li><a href="estimator.html#services">Interior Work</a></li>
+      <li><a href="estimator.html#services">Carpentry</a></li>
+      <li><a href="estimator.html#services">Labor / Sub-Contract</a></li>
+      <li><a href="estimator.html#services">Permitting &amp; PM</a></li>
     </ul></div>
     <div class="fc"><h4>Company</h4><ul>
       <li><a href="index.html#about">About Us</a></li>
       <li><a href="projects.html">Our Work</a></li>
-      <li><a href="partners.html">GC Partners</a></li>
+      <li><a href="projects.html#partners">GC Partners</a></li>
       <li><a href="estimator.html">Get an Estimate</a></li>
       <li><a href="https://projex.live" target="_blank">Projex Platform</a></li>
     </ul></div>

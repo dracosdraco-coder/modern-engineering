@@ -3,6 +3,10 @@
   "builds": [
     { "src": "**/*", "use": "@vercel/static" }
   ],
+  "redirects": [
+    { "source": "/services.html", "destination": "/estimator.html#services", "permanent": true },
+    { "source": "/partners.html", "destination": "/projects.html#partners", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/public/videos/(.*)",

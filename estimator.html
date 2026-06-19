@@ -180,9 +180,22 @@
 .card-group-divider{grid-column:span 2;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.28em;text-transform:uppercase;color:var(--green);padding:22px 0 8px;border-bottom:1px solid var(--border);pointer-events:none;user-select:none}
 .card-group-divider:first-child{padding-top:0}
 
+/* ── SERVICES (merged) ── */
+.svc-full-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);margin-top:64px}
+.svc-card{background:var(--bg);padding:52px 44px;border-left:3px solid transparent;transition:background .3s,border-color .3s,transform .3s;position:relative}
+.svc-card::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;background:var(--green-dim)}
+.svc-card:hover{background:var(--card);border-left-color:var(--gold)}
+.svc-num{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.22em;color:var(--gold);opacity:.6;margin-bottom:20px}
+.svc-title{font-family:'Archivo Black',sans-serif;font-size:26px;color:var(--white);line-height:1.05;margin-bottom:14px;letter-spacing:.01em}
+.svc-desc{font-size:14px;font-weight:300;color:var(--muted);line-height:1.85}
+.svc-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:22px;padding-top:20px;border-top:1px solid var(--border)}
+.svc-tags .tag{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);border:1px solid var(--border2);padding:4px 10px;transition:background .2s,border-color .2s}
+.svc-card:hover .svc-tags .tag{border-color:rgba(184,133,26,.35)}
+
 /* ── RESPONSIVE ── */
 @media(max-width:1200px){.config-wrap{grid-template-columns:1fr 360px;gap:40px}}
 @media(max-width:1100px){
+  .svc-full-grid{grid-template-columns:1fr}
   .config-wrap{grid-template-columns:1fr;gap:40px}
   .config-sidebar{position:static}
   .card-sel.cols-3{grid-template-columns:1fr 1fr}
@@ -195,6 +208,7 @@
   .e2c{grid-template-columns:1fr}
   .est-panel-actions{grid-template-columns:1fr}
   .est-action-send{grid-column:span 1}
+  .svc-card{padding:36px 24px}
 }
 </style>
 </head>
@@ -208,25 +222,20 @@
 
 <!-- MOBILE MENU -->
 <div class="mmenu" id="mm">
-  <a href="index.html">Home</a>
-  <a href="services.html">Services</a>
-  <a href="projects.html">Work</a>
-  <a href="partners.html">Partners</a>
+  <a href="index.html">MEC</a>
   <a href="estimator.html" class="active">Estimate</a>
+  <a href="projects.html">Work</a>
   <a href="contact.html" class="mcta">Get a Quote &rarr;</a>
 </div>
 
 <nav id="nav">
   <a href="index.html" class="nav-logo">
-    <div class="nav-logo-name">Modern Engineering</div>
-    <div class="nav-logo-sub">&amp; Construction &middot; Florida</div>
+    <div class="nav-logo-name">MEC</div>
+    <div class="nav-logo-sub">Group &middot; Florida</div>
   </a>
   <ul class="nav-ul">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="projects.html">Work</a></li>
-    <li><a href="partners.html">Partners</a></li>
     <li><a href="estimator.html" class="active">Estimate</a></li>
+    <li><a href="projects.html">Work</a></li>
     <li><a href="contact.html" class="ncta">Get a Quote</a></li>
   </ul>
   <div class="nav-right">
@@ -916,6 +925,83 @@
 
 </div><!-- end config-wrap -->
 
+<!-- SERVICES (merged from former /services.html) -->
+<section class="sec" id="services" style="padding-top:0">
+  <div class="page-hero rv" style="padding:0 0 0;max-width:none">
+    <p class="mono" style="margin-bottom:14px">What We Do</p>
+    <h1 class="head head-lg">Consulting, Bidding<br>&amp; Labor Supply</h1>
+    <p class="body-t" style="margin-top:20px;max-width:600px">Modern Engineering &amp; Construction LLC is not a licensed contractor. We are a construction consulting and labor supply firm &mdash; we build bid packages, supply insured W-2 workers, and manage projects on your behalf.</p>
+  </div>
+  <div class="svc-full-grid">
+
+    <div class="svc-card rv d1">
+      <div class="svc-num">01</div>
+      <h2 class="svc-title">Bid Packaging &mdash; Roofing</h2>
+      <p class="svc-desc">For residential and commercial roofing needs, we develop a complete bid package &mdash; scope of work, material specifications, and 2&ndash;3 competitive proposals from vetted, licensed roofing contractors. You review the options and hire the contractor directly. We never hold or work under a roofing license.</p>
+      <div class="svc-tags"><span class="tag">Residential Roofing</span><span class="tag">Commercial Roofing</span><span class="tag">2&ndash;3 Bids</span><span class="tag">Licensed Contractors</span><span class="tag">Scope Writing</span></div>
+    </div>
+
+    <div class="svc-card rv d2">
+      <div class="svc-num">02</div>
+      <h2 class="svc-title">Bid Packaging &mdash; All Trades</h2>
+      <p class="svc-desc">We build bid packages for any licensed trade &mdash; electrical, plumbing, HVAC, structural, waterproofing, stucco, and more. Property owners and developers get competitive, documented options without having to source, vet, or negotiate with contractors themselves.</p>
+      <div class="svc-tags"><span class="tag">Electrical</span><span class="tag">Plumbing</span><span class="tag">HVAC</span><span class="tag">Waterproofing</span><span class="tag">Stucco</span><span class="tag">Structural</span></div>
+    </div>
+
+    <div class="svc-card rv d3">
+      <div class="svc-num">03</div>
+      <h2 class="svc-title">W-2 Labor Supply</h2>
+      <p class="svc-desc">We employ field laborers as W-2 workers under our own General Liability and Workers&rsquo; Compensation insurance and make them available to licensed contractors, construction firms, and property owners. Our workers are our employees &mdash; your liability exposure is eliminated.</p>
+      <div class="svc-tags"><span class="tag">W-2 Employees</span><span class="tag">GL Insured</span><span class="tag">Workers&rsquo; Comp</span><span class="tag">Crew Augmentation</span><span class="tag">Repairs</span></div>
+    </div>
+
+    <div class="svc-card rv d4">
+      <div class="svc-num">04</div>
+      <h2 class="svc-title">GC &amp; Contractor Consulting</h2>
+      <p class="svc-desc">We provide independent 1099 consulting services to licensed general contractors and specialty contractors &mdash; estimating, project coordination, scope writing, budget tracking, and schedule management. We bring the expertise without being on your license.</p>
+      <div class="svc-tags"><span class="tag">Estimating</span><span class="tag">Scope Writing</span><span class="tag">Coordination</span><span class="tag">1099 Consulting</span><span class="tag">Budget Tracking</span></div>
+    </div>
+
+    <div class="svc-card rv d5">
+      <div class="svc-num">05</div>
+      <h2 class="svc-title">Project Management</h2>
+      <p class="svc-desc">We manage construction projects on behalf of property owners &mdash; coordinating licensed trade contractors, tracking schedules, attending inspections, and delivering closeout documentation. We do not hold a contractor&rsquo;s license and do not perform licensed work.</p>
+      <div class="svc-tags"><span class="tag">Owner&rsquo;s Rep</span><span class="tag">Schedule Management</span><span class="tag">Inspection Coordination</span><span class="tag">Projex Tracking</span></div>
+    </div>
+
+    <div class="svc-card rv d6">
+      <div class="svc-num">06</div>
+      <h2 class="svc-title">Contractor Vetting &amp; Qualification</h2>
+      <p class="svc-desc">Every contractor in a bid package is verified for active license status, current insurance certificates, BBB standing, and references. We eliminate unqualified bids before they reach you &mdash; you only see contractors who are legally able to perform the work.</p>
+      <div class="svc-tags"><span class="tag">License Verification</span><span class="tag">Insurance Check</span><span class="tag">Reference Review</span><span class="tag">BBB Standing</span></div>
+    </div>
+
+    <div class="svc-card rv d7">
+      <div class="svc-num">07</div>
+      <h2 class="svc-title">Site Assessments &amp; Reporting</h2>
+      <p class="svc-desc">Pre-bid site assessments, drone surveys, condition reports, and documentation to define scope before contractors are engaged. We provide the documentation licensed contractors need to bid accurately &mdash; reducing change orders and scope disputes.</p>
+      <div class="svc-tags"><span class="tag">Condition Reports</span><span class="tag">Pre-Bid Scope</span><span class="tag">Photo Documentation</span><span class="tag">Drone Survey</span></div>
+    </div>
+
+    <div class="svc-card rv d8">
+      <div class="svc-num">08</div>
+      <h2 class="svc-title">Insurance Claim Coordination</h2>
+      <p class="svc-desc">We work with property owners and adjusters to define scope, organize licensed contractor bids, and coordinate the insurance claim process. We serve as the owner&rsquo;s representative &mdash; not as a contractor &mdash; throughout the claim and repair process.</p>
+      <div class="svc-tags"><span class="tag">Adjuster Coordination</span><span class="tag">Scope Documentation</span><span class="tag">Bid Organization</span><span class="tag">Owner&rsquo;s Rep</span></div>
+    </div>
+
+  </div>
+  <div style="text-align:center;padding:56px 0 0" class="rv">
+    <a href="#trade-roofing" class="btn btn-green" onclick="document.querySelector('.cfg-trade-bar').scrollIntoView({behavior:'smooth'})">Get a Project Estimate</a>
+    &nbsp;&nbsp;
+    <a href="contact.html" class="btn btn-outline">Request a Quote</a>
+  </div>
+</section>
+
+<div class="legal-strip">
+  <p><strong style="color:#3a5a3a">Legal Disclosure:</strong> Modern Engineering &amp; Construction LLC is a construction consulting and labor supply firm. We are not a licensed contractor and do not perform licensed trade work. Bid packages connect clients with independent licensed contractors who are selected and contracted directly by the client. Labor supply services are provided under our General Liability and Workers&rsquo; Compensation insurance. All licensed construction work is performed by independently licensed contractors.</p>
+</div>
+
 <footer>
   <div class="fg">
     <div>
@@ -925,18 +1011,18 @@
       <a href="https://projex.live" target="_blank" rel="noopener" class="fpx">Managed via Projex.live &rarr;</a>
     </div>
     <div class="fc"><h4>Services</h4><ul>
-      <li><a href="services.html">Commercial Roofing</a></li>
-      <li><a href="services.html">Residential Roofing</a></li>
-      <li><a href="services.html">Exterior Work</a></li>
-      <li><a href="services.html">Interior Work</a></li>
-      <li><a href="services.html">Carpentry</a></li>
-      <li><a href="services.html">Labor / Sub-Contract</a></li>
-      <li><a href="services.html">Permitting &amp; PM</a></li>
+      <li><a href="estimator.html#services">Commercial Roofing</a></li>
+      <li><a href="estimator.html#services">Residential Roofing</a></li>
+      <li><a href="estimator.html#services">Exterior Work</a></li>
+      <li><a href="estimator.html#services">Interior Work</a></li>
+      <li><a href="estimator.html#services">Carpentry</a></li>
+      <li><a href="estimator.html#services">Labor / Sub-Contract</a></li>
+      <li><a href="estimator.html#services">Permitting &amp; PM</a></li>
     </ul></div>
     <div class="fc"><h4>Company</h4><ul>
       <li><a href="index.html#about">About Us</a></li>
       <li><a href="projects.html">Our Work</a></li>
-      <li><a href="partners.html">GC Partners</a></li>
+      <li><a href="projects.html#partners">GC Partners</a></li>
       <li><a href="estimator.html">Get an Estimate</a></li>
       <li><a href="https://projex.live" target="_blank">Projex Platform</a></li>
     </ul></div>
