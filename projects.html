@@ -10,40 +10,38 @@
 <meta property="og:description" content="View completed construction and roofing projects by Modern Engineering & Construction in South Florida.">
 <meta property="og:url" content="https://mecgroup.live/projects.html">
 <meta property="og:type" content="website">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18062085199"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18062085199');
+</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebPage","name":"Our Work","url":"https://mecgroup.live/projects.html","description":"Portfolio of completed construction and roofing projects by Modern Engineering & Construction LLC in Miami-Dade, Broward, and Palm Beach County.","isPartOf":{"@type":"WebSite","url":"https://mecgroup.live","name":"Modern Engineering & Construction"}}
 </script>
 <link rel="stylesheet" href="shared.css">
 <style>
-/* Project grid — all media replaced with CSS placeholders */
+/* Project grid */
 .proj-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;grid-template-rows:420px 300px;gap:6px;margin-top:56px}
-.pc{position:relative;overflow:hidden}
+.pc{position:relative;overflow:hidden;background:var(--card)}
 .pc-feat{grid-row:span 2}
-.pc .photo-ph{position:absolute;inset:0;transition:transform .8s cubic-bezier(.25,.46,.45,.94)}
-.pc:hover .photo-ph{transform:scale(1.04)}
-/* Each project card gets a slightly different gradient variation */
-.pc:nth-child(1) .photo-ph{background:linear-gradient(150deg,#071a0f 0%,#14532d 45%,#166534 80%,#1a7a40 100%)}
-.pc:nth-child(2) .photo-ph{background:linear-gradient(135deg,#0a2010 0%,#15803d 50%,#22c55e 100%)}
-.pc:nth-child(3) .photo-ph{background:linear-gradient(160deg,#092014 0%,#166534 55%,#14532d 100%)}
-.pc:nth-child(4) .photo-ph{background:linear-gradient(125deg,#0b2416 0%,#1a7a40 60%,#15803d 100%)}
-.pc:nth-child(5) .photo-ph{background:linear-gradient(145deg,#071a0f 0%,#14532d 40%,#1a7a40 100%)}
+.pc video,.pc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.25,.46,.45,.94)}
+.pc:hover video,.pc:hover img{transform:scale(1.04)}
 .pc-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(7,26,15,.75) 0%,transparent 55%);z-index:2}
 .pc-lbl{position:absolute;bottom:16px;left:16px;z-index:3;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.75);background:rgba(7,26,15,.55);backdrop-filter:blur(8px);padding:5px 12px}
 .pc-type{position:absolute;top:16px;right:16px;z-index:3;font-family:'DM Mono',monospace;font-size:7.5px;letter-spacing:.2em;text-transform:uppercase;color:#4ade80;border:1px solid rgba(74,222,128,.3);padding:4px 10px;background:rgba(7,26,15,.4);backdrop-filter:blur(8px)}
 
-/* Coming soon band */
-.photo-banner{background:var(--bg2);border:1px solid var(--border);padding:20px 28px;display:flex;align-items:center;gap:20px;margin-top:6px}
-.photo-banner-dot{width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0;animation:pls 2s ease-in-out infinite}
-.photo-banner p{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+/* Before / After (page-specific spacing) */
+.ba-wrap{margin-top:80px}
 
 /* Additional gallery grid */
 .proj-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:80px}
 .pg-card{position:relative;height:300px;overflow:hidden}
-.pg-card .photo-ph{position:absolute;inset:0;transition:transform .8s cubic-bezier(.25,.46,.45,.94)}
-.pg-card:hover .photo-ph{transform:scale(1.04)}
-.pg-card:nth-child(1) .photo-ph{background:linear-gradient(155deg,#071a0f 0%,#166534 55%,#22c55e 100%)}
-.pg-card:nth-child(2) .photo-ph{background:linear-gradient(140deg,#0a2010 0%,#14532d 50%,#15803d 100%)}
-.pg-card:nth-child(3) .photo-ph{background:linear-gradient(160deg,#0b2416 0%,#1a7a40 60%,#166534 100%)}
+.pg-card video,.pg-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.25,.46,.45,.94)}
+.pg-card:hover video,.pg-card:hover img{transform:scale(1.04)}
 
 /* Scope stats */
 .scope-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:80px}
@@ -63,7 +61,6 @@
   .proj-gallery{grid-template-columns:1fr}
   .scope-grid{grid-template-columns:1fr}
 }
-@keyframes pls{0%,100%{opacity:.4}50%{opacity:1}}
 </style>
 </head>
 <body>
@@ -99,47 +96,58 @@
 <div class="page-hero rv">
   <p class="mono" style="margin-bottom:14px">Project Portfolio</p>
   <h1 class="head head-lg">Our Work<br>Across Florida</h1>
-  <p class="body-t" style="margin-top:18px;max-width:520px">Every project is fully documented &mdash; condition reports, progress photos, and closeout packages delivered to clients through Projex. Photography and site documentation coming soon.</p>
+  <p class="body-t" style="margin-top:18px;max-width:520px">Every project is documented with photography and video &mdash; condition reports, progress shots, and closeout packages delivered to clients through Projex.</p>
 </div>
 
 <section class="sec">
-  <!-- Media placeholder notice -->
-  <div class="photo-banner rv">
-    <div class="photo-banner-dot"></div>
-    <p>Project photography &amp; site documentation &mdash; coming soon. All projects tracked live via Projex.</p>
-  </div>
-
-  <!-- Main project grid — CSS gradient placeholders -->
+  <!-- Main project grid -->
   <div class="proj-grid rv-scale">
     <div class="pc pc-feat">
-      <div class="photo-ph"></div>
+      <img src="public/images/proj9.jpg" alt="Aerial view of commercial re-roofing project in Miami Beach" loading="eager">
       <div class="pc-ov"></div>
       <div class="pc-lbl">Miami Beach &middot; Commercial Re-Roof</div>
       <div class="pc-type">TPO Membrane</div>
     </div>
     <div class="pc">
-      <div class="photo-ph"></div>
+      <video autoplay muted loop playsinline preload="auto"><source src="public/videos/clip3.mp4" type="video/mp4"></video>
       <div class="pc-ov"></div>
       <div class="pc-lbl">South Florida &middot; Active Project</div>
       <div class="pc-type">Labor Supply</div>
     </div>
     <div class="pc">
-      <div class="photo-ph"></div>
+      <img src="public/images/proj3.jpg" alt="Multifamily TPO roofing project South Florida" loading="lazy">
       <div class="pc-ov"></div>
       <div class="pc-lbl">Miami-Dade &middot; Multifamily</div>
       <div class="pc-type">Bid Package</div>
     </div>
     <div class="pc">
-      <div class="photo-ph"></div>
+      <video autoplay muted loop playsinline preload="metadata"><source src="public/videos/clip4.mp4" type="video/mp4"></video>
       <div class="pc-ov"></div>
       <div class="pc-lbl">South Florida &middot; Installation</div>
       <div class="pc-type">PM Oversight</div>
     </div>
     <div class="pc">
-      <div class="photo-ph"></div>
+      <img src="public/images/proj4.jpg" alt="Roofing crew active installation South Florida" loading="lazy">
       <div class="pc-ov"></div>
       <div class="pc-lbl">South Florida &middot; Crew Install</div>
       <div class="pc-type">W-2 Labor</div>
+    </div>
+  </div>
+
+  <!-- Before / After -->
+  <div class="ba-wrap rv">
+    <div class="ba-head">
+      <div><p class="mono" style="margin-bottom:12px">Transformation</p><h2 class="head head-md">Before &amp; After</h2></div>
+      <p class="body-t" style="max-width:280px;text-align:right">Complete commercial re-roofing. Degraded membrane removed, new TPO installed.</p>
+    </div>
+    <div class="ba-img-wrap">
+      <img class="ba-img" src="public/images/before-after.jpg" alt="Commercial roofing before and after — degraded membrane to new TPO">
+      <div class="ba-overlay"></div>
+      <div class="ba-labels">
+        <div class="ba-label"><div class="ba-label-tag">Before</div><div class="ba-label-val">Degraded Membrane</div></div>
+        <div class="ba-divider"></div>
+        <div class="ba-label"><div class="ba-label-tag after">After</div><div class="ba-label-val">New TPO System</div></div>
+      </div>
     </div>
   </div>
 
@@ -159,7 +167,7 @@
     </div>
   </div>
 
-  <!-- Additional gallery placeholders -->
+  <!-- Additional gallery -->
   <div style="margin-top:72px" class="rv">
     <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;margin-bottom:32px">
       <div><p class="mono" style="margin-bottom:12px">Additional Scopes</p><h2 class="head head-md">More Work</h2></div>
@@ -167,17 +175,17 @@
     </div>
     <div class="proj-gallery">
       <div class="pg-card">
-        <div class="photo-ph"></div>
+        <img src="public/images/proj7.jpg" alt="South Beach hotel roofing restoration" loading="lazy">
         <div class="pc-ov"></div>
         <div class="pc-lbl">Miami Beach &middot; Restoration</div>
       </div>
       <div class="pg-card">
-        <div class="photo-ph"></div>
+        <img src="public/images/proj6.jpg" alt="Commercial roofing install in progress South Florida" loading="lazy">
         <div class="pc-ov"></div>
         <div class="pc-lbl">South Florida &middot; Commercial</div>
       </div>
       <div class="pg-card">
-        <div class="photo-ph"></div>
+        <img src="public/images/proj8.jpg" alt="Condo complex aerial Broward County" loading="lazy">
         <div class="pc-ov"></div>
         <div class="pc-lbl">Broward &middot; Multifamily</div>
       </div>
@@ -239,6 +247,18 @@ tb.addEventListener('click',()=>setTheme(document.documentElement.getAttribute('
 const allRv=document.querySelectorAll('.rv,.rv-l,.rv-r,.rv-scale');
 const ro=new IntersectionObserver(e=>{e.forEach((x,i)=>{if(x.isIntersecting){setTimeout(()=>x.target.classList.add('on'),i*55);ro.unobserve(x.target);}});},{threshold:.07,rootMargin:'0px 0px -40px 0px'});
 allRv.forEach(el=>ro.observe(el));
+
+// FORCE ALL VIDEOS
+document.querySelectorAll('video').forEach(v=>{
+  v.muted=true;
+  const p=v.play();
+  if(p!==undefined){p.catch(()=>{
+    const io=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{if(e.isIntersecting){v.play();io.unobserve(v);}});
+    },{threshold:.3});
+    io.observe(v);
+  });}
+});
 </script>
 </body>
 </html>

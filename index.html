@@ -10,7 +10,15 @@
 <meta property="og:description" content="Construction consulting, bid packaging, and insured W-2 labor supply for Florida property owners, developers, and contractors. Miami-Dade · Broward · Palm Beach.">
 <meta property="og:url" content="https://mecgroup.live">
 <meta property="og:type" content="website">
-<!-- Google Analytics — paste your GA4 snippet here (replace this comment) -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18062085199"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18062085199');
+</script>
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -55,10 +63,9 @@
 <style>
 /* ── HERO ── */
 #hero{position:relative;height:100vh;min-height:640px;display:flex;align-items:flex-start;overflow:hidden;padding-bottom:110px}
-.hv{position:absolute;inset:0;background:linear-gradient(145deg,#071a0f 0%,#0d2e18 25%,#14532d 55%,#166534 78%,#1a7a40 100%)}
-.hv::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:60px 60px}
-.hv::after{content:'';position:absolute;top:-20%;right:-5%;width:65%;height:125%;background:radial-gradient(ellipse at 60% 40%,rgba(22,163,74,.22) 0%,rgba(22,163,74,.08) 40%,transparent 70%)}
-.hv-accent{position:absolute;bottom:-10%;left:30%;width:50%;height:80%;background:radial-gradient(ellipse,rgba(21,128,61,.15) 0%,transparent 60%);pointer-events:none}
+.hv{position:absolute;inset:0}
+.hv video{width:100%;height:100%;object-fit:cover;filter:brightness(.4) saturate(.75)}
+.hv-accent{position:absolute;bottom:-10%;left:30%;width:50%;height:80%;background:radial-gradient(ellipse,rgba(21,128,61,.15) 0%,transparent 60%);pointer-events:none;z-index:1}
 .ho{position:absolute;inset:0;background:linear-gradient(to right,rgba(7,26,15,.9) 0%,rgba(7,26,15,.65) 50%,transparent 100%),linear-gradient(to top,rgba(7,26,15,.8) 0%,transparent 45%)}
 .hb{position:relative;z-index:2;padding:clamp(100px,16vh,180px) 48px 0;max-width:760px}
 .hb .mono{margin-bottom:28px;opacity:0;animation:up .8s .15s forwards}
@@ -77,8 +84,8 @@
 /* ── ABOUT ── */
 #about{display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:1440px;margin:0 auto;padding:clamp(80px,10vw,140px) 48px}
 .av{position:relative;height:560px;padding-right:56px}
-.av-main{width:100%;height:100%}
-.av-sub{position:absolute;bottom:-24px;left:0;width:48%;height:175px;border:4px solid var(--bg)}
+.av-main{width:100%;height:100%;object-fit:cover}
+.av-sub{position:absolute;bottom:-24px;left:0;width:48%;height:175px;border:4px solid var(--bg);object-fit:cover}
 .av-badge{position:absolute;top:24px;right:40px;background:var(--green);color:#fff;padding:9px 16px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;z-index:2}
 .ac{padding-left:24px;display:flex;flex-direction:column;justify-content:center}
 .ac .mono{margin-bottom:16px}
@@ -100,6 +107,9 @@
 .spc-d{font-size:13px;font-weight:300;color:var(--muted);line-height:1.7}
 .sp-cta{max-width:1440px;margin:0 auto;padding:44px 48px 0;text-align:center}
 
+/* ── BEFORE / AFTER ── */
+#ba{max-width:1440px;margin:0 auto;padding:clamp(80px,10vw,140px) 48px}
+
 /* ── PROCESS ── */
 #process{padding:clamp(80px,10vw,140px) 48px;max-width:1440px;margin:0 auto}
 .proc-head{text-align:center;max-width:560px;margin:0 auto 72px}
@@ -112,7 +122,7 @@
 .proc-title{font-family:'Archivo Black',sans-serif;font-size:17px;color:var(--white);line-height:1.1;margin-bottom:10px;letter-spacing:.01em}
 .proc-desc{font-size:13px;font-weight:300;color:var(--muted);line-height:1.75}
 
-/* ── COMPARISON (replaces before/after) ── */
+/* ── COMPARISON ── */
 #compare{background:var(--green-dk);padding:clamp(80px,10vw,140px) 48px}
 .cmp-inner{max-width:1440px;margin:0 auto}
 .cmp-head{text-align:center;margin-bottom:64px}
@@ -166,6 +176,7 @@
   .hpills{display:none}
   .hact{flex-direction:column}
   .btn{width:100%;text-align:center;padding:14px 20px}
+  #ba{padding:64px 20px}
   #process{padding:64px 20px}
   .proc-grid{grid-template-columns:1fr}
   #compare{padding:64px 20px}
@@ -210,9 +221,14 @@
   </div>
 </nav>
 
-<!-- HERO — CSS gradient replaces video -->
+<!-- HERO -->
 <section id="hero">
-  <div class="hv"><div class="hv-accent"></div></div>
+  <div class="hv">
+    <video autoplay muted loop playsinline preload="auto" poster="public/images/proj5.jpg">
+      <source src="public/videos/main.mp4" type="video/mp4">
+    </video>
+    <div class="hv-accent"></div>
+  </div>
   <div class="ho"></div>
   <div class="hb">
     <p class="mono" style="color:rgba(134,239,172,.75)">Florida&apos;s Construction Partner &middot; Est. 2025</p>
@@ -240,9 +256,8 @@
 <!-- ABOUT -->
 <section id="about">
   <div class="av rv-l">
-    <!-- Photography placeholder — deep green gradient panels -->
-    <div class="av-main photo-ph"></div>
-    <div class="av-sub photo-ph" style="background:linear-gradient(160deg,#0d2818 0%,#166534 100%)"></div>
+    <img class="av-main" src="public/images/proj4.jpg" alt="Modern Engineering crew on commercial roofing project">
+    <img class="av-sub" src="public/images/proj8.jpg" alt="Condo complex South Florida">
     <div class="av-badge">Est. 2025</div>
   </div>
   <div class="ac rv-r">
@@ -270,11 +285,28 @@
     <div class="spc rv d4"><div class="spc-n">04</div><h3 class="spc-t">Project Management</h3><p class="spc-d">We manage licensed contractors, schedules, inspections, and deliverables on your behalf. Full Projex visibility.</p></div>
     <div class="spc rv d5"><div class="spc-n">05</div><h3 class="spc-t">Roofing Bids</h3><p class="spc-d">We create roofing bid packages &mdash; residential and commercial &mdash; and source licensed roofing contractors competing for your job.</p></div>
     <div class="spc rv d6"><div class="spc-n">06</div><h3 class="spc-t">Contractor Vetting</h3><p class="spc-d">We verify licenses, insurance, and references for every contractor in a bid package. No unqualified bids.</p></div>
-    <div class="spc rv d7"><div class="spc-n">07</div><h3 class="spc-t">Site Assessments</h3><p class="spc-d">Condition reports, pre-bid documentation, and scope definition before contractors are engaged.</p></div>
+    <div class="spc rv d7"><div class="spc-n">07</div><h3 class="spc-t">Site Assessments</h3><p class="spc-d">Condition reports, drone surveys, and pre-bid documentation to define the scope before contractors are engaged.</p></div>
     <div class="spc rv d8"><div class="spc-n">08</div><h3 class="spc-t">Insurance Coordination</h3><p class="spc-d">We work alongside adjusters and property owners to define scope, organize bids, and coordinate licensed contractor selections.</p></div>
   </div>
   <div class="sp-cta rv"><a href="services.html" class="btn btn-green">View All Services</a></div>
 </div>
+
+<!-- BEFORE / AFTER -->
+<section id="ba">
+  <div class="ba-head rv">
+    <div><p class="mono" style="margin-bottom:12px">Transformation</p><h2 class="head head-lg">Before &amp; After</h2></div>
+    <p class="body-t" style="max-width:300px;text-align:right">Complete commercial re-roofing. Degraded membrane removed, new TPO installed &mdash; clean, reflective, and code compliant.</p>
+  </div>
+  <div class="ba-img-wrap rv">
+    <img class="ba-img" src="public/images/before-after.jpg" alt="Commercial roofing before and after — degraded membrane to new TPO">
+    <div class="ba-overlay"></div>
+    <div class="ba-labels">
+      <div class="ba-label"><div class="ba-label-tag">Before</div><div class="ba-label-val">Degraded Membrane</div></div>
+      <div class="ba-divider"></div>
+      <div class="ba-label"><div class="ba-label-tag after">After</div><div class="ba-label-val">New TPO System</div></div>
+    </div>
+  </div>
+</section>
 
 <!-- HOW IT WORKS -->
 <section id="process">
@@ -433,6 +465,15 @@ function animateCount(el,target,suffix=''){
 }
 const statObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){const el=x.target;const raw=el.dataset.count;animateCount(el,raw);statObs.unobserve(el);}});},{threshold:.5});
 document.querySelectorAll('.stn[data-count]').forEach(el=>statObs.observe(el));
+
+// FORCE VIDEO AUTOPLAY
+document.querySelectorAll('video').forEach(v=>{
+  v.muted=true;
+  const p=v.play();
+  if(p!==undefined){p.catch(()=>{
+    document.addEventListener('click',()=>v.play(),{once:true});
+  });}
+});
 
 // SMOOTH SCROLL
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
