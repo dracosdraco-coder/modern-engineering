@@ -91,8 +91,6 @@
 .lw-img.active{opacity:1}
 .lw-card:hover .lw-img.active{transform:scale(1.06)}
 .lw-img{transition:opacity 1.1s ease,transform .8s cubic-bezier(.25,.46,.45,.94)}
-.lw-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(7,26,15,.78) 0%,transparent 55%);z-index:2}
-.lw-lbl{position:absolute;bottom:10px;left:10px;z-index:3;font-family:'DM Mono',monospace;font-size:7px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.9)}
 @media(max-width:1100px){.lw-strip{grid-template-columns:repeat(3,1fr);grid-auto-rows:190px}}
 @media(max-width:768px){#latest-work{padding:clamp(90px,14vh,120px) 20px 40px}.lw-strip{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px;gap:4px}}
 
@@ -235,37 +233,12 @@
     <a href="projects.html" class="lw-link">View Full Gallery &rarr;</a>
   </div>
   <div class="lw-strip rv-scale">
-    <div class="lw-card">
-      <img class="lw-img active" src="public/images/projects/new-construction-exterior.jpg" alt="New construction concrete block home">
-      <img class="lw-img" src="public/images/projects/new-construction-rooftop.jpg" alt="New construction rooftop deck">
-      <div class="lw-ov"></div><div class="lw-lbl">New Construction</div>
-    </div>
-    <div class="lw-card">
-      <img class="lw-img active" src="public/images/projects/roof-coating-apply.jpg" alt="Flat roof elastomeric coating application">
-      <img class="lw-img" src="public/images/projects/roof-coating-detail.jpg" alt="Finished white roof coating detail">
-      <div class="lw-ov"></div><div class="lw-lbl">Flat Roof Coating</div>
-    </div>
-    <div class="lw-card">
-      <img class="lw-img active" src="public/images/projects/bathroom-prep-durock.jpg" alt="Shower cement board preparation before tile">
-      <img class="lw-img" src="public/images/projects/shower-tile-install.jpg" alt="Tile shower installation in progress">
-      <img class="lw-img" src="public/images/projects/pebble-shower-finished.jpg" alt="Finished pebble tile walk-in shower">
-      <div class="lw-ov"></div><div class="lw-lbl">Bathroom Remodel</div>
-    </div>
-    <div class="lw-card">
-      <img class="lw-img active" src="public/images/projects/deck-framing.jpg" alt="Wood deck framing under construction">
-      <img class="lw-img" src="public/images/projects/deck-finished.jpg" alt="Completed wood deck construction">
-      <div class="lw-ov"></div><div class="lw-lbl">Deck Build</div>
-    </div>
-    <div class="lw-card">
-      <img class="lw-img active" src="public/images/projects/patio-lounge-1.jpg" alt="Completed backyard patio lounge area">
-      <img class="lw-img" src="public/images/projects/patio-lounge-grill.jpg" alt="Completed backyard patio with grill area">
-      <div class="lw-ov"></div><div class="lw-lbl">Patio &amp; Hardscape</div>
-    </div>
-    <div class="lw-card">
-      <img class="lw-img active" src="public/images/projects/roof-tearoff-decking.jpg" alt="Roof tear-off and plywood decking replacement">
-      <img class="lw-img" src="public/images/projects/shingle-reroof-aerial.jpg" alt="Aerial view of completed residential shingle re-roof">
-      <div class="lw-ov"></div><div class="lw-lbl">Residential Re-Roof</div>
-    </div>
+    <div class="lw-card"><img class="lw-img active" src="public/images/projects/new-construction-exterior.jpg" alt="New construction concrete block home"><img class="lw-img" alt=""></div>
+    <div class="lw-card"><img class="lw-img active" src="public/images/projects/roof-coating-apply.jpg" alt="Flat roof elastomeric coating application"><img class="lw-img" alt=""></div>
+    <div class="lw-card"><img class="lw-img active" src="public/images/projects/bathroom-prep-durock.jpg" alt="Shower cement board preparation before tile"><img class="lw-img" alt=""></div>
+    <div class="lw-card"><img class="lw-img active" src="public/images/projects/deck-framing.jpg" alt="Wood deck framing under construction"><img class="lw-img" alt=""></div>
+    <div class="lw-card"><img class="lw-img active" src="public/images/projects/patio-lounge-1.jpg" alt="Completed backyard patio lounge area"><img class="lw-img" alt=""></div>
+    <div class="lw-card"><img class="lw-img active" src="public/images/projects/roof-tearoff-decking.jpg" alt="Roof tear-off and plywood decking replacement"><img class="lw-img" alt=""></div>
   </div>
 </section>
 
@@ -517,17 +490,37 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',function(e){const t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});
 });
 
-// LATEST PROJECTS — cycle through each card's photos
-document.querySelectorAll('.lw-card').forEach((card,ci)=>{
-  const imgs=card.querySelectorAll('.lw-img');
-  if(imgs.length<2)return;
-  let i=0;
-  setInterval(()=>{
-    imgs[i].classList.remove('active');
-    i=(i+1)%imgs.length;
-    imgs[i].classList.add('active');
-  },3200+ci*400);
-});
+// LATEST PROJECTS — rotate all 6 cards through the full project gallery
+const lwPhotos=[
+  {src:'public/images/projects/new-construction-exterior.jpg',alt:'New construction concrete block home'},
+  {src:'public/images/projects/new-construction-rooftop.jpg',alt:'New construction rooftop deck'},
+  {src:'public/images/projects/roof-coating-apply.jpg',alt:'Flat roof elastomeric coating application'},
+  {src:'public/images/projects/roof-coating-detail.jpg',alt:'Finished white roof coating detail'},
+  {src:'public/images/projects/bathroom-prep-durock.jpg',alt:'Shower cement board preparation before tile'},
+  {src:'public/images/projects/shower-tile-install.jpg',alt:'Tile shower installation in progress'},
+  {src:'public/images/projects/pebble-shower-finished.jpg',alt:'Finished pebble tile walk-in shower'},
+  {src:'public/images/projects/deck-framing.jpg',alt:'Wood deck framing under construction'},
+  {src:'public/images/projects/deck-finished.jpg',alt:'Completed wood deck construction'},
+  {src:'public/images/projects/patio-lounge-1.jpg',alt:'Completed backyard patio lounge area'},
+  {src:'public/images/projects/patio-lounge-grill.jpg',alt:'Completed backyard patio with grill area'},
+  {src:'public/images/projects/roof-tearoff-decking.jpg',alt:'Roof tear-off and plywood decking replacement'},
+  {src:'public/images/projects/shingle-reroof-aerial.jpg',alt:'Aerial view of completed residential shingle re-roof'}
+];
+const lwCards=document.querySelectorAll('.lw-card');
+let lwTick=1;
+setInterval(()=>{
+  lwCards.forEach((card,i)=>{
+    const imgs=card.querySelectorAll('.lw-img');
+    const activeIdx=imgs[0].classList.contains('active')?0:1;
+    const next=imgs[1-activeIdx];
+    const photo=lwPhotos[(lwTick*lwCards.length+i)%lwPhotos.length];
+    next.src=photo.src;
+    next.alt=photo.alt;
+    imgs[activeIdx].classList.remove('active');
+    next.classList.add('active');
+  });
+  lwTick++;
+},3200);
 </script>
 </body>
 </html>
