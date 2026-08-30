@@ -62,9 +62,11 @@
 <link rel="stylesheet" href="shared.css">
 <style>
 /* ── HERO — elegant, light, no video ── */
-#hero{position:relative;padding:clamp(50px,6vw,80px) 48px clamp(90px,9vw,120px);overflow:hidden;background:var(--bg)}
-#hero::before{content:'';position:absolute;top:-15%;right:-10%;width:55%;height:120%;background:radial-gradient(ellipse at center,var(--gold-dim) 0%,transparent 68%);pointer-events:none}
-#hero::after{content:'';position:absolute;bottom:-25%;left:-8%;width:40%;height:90%;background:radial-gradient(ellipse at center,var(--green-dim) 0%,transparent 68%);pointer-events:none}
+.home-hero{position:relative;overflow:hidden;background:var(--bg)}
+.home-hero::before{content:'';position:absolute;top:-15%;right:-10%;width:55%;height:120%;background:radial-gradient(ellipse at center,var(--gold-dim) 0%,transparent 68%);pointer-events:none}
+.home-hero::after{content:'';position:absolute;bottom:-25%;left:-8%;width:40%;height:90%;background:radial-gradient(ellipse at center,var(--green-dim) 0%,transparent 68%);pointer-events:none}
+.hero-copy{padding:clamp(20px,4vw,40px) 48px}
+.hero-actions{padding:0 48px clamp(90px,9vw,120px)}
 .hb{position:relative;z-index:2;max-width:800px;margin:0 auto}
 .hb .mono{margin-bottom:24px;opacity:0;animation:up .8s .15s forwards}
 .hh1{opacity:0;animation:up 1s .3s forwards;color:var(--white);text-align:center}
@@ -92,7 +94,6 @@
 .lw-card:hover .lw-img.active{transform:scale(1.06)}
 .lw-img{transition:opacity 1.1s ease,transform .8s cubic-bezier(.25,.46,.45,.94)}
 @media(max-width:1100px){.lw-strip{grid-template-columns:repeat(3,1fr);grid-auto-rows:190px}}
-@media(max-width:768px){#latest-work{padding:clamp(90px,14vh,120px) 20px 40px}.lw-strip{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px;gap:4px}}
 
 /* ── ABOUT ── */
 #about{display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:1440px;margin:0 auto;padding:clamp(80px,10vw,140px) 48px}
@@ -182,9 +183,20 @@
   .sp-grid{grid-template-columns:1fr 1fr}
   .sp-head{padding:0 20px 40px;flex-direction:column;gap:16px}
   .sp-cta{padding:32px 20px 0}
-  #hero{padding:clamp(120px,18vh,160px) 20px 64px}
-  .hcta-row{flex-direction:column;align-items:stretch}
-  .hcta-card{max-width:none}
+  .home-hero{display:flex;flex-direction:column}
+  .hero-copy{order:1;padding:clamp(100px,16vh,130px) 20px 0}
+  #latest-work{order:2;padding:24px 20px 20px;max-width:none}
+  .hero-actions{order:3;padding:0 20px 40px}
+  .lw-strip{grid-template-columns:repeat(3,1fr);grid-auto-rows:110px;gap:4px}
+  .lw-head{margin-bottom:14px}
+  .lw-head h2{font-size:17px}
+  .hh1{font-size:clamp(26px,7vw,34px)}
+  .hsub{margin-top:14px;font-size:13px}
+  .hcta-row{flex-direction:row;gap:8px;margin-top:20px}
+  .hcta-card{max-width:none;padding:12px 14px}
+  .hcta-lbl{font-size:7px;margin-bottom:5px}
+  .hcta-t{font-size:14px}
+  .hcta-arrow{display:none}
   .btn{width:100%;text-align:center;padding:14px 20px}
   #ba{padding:64px 20px}
   #process{padding:64px 20px}
@@ -226,28 +238,36 @@
   </div>
 </nav>
 
-<!-- LATEST PROJECTS — first thing on the page, above the hero headline -->
-<section id="latest-work">
-  <div class="lw-head rv">
-    <h2 class="head head-md">Latest Projects</h2>
-    <a href="projects.html" class="lw-link">View Full Gallery &rarr;</a>
-  </div>
-  <div class="lw-strip rv-scale">
-    <div class="lw-card"><img class="lw-img active" src="public/images/projects/new-construction-exterior.jpg" alt="New construction concrete block home"><img class="lw-img" alt=""></div>
-    <div class="lw-card"><img class="lw-img active" src="public/images/projects/roof-coating-apply.jpg" alt="Flat roof elastomeric coating application"><img class="lw-img" alt=""></div>
-    <div class="lw-card"><img class="lw-img active" src="public/images/projects/bathroom-prep-durock.jpg" alt="Shower cement board preparation before tile"><img class="lw-img" alt=""></div>
-    <div class="lw-card"><img class="lw-img active" src="public/images/projects/deck-framing.jpg" alt="Wood deck framing under construction"><img class="lw-img" alt=""></div>
-    <div class="lw-card"><img class="lw-img active" src="public/images/projects/patio-lounge-1.jpg" alt="Completed backyard patio lounge area"><img class="lw-img" alt=""></div>
-    <div class="lw-card"><img class="lw-img active" src="public/images/projects/roof-tearoff-decking.jpg" alt="Roof tear-off and plywood decking replacement"><img class="lw-img" alt=""></div>
-  </div>
-</section>
+<!-- HOME HERO — desktop: gallery, then headline, then buttons. Mobile: headline, gallery, buttons (reordered via CSS order) -->
+<div class="home-hero">
+  <!-- LATEST PROJECTS -->
+  <section id="latest-work">
+    <div class="lw-head rv">
+      <h2 class="head head-md">Latest Projects</h2>
+      <a href="projects.html" class="lw-link">View Full Gallery &rarr;</a>
+    </div>
+    <div class="lw-strip rv-scale">
+      <div class="lw-card"><img class="lw-img active" src="public/images/projects/new-construction-exterior.jpg" alt="New construction concrete block home"><img class="lw-img" alt=""></div>
+      <div class="lw-card"><img class="lw-img active" src="public/images/projects/roof-coating-apply.jpg" alt="Flat roof elastomeric coating application"><img class="lw-img" alt=""></div>
+      <div class="lw-card"><img class="lw-img active" src="public/images/projects/bathroom-prep-durock.jpg" alt="Shower cement board preparation before tile"><img class="lw-img" alt=""></div>
+      <div class="lw-card"><img class="lw-img active" src="public/images/projects/deck-framing.jpg" alt="Wood deck framing under construction"><img class="lw-img" alt=""></div>
+      <div class="lw-card"><img class="lw-img active" src="public/images/projects/patio-lounge-1.jpg" alt="Completed backyard patio lounge area"><img class="lw-img" alt=""></div>
+      <div class="lw-card"><img class="lw-img active" src="public/images/projects/roof-tearoff-decking.jpg" alt="Roof tear-off and plywood decking replacement"><img class="lw-img" alt=""></div>
+    </div>
+  </section>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hb">
-    <p class="mono">Florida&apos;s Construction Partner &middot; Est. 2025</p>
-    <h1 class="head head-xl hh1">Do It Once.<em>Do It Right.</em></h1>
-    <p class="body-t hsub">Construction consulting, bid packaging, and insured W-2 labor supply &mdash; protecting your investment from start to finish.</p>
+  <!-- HEADLINE -->
+  <div class="hero-copy">
+    <div class="hb">
+      <p class="mono">Florida&apos;s Construction Partner &middot; Est. 2025</p>
+      <h1 class="head head-xl hh1">Do It Once.<em>Do It Right.</em></h1>
+      <p class="body-t hsub">Construction consulting, bid packaging, and insured W-2 labor supply &mdash; protecting your investment from start to finish.</p>
+    </div>
+  </div>
+
+  <!-- CTA BUTTONS -->
+  <div class="hero-actions">
+    <div class="hb">
     <div class="hcta-row">
       <a href="estimator.html" class="hcta-card">
         <div class="hcta-lbl">Start Here</div>
@@ -260,8 +280,9 @@
         <div class="hcta-arrow">Browse the gallery &rarr;</div>
       </a>
     </div>
+    </div>
   </div>
-</section>
+</div>
 
 <!-- STATS BAR -->
 <div class="sbar">
