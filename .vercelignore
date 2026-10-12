@@ -1,0 +1,10 @@
+# Not part of the public site
+studio/server.js
+studio/lib/build.js
+studio.command
+content
+package-lock.json
+.studio-trash
+august photos
+october
+*.code-workspace

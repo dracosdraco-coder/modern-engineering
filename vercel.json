@@ -1,19 +1,116 @@
 {
   "version": 2,
   "builds": [
-    { "src": "**/*", "use": "@vercel/static" }
+    {
+      "src": "api/studio.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "*.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.xml",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.txt",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "public/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "studio/ui/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "studio/lib/render.js",
+      "use": "@vercel/static"
+    }
   ],
   "redirects": [
-    { "source": "/services.html", "destination": "/estimator.html#services", "permanent": true },
-    { "source": "/partners.html", "destination": "/projects.html#partners", "permanent": true }
+    {
+      "source": "/services.html",
+      "destination": "/estimator.html#services",
+      "permanent": true
+    },
+    {
+      "source": "/partners.html",
+      "destination": "/projects.html#partners",
+      "permanent": true
+    },
+    {
+      "source": "/studio",
+      "destination": "/studio/",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/:route*",
+      "destination": "/api/studio.js?__route=:route*"
+    },
+    {
+      "source": "/studio/",
+      "destination": "/studio/ui/index.html"
+    },
+    {
+      "source": "/studio/render.js",
+      "destination": "/studio/lib/render.js"
+    },
+    {
+      "source": "/studio/:file(studio\\.css|app\\.js|schema\\.js)",
+      "destination": "/studio/ui/:file"
+    }
   ],
   "headers": [
     {
       "source": "/public/videos/(.*)",
       "headers": [
-        { "key": "Content-Type", "value": "video/mp4" },
-        { "key": "Cache-Control", "value": "public, max-age=31536000" },
-        { "key": "Accept-Ranges", "value": "bytes" }
+        {
+          "key": "Content-Type",
+          "value": "video/mp4"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000"
+        },
+        {
+          "key": "Accept-Ranges",
+          "value": "bytes"
+        }
+      ]
+    },
+    {
+      "source": "/studio/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        }
+      ]
+    },
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
       ]
     }
   ]

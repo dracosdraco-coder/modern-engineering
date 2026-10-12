@@ -1,0 +1,1318 @@
+{
+  "site": {
+    "name": "Modern Engineering & Construction",
+    "legalName": "Modern Engineering & Construction LLC",
+    "url": "https://mecgroup.live",
+    "logoName": "MEC",
+    "logoSub": "Group · Florida",
+    "phone": "(305) 614-0219",
+    "email": "ethan@projex.live",
+    "hours": "Mon–Fri 7AM – 6PM · Sat 8AM – 2PM",
+    "serviceArea": "Miami-Dade · Broward · Palm Beach",
+    "responseTime": "Within 24 hours",
+    "projexUrl": "https://projex.live",
+    "formEndpoint": "https://formspree.io/f/xqewdldw",
+    "googleTagId": "AW-18062085199"
+  },
+  "nav": {
+    "items": [
+      {
+        "label": "About MEC",
+        "href": "index.html#about",
+        "cta": false
+      },
+      {
+        "label": "Estimate request",
+        "href": "estimator.html",
+        "cta": false
+      },
+      {
+        "label": "Work portfolio",
+        "href": "projects.html",
+        "cta": false
+      },
+      {
+        "label": "Get a Quote",
+        "href": "contact.html",
+        "cta": true
+      }
+    ]
+  },
+  "footer": {
+    "brandName": "Modern Engineering",
+    "brandSub": "& Construction · Florida",
+    "description": "Construction consulting, bid packaging, and insured W-2 labor supply for Florida’s property owners, developers, and contractors.",
+    "projexLabel": "Managed via Projex.live →",
+    "columns": [
+      {
+        "title": "Services",
+        "links": [
+          {
+            "label": "Commercial Roofing",
+            "href": "estimator.html#services"
+          },
+          {
+            "label": "Residential Roofing",
+            "href": "estimator.html#services"
+          },
+          {
+            "label": "Exterior Work",
+            "href": "estimator.html#services"
+          },
+          {
+            "label": "Interior Work",
+            "href": "estimator.html#services"
+          },
+          {
+            "label": "Carpentry",
+            "href": "estimator.html#services"
+          },
+          {
+            "label": "Labor / Sub-Contract",
+            "href": "estimator.html#services"
+          },
+          {
+            "label": "Permitting & PM",
+            "href": "estimator.html#services"
+          }
+        ]
+      },
+      {
+        "title": "Company",
+        "links": [
+          {
+            "label": "About Us",
+            "href": "index.html#about"
+          },
+          {
+            "label": "Our Work",
+            "href": "projects.html"
+          },
+          {
+            "label": "GC Partners",
+            "href": "projects.html#partners"
+          },
+          {
+            "label": "Get an Estimate",
+            "href": "estimator.html"
+          },
+          {
+            "label": "Projex Platform",
+            "href": "{projex}"
+          }
+        ]
+      },
+      {
+        "title": "Contact",
+        "links": [
+          {
+            "label": "Request a Quote",
+            "href": "contact.html"
+          },
+          {
+            "label": "Email Us",
+            "href": "mailto:{email}"
+          },
+          {
+            "label": "Call Us",
+            "href": "tel:{tel}"
+          },
+          {
+            "label": "Miami-Dade",
+            "href": "contact.html"
+          },
+          {
+            "label": "Broward",
+            "href": "contact.html"
+          },
+          {
+            "label": "Palm Beach",
+            "href": "contact.html"
+          }
+        ]
+      }
+    ],
+    "bottomLeft": "© 2025 Modern Engineering & Construction LLC · Florida · Licensed & Insured",
+    "bottomRight": "HVHZ Compliant · Miami-Dade · Broward · Palm Beach"
+  },
+  "home": {
+    "seo": {
+      "title": "Modern Engineering & Construction | Florida's Premier Contractor Consultant",
+      "description": "Modern Engineering & Construction — Florida construction consulting and labor supply. Competitive bid packages, insured W-2 labor, and independent project management. Miami-Dade, Broward, Palm Beach.",
+      "ogTitle": "Modern Engineering & Construction | Florida Contractor Consultant",
+      "ogDescription": "Construction consulting, bid packaging, and insured W-2 labor supply for Florida property owners, developers, and contractors. Miami-Dade · Broward · Palm Beach.",
+      "image": ""
+    },
+    "latest": {
+      "heading": "Latest Projects",
+      "linkLabel": "View Full Gallery",
+      "linkHref": "projects.html",
+      "photos": [
+        {
+          "src": "public/images/projects/new-construction-exterior.jpg",
+          "alt": "New construction concrete block home"
+        },
+        {
+          "src": "public/images/projects/roof-coating-apply.jpg",
+          "alt": "Flat roof elastomeric coating application"
+        },
+        {
+          "src": "public/images/projects/bathroom-prep-durock.jpg",
+          "alt": "Shower cement board preparation before tile"
+        },
+        {
+          "src": "public/images/projects/deck-framing.jpg",
+          "alt": "Wood deck framing under construction"
+        },
+        {
+          "src": "public/images/projects/patio-lounge-1.jpg",
+          "alt": "Completed backyard patio lounge area"
+        },
+        {
+          "src": "public/images/projects/roof-tearoff-decking.jpg",
+          "alt": "Roof tear-off and plywood decking replacement"
+        },
+        {
+          "src": "public/images/projects/new-construction-rooftop.jpg",
+          "alt": "New construction rooftop deck"
+        },
+        {
+          "src": "public/images/projects/roof-coating-detail.jpg",
+          "alt": "Finished white roof coating detail"
+        },
+        {
+          "src": "public/images/projects/shower-tile-install.jpg",
+          "alt": "Tile shower installation in progress"
+        },
+        {
+          "src": "public/images/projects/pebble-shower-finished.jpg",
+          "alt": "Finished pebble tile walk-in shower"
+        },
+        {
+          "src": "public/images/projects/deck-finished.jpg",
+          "alt": "Completed wood deck construction"
+        },
+        {
+          "src": "public/images/projects/patio-lounge-grill.jpg",
+          "alt": "Completed backyard patio with grill area"
+        },
+        {
+          "src": "public/images/projects/shingle-reroof-aerial.jpg",
+          "alt": "Aerial view of completed residential shingle re-roof"
+        }
+      ]
+    },
+    "hero": {
+      "eyebrow": "Florida's Construction Partner · Est. 2025",
+      "titleLine1": "Do It Once.",
+      "titleLine2": "Do It Right.",
+      "sub": "Construction consulting, bid packaging, and insured W-2 labor supply — protecting your investment from start to finish."
+    },
+    "ctaCards": [
+      {
+        "label": "Start Here",
+        "title": "Get an Estimate",
+        "arrow": "Configure your project",
+        "href": "estimator.html"
+      },
+      {
+        "label": "See the Proof",
+        "title": "View Our Work",
+        "arrow": "Browse the gallery",
+        "href": "projects.html"
+      }
+    ],
+    "stats": [
+      {
+        "value": "15+",
+        "label": "Years Combined Experience"
+      },
+      {
+        "value": "GL+WC",
+        "label": "Fully Insured & Bonded"
+      },
+      {
+        "value": "W-2",
+        "label": "Employed Field Laborers"
+      },
+      {
+        "value": "3",
+        "label": "Bid Options Per Package"
+      },
+      {
+        "value": "24H",
+        "label": "Inquiry Response"
+      }
+    ],
+    "about": {
+      "eyebrow": "Who We Are",
+      "heading": "Built by\nIndustry\nVeterans",
+      "body": "Modern Engineering & Construction LLC is a construction consulting and labor supply firm — not a licensed contractor. We were founded in 2025 by industry veterans who understand what property owners and contractors actually need: unbiased guidance, competitive bids, and reliable people on the ground.\n\nWe build competitive bid packages for licensed trades, supply W-2 insured laborers to contractors and property owners, and provide independent consulting to GCs across Florida. Every project tracked through Projex.",
+      "mainImage": "public/images/proj4.jpg",
+      "mainAlt": "Modern Engineering crew on commercial roofing project",
+      "subImage": "public/images/proj8.jpg",
+      "subAlt": "Condo complex South Florida",
+      "badge": "Est. 2025",
+      "founders": [
+        {
+          "name": "Michael Irizarry",
+          "role": "Co-Founder · Production Management"
+        },
+        {
+          "name": "Ethan Hinds",
+          "role": "Co-Founder · Technical Management"
+        }
+      ]
+    },
+    "services": {
+      "eyebrow": "What We Do",
+      "heading": "Complete\nConstruction\nServices",
+      "intro": "From full commercial re-roofing to interior finishes and labor sub-contracting — every trade, one company.",
+      "items": [
+        {
+          "title": "Bid Packaging",
+          "desc": "We scope your project and deliver 2–3 competitive bids from vetted licensed contractors. You choose who you hire."
+        },
+        {
+          "title": "Labor Supply",
+          "desc": "W-2 employed field workers provided under our GL & Workers’ Comp insurance. Available to contractors and property owners."
+        },
+        {
+          "title": "GC Consulting",
+          "desc": "Independent 1099 consulting for licensed GCs — estimating, coordination, permitting support, and scope management."
+        },
+        {
+          "title": "Project Management",
+          "desc": "We manage licensed contractors, schedules, inspections, and deliverables on your behalf. Full Projex visibility."
+        },
+        {
+          "title": "Roofing Bids",
+          "desc": "We create roofing bid packages — residential and commercial — and source licensed roofing contractors competing for your job."
+        },
+        {
+          "title": "Contractor Vetting",
+          "desc": "We verify licenses, insurance, and references for every contractor in a bid package. No unqualified bids."
+        },
+        {
+          "title": "Site Assessments",
+          "desc": "Condition reports, drone surveys, and pre-bid documentation to define the scope before contractors are engaged."
+        },
+        {
+          "title": "Insurance Coordination",
+          "desc": "We work alongside adjusters and property owners to define scope, organize bids, and coordinate licensed contractor selections."
+        }
+      ],
+      "ctaLabel": "View All Services",
+      "ctaHref": "estimator.html#services"
+    },
+    "beforeAfter": {
+      "show": true,
+      "eyebrow": "Transformation",
+      "heading": "Before & After",
+      "text": "Complete commercial re-roofing. Degraded membrane removed, new TPO installed — clean, reflective, and code compliant.",
+      "image": "public/images/before-after.jpg",
+      "alt": "Commercial roofing before and after — degraded membrane to new TPO",
+      "beforeLabel": "Before",
+      "beforeValue": "Degraded Membrane",
+      "afterLabel": "After",
+      "afterValue": "New TPO System"
+    },
+    "process": {
+      "eyebrow": "Our Process",
+      "heading": "How We\nWork",
+      "intro": "A transparent, structured process from first contact to project close — no surprises, no liability gaps.",
+      "steps": [
+        {
+          "title": "Scope & Assess",
+          "desc": "We evaluate your property, document existing conditions, and define the full scope of work before any contractor is engaged."
+        },
+        {
+          "title": "Build Bid Package",
+          "desc": "We source 2–3 vetted, licensed contractors for your trade, write competitive scope documents, and collect qualified bids on your behalf."
+        },
+        {
+          "title": "You Select & Hire",
+          "desc": "You review the options, compare pricing, and hire the contractor directly. We ensure all licenses and insurance are current before selection."
+        },
+        {
+          "title": "We Manage & Track",
+          "desc": "We manage the project on your behalf — schedules, inspections, documentation — with full real-time visibility through Projex."
+        }
+      ]
+    },
+    "compare": {
+      "eyebrow": "Why It Matters",
+      "heading": "The Old Way\nvs. The Right Way",
+      "withoutTag": "Without MEC",
+      "withoutItems": [
+        "Hiring contractors without verifying license or insurance",
+        "Receiving a single bid with no competitive pressure",
+        "Liability exposure from uninsured or misclassified workers",
+        "No independent oversight during construction",
+        "Scope disputes and change orders with no documentation",
+        "No project tracking or closeout records"
+      ],
+      "withTag": "With MEC",
+      "withItems": [
+        "Every contractor in the bid is license-verified and insured",
+        "2–3 competitive bids on every scope — you control the selection",
+        "W-2 laborers under our GL & Workers’ Comp — zero liability transfer",
+        "Independent owner’s rep managing your project start to finish",
+        "Detailed scope docs reduce change orders before work begins",
+        "Full project history, reports, and closeout via Projex"
+      ]
+    },
+    "cta": {
+      "eyebrow": "Ready to Start",
+      "heading": "Get Your\nBid Package",
+      "text": "Tell us about your project and we’ll have 2–3 competitive bids from vetted licensed contractors ready for your review.",
+      "buttons": [
+        {
+          "label": "Request a Quote",
+          "href": "contact.html",
+          "style": "green"
+        },
+        {
+          "label": "Get an Estimate",
+          "href": "estimator.html",
+          "style": "outline"
+        }
+      ]
+    },
+    "legal": "Modern Engineering & Construction LLC is a construction consulting and labor supply firm. We are not a licensed contractor and do not perform licensed trade work. Bid packages connect clients with independent licensed contractors selected and hired directly by the client. Labor supply services are rendered under our General Liability and Workers’ Compensation insurance policies. © 2025 Modern Engineering & Construction LLC."
+  },
+  "projects": {
+    "seo": {
+      "title": "Our Work | Modern Engineering & Construction",
+      "description": "Past construction projects by Modern Engineering & Construction — commercial and residential roofing, exterior work, and more across Miami-Dade, Broward, and Palm Beach.",
+      "ogTitle": "Our Work | Modern Engineering & Construction",
+      "ogDescription": "View completed construction and roofing projects by Modern Engineering & Construction in South Florida.",
+      "image": ""
+    },
+    "hero": {
+      "eyebrow": "Project Portfolio",
+      "heading": "Our Work\nAcross Florida",
+      "text": "Every project is documented with photography and video — condition reports, progress shots, and closeout packages delivered to clients through Projex."
+    },
+    "gallery": [
+      {
+        "src": "public/images/gallery-sunset-roof.jpg",
+        "alt": "Completed commercial TPO roof at golden hour",
+        "tag": "Florida",
+        "title": "Project Completion",
+        "size": "big",
+        "hidden": false
+      },
+      {
+        "src": "public/videos/gallery-residential-quickshot.mp4",
+        "alt": "",
+        "tag": "South Florida",
+        "title": "Active Job Site",
+        "size": "wide",
+        "hidden": false
+      },
+      {
+        "src": "public/images/gallery-tile-tearoff.jpg",
+        "alt": "Close-up of clay tile roof tear-off exposing underlayment",
+        "tag": "South Florida",
+        "title": "Tile Tear-Off",
+        "size": "tall",
+        "hidden": false
+      },
+      {
+        "src": "public/images/gallery-deck.jpg",
+        "alt": "Finished wood deck and porch railing",
+        "tag": "Florida",
+        "title": "Custom Decking",
+        "size": "normal",
+        "hidden": false
+      },
+      {
+        "src": "public/videos/gallery-tearoff-aerial.mp4",
+        "alt": "",
+        "tag": "Commercial",
+        "title": "Active Tear-Off",
+        "size": "wide",
+        "hidden": false
+      },
+      {
+        "src": "public/images/gallery-metal-roof.jpg",
+        "alt": "Curved standing seam metal roof against blue sky",
+        "tag": "Florida",
+        "title": "Standing Seam Metal",
+        "size": "tall",
+        "hidden": false
+      },
+      {
+        "src": "public/images/gallery-crew-aerial.jpg",
+        "alt": "Aerial of roofing crew installing residential roof near pool",
+        "tag": "South Florida",
+        "title": "Crew Install",
+        "size": "normal",
+        "hidden": false
+      },
+      {
+        "src": "public/videos/gallery-medical-center.mp4",
+        "alt": "",
+        "tag": "Commercial",
+        "title": "Tear-Off in Progress",
+        "size": "normal",
+        "hidden": false
+      },
+      {
+        "src": "public/images/gallery-roof-detail.jpg",
+        "alt": "Architectural flat roof detail on modern Miami Beach building",
+        "tag": "Miami Beach",
+        "title": "Architectural Roofing",
+        "size": "big",
+        "hidden": false
+      },
+      {
+        "src": "public/videos/gallery-plaza-flyover.mp4",
+        "alt": "",
+        "tag": "South Florida",
+        "title": "Aerial Survey",
+        "size": "wide",
+        "hidden": false
+      },
+      {
+        "src": "public/images/gallery-tile-stack.jpg",
+        "alt": "Stacked clay roof tiles ready for installation",
+        "tag": "South Florida",
+        "title": "Tile Re-Roof",
+        "size": "normal",
+        "hidden": false
+      },
+      {
+        "src": "public/images/gallery-tpo-skyline.jpg",
+        "alt": "White commercial TPO roof with Miami skyline backdrop",
+        "tag": "Miami",
+        "title": "Commercial TPO",
+        "size": "tall",
+        "hidden": false
+      },
+      {
+        "src": "public/videos/gallery-shopping-plaza.mp4",
+        "alt": "",
+        "tag": "South Florida",
+        "title": "Plaza Rooftop",
+        "size": "normal",
+        "hidden": false
+      },
+      {
+        "src": "public/images/gallery-rooftop-skyline.jpg",
+        "alt": "Rooftop AC units with Miami high-rise skyline",
+        "tag": "Miami",
+        "title": "Commercial Rooftop",
+        "size": "normal",
+        "hidden": false
+      },
+      {
+        "src": "public/images/gallery-commercial-panorama.jpg",
+        "alt": "Panoramic view of commercial flat roof with Miami skyline",
+        "tag": "Miami",
+        "title": "Commercial Roofing",
+        "size": "big",
+        "hidden": false
+      },
+      {
+        "src": "public/videos/gallery-commercial-flyover.mp4",
+        "alt": "",
+        "tag": "Commercial",
+        "title": "Aerial Flyover",
+        "size": "wide",
+        "hidden": false
+      },
+      {
+        "src": "public/images/gallery-tearoff-crew.jpg",
+        "alt": "Roofing crew loading tear-off debris onto truck",
+        "tag": "South Florida",
+        "title": "Demo & Tear-Off",
+        "size": "normal",
+        "hidden": false
+      },
+      {
+        "src": "public/videos/gallery-tile-residential.mp4",
+        "alt": "",
+        "tag": "South Florida",
+        "title": "Residential Tile",
+        "size": "wide",
+        "hidden": false
+      },
+      {
+        "src": "public/images/projects/pebble-shower-finished.jpg",
+        "alt": "Finished pebble tile walk-in shower",
+        "tag": "Bathroom Remodel",
+        "title": "Finished Shower",
+        "size": "big",
+        "hidden": false
+      },
+      {
+        "src": "public/images/projects/shower-tile-install.jpg",
+        "alt": "Tile shower installation in progress",
+        "tag": "Bathroom Remodel",
+        "title": "Tile Install",
+        "size": "tall",
+        "hidden": false
+      },
+      {
+        "src": "public/images/projects/bathroom-prep-durock.jpg",
+        "alt": "Shower cement board preparation before tile",
+        "tag": "Bathroom Remodel",
+        "title": "Cement Board Prep",
+        "size": "normal",
+        "hidden": false
+      },
+      {
+        "src": "public/images/projects/new-construction-exterior.jpg",
+        "alt": "New construction concrete block home under construction",
+        "tag": "New Construction",
+        "title": "Concrete Shell",
+        "size": "wide",
+        "hidden": false
+      },
+      {
+        "src": "public/images/projects/new-construction-rooftop.jpg",
+        "alt": "New construction rooftop deck in progress",
+        "tag": "New Construction",
+        "title": "Rooftop Deck",
+        "size": "normal",
+        "hidden": false
+      },
+      {
+        "src": "public/images/projects/deck-finished.jpg",
+        "alt": "Completed wood deck construction",
+        "tag": "Florida",
+        "title": "Custom Decking",
+        "size": "tall",
+        "hidden": false
+      },
+      {
+        "src": "public/images/projects/patio-lounge-1.jpg",
+        "alt": "Completed backyard patio lounge area",
+        "tag": "Exterior",
+        "title": "Patio & Hardscape",
+        "size": "normal",
+        "hidden": false
+      },
+      {
+        "src": "public/images/projects/roof-coating-apply.jpg",
+        "alt": "Elastomeric coating being applied to flat roof",
+        "tag": "Flat Roof",
+        "title": "Elastomeric Coating",
+        "size": "wide",
+        "hidden": false
+      },
+      {
+        "src": "public/images/projects/bathroom-remodel-finished.jpg",
+        "alt": "Completed bathroom remodel with new vanity, arched mirror and glass-door shower",
+        "tag": "Bathroom Remodel",
+        "title": "Completed",
+        "size": "big",
+        "hidden": false
+      },
+      {
+        "src": "public/images/projects/bathroom-shower-glass.jpg",
+        "alt": "Finished shower with sliding glass doors and matte black fixtures",
+        "tag": "Bathroom Remodel",
+        "title": "Glass Shower Enclosure",
+        "size": "tall",
+        "hidden": false
+      },
+      {
+        "src": "public/images/projects/powder-room-finished.jpg",
+        "alt": "Finished powder room with marble-look floor tile and new vanity",
+        "tag": "Powder Room",
+        "title": "New Tile & Vanity",
+        "size": "tall",
+        "hidden": false
+      },
+      {
+        "src": "public/images/projects/new-construction-roof-aerial.jpg",
+        "alt": "Aerial view of new flat roof membrane on a two-story new construction home",
+        "tag": "New Construction",
+        "title": "Flat Roof Membrane",
+        "size": "wide",
+        "hidden": false
+      },
+      {
+        "src": "public/videos/gallery-bathroom-walkthrough.mp4",
+        "alt": "",
+        "tag": "Bathroom Remodel",
+        "title": "Walkthrough",
+        "size": "tall",
+        "hidden": false
+      },
+      {
+        "src": "public/images/projects/flat-roof-property-aerial.jpg",
+        "alt": "Aerial view of residence with tile roof and re-coated flat roof section",
+        "tag": "South Florida",
+        "title": "Flat Roof Aerial",
+        "size": "wide",
+        "hidden": false
+      },
+      {
+        "src": "public/images/projects/shower-tile-pebble-bench.jpg",
+        "alt": "Shower with ribbed wall tile, pebble floor and built-in bench in progress",
+        "tag": "Shower Remodel",
+        "title": "Tile & Pebble Bench",
+        "size": "tall",
+        "hidden": false
+      },
+      {
+        "src": "public/images/projects/shower-pebble-floor.jpg",
+        "alt": "Pebble mosaic shower floor with ribbed wall tile",
+        "tag": "Shower Remodel",
+        "title": "Pebble Floor",
+        "size": "wide",
+        "hidden": false
+      },
+      {
+        "src": "public/images/projects/flat-roof-recoat-aerial.jpg",
+        "alt": "Aerial view of flat roof section tied into a clay tile roof",
+        "tag": "Residential",
+        "title": "Flat Roof Section",
+        "size": "wide",
+        "hidden": false
+      },
+      {
+        "src": "public/images/projects/flat-roof-recoat-side.jpg",
+        "alt": "Low aerial view of finished flat roof section beside tile roof",
+        "tag": "Residential",
+        "title": "Flat Roof Section",
+        "size": "normal",
+        "hidden": false
+      },
+      {
+        "src": "public/images/projects/flat-roof-recoat-topdown.jpg",
+        "alt": "Top-down aerial view of flat roof section next to pool deck",
+        "tag": "Residential",
+        "title": "Flat Roof Top-Down",
+        "size": "normal",
+        "hidden": false
+      },
+      {
+        "src": "public/images/projects/powder-room-before.jpg",
+        "alt": "Powder room before remodel with slate floor and dated vanity",
+        "tag": "Powder Room",
+        "title": "Before",
+        "size": "normal",
+        "hidden": false
+      },
+      {
+        "src": "public/images/projects/powder-room-demo.jpg",
+        "alt": "Powder room after demolition with fixtures removed and subfloor exposed",
+        "tag": "Powder Room",
+        "title": "Demo",
+        "size": "normal",
+        "hidden": false
+      },
+      {
+        "src": "public/images/projects/shower-durock-bench.jpg",
+        "alt": "Shower framed with cement board and built-in bench before tile",
+        "tag": "Shower Remodel",
+        "title": "Cement Board & Bench",
+        "size": "tall",
+        "hidden": false
+      },
+      {
+        "src": "public/images/projects/shower-ribbed-wall-tile.jpg",
+        "alt": "Ribbed porcelain wall tile installed in shower",
+        "tag": "Shower Remodel",
+        "title": "Wall Tile",
+        "size": "normal",
+        "hidden": false
+      },
+      {
+        "src": "public/images/projects/shower-durock-pan.jpg",
+        "alt": "Shower walls lined with cement board and drain rough-in",
+        "tag": "Shower Remodel",
+        "title": "Cement Board Prep",
+        "size": "normal",
+        "hidden": false
+      },
+      {
+        "src": "public/images/projects/shower-ditra-membrane.jpg",
+        "alt": "Shower with wall tile installed and orange uncoupling membrane on floor",
+        "tag": "Shower Remodel",
+        "title": "Waterproof Membrane",
+        "size": "tall",
+        "hidden": false
+      },
+      {
+        "src": "public/images/projects/bathroom-gut-demo.jpg",
+        "alt": "Bathroom gutted to studs with plumbing exposed",
+        "tag": "Bathroom Remodel",
+        "title": "Gut Demo",
+        "size": "tall",
+        "hidden": false
+      },
+      {
+        "src": "public/images/projects/bathroom-durock-window.jpg",
+        "alt": "Bathroom shower area lined with cement board around window",
+        "tag": "Bathroom Remodel",
+        "title": "Cement Board Prep",
+        "size": "normal",
+        "hidden": false
+      },
+      {
+        "src": "public/images/projects/shower-pan-install.jpg",
+        "alt": "New shower pan set against cement board walls",
+        "tag": "Bathroom Remodel",
+        "title": "Shower Pan Install",
+        "size": "normal",
+        "hidden": false
+      }
+    ],
+    "beforeAfter": {
+      "show": true,
+      "eyebrow": "Transformation",
+      "heading": "Before & After",
+      "text": "Complete commercial re-roofing. Degraded membrane removed, new TPO installed.",
+      "image": "public/images/before-after.jpg",
+      "alt": "Commercial roofing before and after — degraded membrane to new TPO",
+      "beforeLabel": "Before",
+      "beforeValue": "Degraded Membrane",
+      "afterLabel": "After",
+      "afterValue": "New TPO System"
+    },
+    "scope": [
+      {
+        "title": "Commercial Roofing",
+        "body": "Full commercial membrane systems — TPO, modified bitumen, and metal. Bid packages, labor supply, and owner’s rep services for flat and low-slope roofs across South Florida."
+      },
+      {
+        "title": "Residential Projects",
+        "body": "Single-family and multifamily residential roofing, exterior repairs, and interior work. We source 2–3 licensed contractors for each project and manage the process on the owner’s behalf."
+      },
+      {
+        "title": "Labor Supply Engagements",
+        "body": "W-2 crews supplied to licensed contractors for augmentation, scheduled deployments, and specialty installs. Available for roofing, exterior, interior, and carpentry scopes across Florida."
+      }
+    ],
+    "partners": {
+      "eyebrow": "For GCs & Contractors",
+      "heading": "Your Consulting\n& Labor Partner",
+      "text": "We partner with licensed general contractors and specialty contractors as independent consultants and insured labor suppliers — not as a licensed contractor competing for your work.",
+      "listHeading": "What We\nBring to Your\nBusiness",
+      "items": [
+        {
+          "title": "W-2 Labor Supply",
+          "desc": "Our field workers are W-2 employees covered under our GL and Workers’ Comp. You get the labor without the liability — no subcontractor risk on your end."
+        },
+        {
+          "title": "Independent Estimating & Consulting",
+          "desc": "We provide 1099 consulting to licensed GCs — estimating, takeoffs, scope writing, and budget management without being on your license or your payroll."
+        },
+        {
+          "title": "Bid Package Support",
+          "desc": "We help licensed contractors win more work by developing detailed bid packages, pre-bid site documentation, and competitive scope breakdowns."
+        },
+        {
+          "title": "Project Coordination",
+          "desc": "On-site coordination, schedule tracking, and daily reporting on your active projects. You stay in the loop without being on-site every day."
+        },
+        {
+          "title": "Projex Client Portal",
+          "desc": "All project activity tracked in real time via Projex. Your clients see progress. You see the full picture. No status call needed."
+        }
+      ],
+      "cards": [
+        {
+          "title": "Projex",
+          "big": true,
+          "body": "All Modern Engineering & Construction projects are managed and tracked through Projex — our B2B construction project management platform. GC partners and their clients receive real-time status updates, photo reports, document access, and schedule visibility through a dedicated portal.",
+          "linkLabel": "Visit projex.live",
+          "linkHref": "{projex}"
+        },
+        {
+          "title": "Ready to Partner?",
+          "big": false,
+          "body": "We offer flexible labor agreements, monthly retainer arrangements, and project-by-project engagements. Tell us your workflow — we’ll fit into it.",
+          "linkLabel": "Start the conversation",
+          "linkHref": "contact.html"
+        }
+      ]
+    },
+    "reach": [
+      {
+        "title": "Any Scope Size",
+        "body": "From a single-family re-roof to a 50,000SF commercial membrane — our crews scale up or down to match your project without the overhead of keeping a full team on payroll."
+      },
+      {
+        "title": "Your Schedule, Not Ours",
+        "body": "We integrate into your critical path from day one. Night work, weekends, phased rollouts, occupied facilities — we structure around your timeline, not the other way around."
+      },
+      {
+        "title": "Fully Documented",
+        "body": "Daily reports, photo logs, as-built documentation, and closeout packages are standard on every scope — not upsells. Your clients get what they paid for, on paper."
+      }
+    ],
+    "legal": "Modern Engineering & Construction LLC provides consulting and labor supply services. We are not a licensed contractor. Labor is supplied under our General Liability and Workers’ Compensation insurance. Consulting services are provided independently and do not constitute a contractor relationship."
+  },
+  "estimator": {
+    "seo": {
+      "title": "Project Configurator | Modern Engineering & Construction",
+      "description": "Get a free instant construction estimate for roofing, exterior, carpentry, or inspection services in Miami-Dade, Broward, and Palm Beach County.",
+      "ogTitle": "Free Project Estimator | Modern Engineering & Construction",
+      "ogDescription": "Instant budgeting estimates for roofing, exterior work, carpentry, and inspections across South Florida.",
+      "image": ""
+    },
+    "hero": {
+      "eyebrow": "Project Configurator",
+      "heading": "Build Your\nEstimate",
+      "text": "Select your trade, system, and scope. Your estimate updates live as you configure. When ready, view a formatted summary, send directly to our team, or book an inspection. MEC builds the bid package — licensed contractors do the work."
+    },
+    "services": {
+      "eyebrow": "What We Do",
+      "heading": "Consulting, Bidding\n& Labor Supply",
+      "text": "Modern Engineering & Construction LLC is not a licensed contractor. We are a construction consulting and labor supply firm — we build bid packages, supply insured W-2 workers, and manage projects on your behalf.",
+      "items": [
+        {
+          "title": "Bid Packaging — Roofing",
+          "desc": "For residential and commercial roofing needs, we develop a complete bid package — scope of work, material specifications, and 2–3 competitive proposals from vetted, licensed roofing contractors. You review the options and hire the contractor directly. We never hold or work under a roofing license.",
+          "tags": [
+            "Residential Roofing",
+            "Commercial Roofing",
+            "2–3 Bids",
+            "Licensed Contractors",
+            "Scope Writing"
+          ]
+        },
+        {
+          "title": "Bid Packaging — All Trades",
+          "desc": "We build bid packages for any licensed trade — electrical, plumbing, HVAC, structural, waterproofing, stucco, and more. Property owners and developers get competitive, documented options without having to source, vet, or negotiate with contractors themselves.",
+          "tags": [
+            "Electrical",
+            "Plumbing",
+            "HVAC",
+            "Waterproofing",
+            "Stucco",
+            "Structural"
+          ]
+        },
+        {
+          "title": "W-2 Labor Supply",
+          "desc": "We employ field laborers as W-2 workers under our own General Liability and Workers’ Compensation insurance and make them available to licensed contractors, construction firms, and property owners. Our workers are our employees — your liability exposure is eliminated.",
+          "tags": [
+            "W-2 Employees",
+            "GL Insured",
+            "Workers’ Comp",
+            "Crew Augmentation",
+            "Repairs"
+          ]
+        },
+        {
+          "title": "GC & Contractor Consulting",
+          "desc": "We provide independent 1099 consulting services to licensed general contractors and specialty contractors — estimating, project coordination, scope writing, budget tracking, and schedule management. We bring the expertise without being on your license.",
+          "tags": [
+            "Estimating",
+            "Scope Writing",
+            "Coordination",
+            "1099 Consulting",
+            "Budget Tracking"
+          ]
+        },
+        {
+          "title": "Project Management",
+          "desc": "We manage construction projects on behalf of property owners — coordinating licensed trade contractors, tracking schedules, attending inspections, and delivering closeout documentation. We do not hold a contractor’s license and do not perform licensed work.",
+          "tags": [
+            "Owner’s Rep",
+            "Schedule Management",
+            "Inspection Coordination",
+            "Projex Tracking"
+          ]
+        },
+        {
+          "title": "Contractor Vetting & Qualification",
+          "desc": "Every contractor in a bid package is verified for active license status, current insurance certificates, BBB standing, and references. We eliminate unqualified bids before they reach you — you only see contractors who are legally able to perform the work.",
+          "tags": [
+            "License Verification",
+            "Insurance Check",
+            "Reference Review",
+            "BBB Standing"
+          ]
+        },
+        {
+          "title": "Site Assessments & Reporting",
+          "desc": "Pre-bid site assessments, drone surveys, condition reports, and documentation to define scope before contractors are engaged. We provide the documentation licensed contractors need to bid accurately — reducing change orders and scope disputes.",
+          "tags": [
+            "Condition Reports",
+            "Pre-Bid Scope",
+            "Photo Documentation",
+            "Drone Survey"
+          ]
+        },
+        {
+          "title": "Insurance Claim Coordination",
+          "desc": "We work with property owners and adjusters to define scope, organize licensed contractor bids, and coordinate the insurance claim process. We serve as the owner’s representative — not as a contractor — throughout the claim and repair process.",
+          "tags": [
+            "Adjuster Coordination",
+            "Scope Documentation",
+            "Bid Organization",
+            "Owner’s Rep"
+          ]
+        }
+      ],
+      "estimateLabel": "Get a Project Estimate",
+      "quoteLabel": "Request a Quote",
+      "quoteHref": "contact.html"
+    },
+    "rates": {
+      "county": {
+        "miami": 1.1,
+        "broward": 1.05,
+        "palm": 1.04,
+        "other": 1
+      },
+      "roofing": {
+        "base": {
+          "tpo": [
+            7,
+            15
+          ],
+          "modbit": [
+            8,
+            14
+          ],
+          "bur": [
+            8,
+            14
+          ],
+          "tile": [
+            12,
+            26
+          ],
+          "shingle": [
+            7,
+            13
+          ],
+          "metal2": [
+            10,
+            28
+          ]
+        },
+        "scope": {
+          "tear": 1,
+          "overlay": 0.8,
+          "new": 0.9
+        },
+        "repair": {
+          "lowMin": 800,
+          "lowPerSqft": 1.5,
+          "highMin": 3500,
+          "highPerSqft": 4
+        },
+        "penetration": 350,
+        "height": {
+          "1": 1,
+          "2": 1.12,
+          "3": 1.3
+        },
+        "specials": {
+          "solar": 3500,
+          "occupied": 1200,
+          "night": 1800,
+          "phased": 900
+        },
+        "permit": {
+          "none": 0,
+          "standard": 3500,
+          "hvhz": 8500
+        }
+      },
+      "exterior": {
+        "stucco": [
+          7,
+          14
+        ],
+        "waterproof": [
+          5,
+          10
+        ],
+        "fascia": [
+          12,
+          22
+        ],
+        "gutters": [
+          18,
+          35
+        ],
+        "other": [
+          8,
+          16
+        ]
+      },
+      "interior": {
+        "drywall": [
+          3,
+          6
+        ],
+        "ceiling": [
+          4,
+          8
+        ],
+        "flooring": [
+          6,
+          14
+        ],
+        "insulation": [
+          2,
+          5
+        ],
+        "other": [
+          4,
+          10
+        ],
+        "renovationMultiplier": 1.15
+      },
+      "carpentry": {
+        "framing": [
+          18,
+          40
+        ],
+        "finish": [
+          55,
+          110
+        ],
+        "decking": [
+          28,
+          65
+        ],
+        "millwork": [
+          80,
+          180
+        ],
+        "other": [
+          25,
+          65
+        ]
+      },
+      "labor": {
+        "perSqftDay": [
+          5.5,
+          9.5
+        ]
+      },
+      "fees": {
+        "drainage": {
+          "min": 150,
+          "includedSqft": 100,
+          "perSqft": 1
+        },
+        "wind": 150,
+        "bidPackage": {
+          "under50": 350,
+          "50to250": 650,
+          "250to1m": 1200
+        },
+        "permit": {
+          "reroof": 350,
+          "newconst": 650,
+          "addition": 450,
+          "expedite": 500
+        },
+        "drone": {
+          "min": 250,
+          "includedSqft": 5000,
+          "perSqft": 0.05,
+          "render": 150,
+          "prebid": 100
+        }
+      }
+    },
+    "legal": "Modern Engineering & Construction LLC is a construction consulting and labor supply firm. We are not a licensed contractor and do not perform licensed trade work. Bid packages connect clients with independent licensed contractors who are selected and contracted directly by the client. Labor supply services are provided under our General Liability and Workers’ Compensation insurance. All licensed construction work is performed by independently licensed contractors."
+  },
+  "contact": {
+    "seo": {
+      "title": "Contact | Modern Engineering & Construction",
+      "description": "Get a bid package from Modern Engineering & Construction. We source 2–3 licensed contractor options for your project in Miami-Dade, Broward, and Palm Beach County.",
+      "ogTitle": "Contact | Modern Engineering & Construction",
+      "ogDescription": "Request a bid package or discuss labor supply and consulting needs. We respond within 24 hours.",
+      "image": ""
+    },
+    "hero": {
+      "eyebrow": "Get In Touch",
+      "heading": "Start Your\nBid Package",
+      "text": "Tell us about your project and we’ll put together a bid package with 2–3 licensed contractor options — or discuss labor supply and consulting needs. We respond within 24 hours."
+    },
+    "directHeading": "Reach Us\nDirectly",
+    "blurb": "Need a quick estimate before you call? [Use our project estimator](estimator.html) to get a budgeting range in under a minute.",
+    "form": {
+      "title": "Project Inquiry",
+      "services": [
+        "Commercial Roofing",
+        "Residential Roofing",
+        "Exterior Work",
+        "Interior Work",
+        "Carpentry",
+        "Labor / Sub-Contracting",
+        "Permitting & PM",
+        "Inspection / Assessment",
+        "Multiple Services"
+      ],
+      "counties": [
+        "Miami-Dade",
+        "Broward",
+        "Palm Beach",
+        "Other Florida"
+      ],
+      "messagePlaceholder": "Tell us about your project — scope, timeline, any specifics...",
+      "submitLabel": "Submit Inquiry",
+      "note1": "We respond within 24 hours. Your information stays private and is never sold or shared.",
+      "note2": "MEC is a consulting and labor supply firm — not a licensed contractor. Licensed work is performed by independently licensed contractors sourced through our bid process.",
+      "successTitle": "Inquiry Received",
+      "successText": "We’ll be in touch within 24 hours to discuss your project."
+    }
+  },
+  "pages": [],
+  "schema": {
+    "business": {
+      "@context": "https://schema.org",
+      "@type": [
+        "LocalBusiness",
+        "HomeAndConstructionBusiness"
+      ],
+      "@id": "https://mecgroup.live/#business",
+      "name": "Modern Engineering & Construction LLC",
+      "alternateName": "MEC",
+      "description": "Construction consulting, bid packaging, and insured W-2 labor supply serving property owners, developers, and licensed contractors in South Florida.",
+      "url": "https://mecgroup.live",
+      "telephone": "+13056140219",
+      "email": "ethan@projex.live",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        {
+          "@type": "County",
+          "name": "Miami-Dade County",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Florida"
+          }
+        },
+        {
+          "@type": "County",
+          "name": "Broward County",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Florida"
+          }
+        },
+        {
+          "@type": "County",
+          "name": "Palm Beach County",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Florida"
+          }
+        }
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "07:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "08:00",
+          "closes": "14:00"
+        }
+      ],
+      "priceRange": "$$",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Construction Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Commercial Roofing Bid Package",
+              "description": "Competitive bid packages from licensed roofing contractors for commercial flat roof systems — TPO, EPDM, modified bitumen, and BUR."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Residential Roofing Bid Package",
+              "description": "Licensed contractor bids for residential roofing — tile, shingle, and metal systems throughout South Florida."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Free Roof Inspection",
+              "description": "Complimentary visual roof inspection with written report and photo documentation delivered within 48 hours."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Drainage Calculations",
+              "description": "Engineer-stamped drainage calculations for roofing permits. $150 minimum."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Wind Design Calculations",
+              "description": "Engineer-stamped wind load design calculations for Florida roofing permits. NOA required. $150."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Permit Coordination",
+              "description": "Permit application preparation, jurisdiction submission, and city follow-up through Certificate of Completion."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "W-2 Labor Supply",
+              "description": "Insured W-2 construction labor supply for licensed contractors. General liability and workers compensation covered."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Drone Roof Inspection",
+              "description": "FAA-compliant aerial roof survey with photo documentation and condition report. From $250."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Post-Storm Insurance Inspection",
+              "description": "Complimentary storm damage documentation for insurance claims including written scope and photo evidence."
+            }
+          }
+        ]
+      },
+      "sameAs": [
+        "https://projex.live"
+      ]
+    }
+  }
+}
